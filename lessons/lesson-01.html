@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: 你好 (Hello) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .lesson-header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb a {
+            color: #ff6b35;
+            text-decoration: none;
+        }
+        
+        .lesson-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .lesson-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .audio-player {
+            background: #1a1a2e;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background: #ff6b35;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .play-btn:hover {
+            background: #e55a2b;
+        }
+        
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: #333;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #ff6b35;
+            border-radius: 4px;
+            width: 0%;
+        }
+        
+        .time-display {
+            color: #aaa;
+            font-size: 0.9rem;
+            min-width: 80px;
+            text-align: right;
+        }
+        
+        .player-options {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .speed-btn, .loop-btn {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        
+        .speed-btn:hover, .loop-btn:hover {
+            background: #ff6b35;
+        }
+        
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .section h2 {
+            color: #1a1a2e;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ff6b35;
+        }
+        
+        .dialogue-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .dialogue-line {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            align-items: flex-start;
+        }
+        
+        .dialogue-line:last-child {
+            border-bottom: none;
+        }
+        
+        .speaker {
+            font-weight: bold;
+            color: #ff6b35;
+            min-width: 60px;
+        }
+        
+        .chinese-text {
+            font-size: 1.2rem;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        .pinyin-text {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .english-text {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .play-line {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: auto;
+        }
+        
+        .vocab-list {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .vocab-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            gap: 1rem;
+        }
+        
+        .vocab-char {
+            font-size: 1.8rem;
+            font-family: 'Microsoft YaHei', sans-serif;
+            min-width: 80px;
+        }
+        
+        .vocab-info {
+            flex: 1;
+        }
+        
+        .vocab-pinyin {
+            color: #ff6b35;
+            font-weight: bold;
+        }
+        
+        .vocab-meaning {
+            color: #666;
+        }
+        
+        .vocab-audio {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .grammar-point {
+            background: #fff3e0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #ff6b35;
+        }
+        
+        .grammar-point h4 {
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .example-sentence {
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+        }
+        
+        .quiz-section {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .quiz-question {
+            margin-bottom: 1.5rem;
+        }
+        
+        .quiz-question p {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .quiz-option {
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .quiz-option:hover {
+            border-color: #ff6b35;
+        }
+        
+        .quiz-option.correct {
+            background: #c8e6c9;
+            border-color: #2e7d32;
+        }
+        
+        .quiz-option.wrong {
+            background: #ffcdd2;
+            border-color: #c62828;
+        }
+        
+        .nav-lessons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .nav-btn {
+            background: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .nav-btn:hover {
+            background: #e55a2b;
+        }
+        
+        .nav-btn.disabled {
+            background: #ccc;
+            pointer-events: none;
+        }
+        
+        .downloads {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1a1a2e;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .download-btn:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-zh">中文</span><span class="logo-en">Pod101</span>
+            </a>
+            <div class="nav-menu">
+                <a href="../index.html#lessons">Lessons</a>
+                <a href="../index.html#pathways">Pathways</a>
+                <a href="../index.html#resources">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> › 
+                <a href="#">Beginner</a> › 
+                <a href="#">Survival Chinese</a>
+            </div>
+            <h1 class="lesson-title">Lesson 1: 你好 (Hello)</h1>
+            <p>Learn how to greet people and introduce yourself in Chinese.</p>
+            <div class="lesson-meta">
+                <span>⏱ 5 minutes</span>
+                <span>📚 Beginner</span>
+                <span>🎯 Survival Chinese</span>
+            </div>
+        </div>
+
+        <!-- Audio Player -->
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="time-display" id="timeDisplay">0:00 / 5:00</div>
+            </div>
+            <div class="player-options">
+                <button class="speed-btn" id="speedBtn">1x Speed</button>
+                <button class="loop-btn" id="loopBtn">🔁 Loop</button>
+            </div>
+        </div>
+
+        <!-- Dialogue -->
+        <div class="section">
+            <h2>💬 Dialogue</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line">
+                    <span class="speaker">A:</span>
+                    <div>
+                        <div class="chinese-text">你好！</div>
+                        <div class="pinyin-text">Nǐ hǎo!</div>
+                        <div class="english-text">Hello!</div>
+                    </div>
+                    <button class="play-line" onclick="speak('你好')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">B:</span>
+                    <div>
+                        <div class="chinese-text">你好！</div>
+                        <div class="pinyin-text">Nǐ hǎo!</div>
+                        <div class="english-text">Hello!</div>
+                    </div>
+                    <button class="play-line" onclick="speak('你好')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">A:</span>
+                    <div>
+                        <div class="chinese-text">我叫李明。你叫什么名字？</div>
+                        <div class="pinyin-text">Wǒ jiào Lǐ Míng. Nǐ jiào shénme míngzi?</div>
+                        <div class="english-text">My name is Li Ming. What's your name?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('我叫李明。你叫什么名字？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">B:</span>
+                    <div>
+                        <div class="chinese-text">我叫王华。</div>
+                        <div class="pinyin-text">Wǒ jiào Wáng Huá.</div>
+                        <div class="english-text">My name is Wang Hua.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('我叫王华')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">A:</span>
+                    <div>
+                        <div class="chinese-text">很高兴认识你！</div>
+                        <div class="pinyin-text">Hěn gāoxìng rènshi nǐ!</div>
+                        <div class="english-text">Nice to meet you!</div>
+                    </div>
+                    <button class="play-line" onclick="speak('很高兴认识你')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">B:</span>
+                    <div>
+                        <div class="chinese-text">我也很高兴认识你！再见！</div>
+                        <div class="pinyin-text">Wǒ yě hěn gāoxìng rènshi nǐ! Zàijiàn!</div>
+                        <div class="english-text">Nice to meet you too! Goodbye!</div>
+                    </div>
+                    <button class="play-line" onclick="speak('我也很高兴认识你！再见！')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vocabulary -->
+        <div class="section">
+            <h2>📚 Vocabulary</h2>
+            <div class="vocab-list">
+                <div class="vocab-item">
+                    <span class="vocab-char">你好</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">nǐ hǎo</div>
+                        <div class="vocab-meaning">hello</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('你好')">🔊 Play</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">我</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">wǒ</div>
+                        <div class="vocab-meaning">I, me</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('我')">🔊 Play</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">你</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">nǐ</div>
+                        <div class="vocab-meaning">you</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('你')">🔊 Play</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">叫</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">jiào</div>
+                        <div class="vocab-meaning">to be called</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('叫')">🔊 Play</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">名字</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">míngzi</div>
+                        <div class="vocab-meaning">name</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('名字')">🔊 Play</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">什么</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">shénme</div>
+                        <div class="vocab-meaning">what</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('什么')">🔊 Play</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">再见</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">zàijiàn</div>
+                        <div class="vocab-meaning">goodbye</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('再见')">🔊 Play</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">很高兴认识你</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">hěn gāoxìng rènshi nǐ</div>
+                        <div class="vocab-meaning">nice to meet you</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('很高兴认识你')">🔊 Play</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grammar -->
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            
+            <div class="grammar-point">
+                <h4>1. 你好 (Nǐ hǎo) - Hello</h4>
+                <p>The most common greeting in Chinese. Literally means "you good".</p>
+                <div class="example-sentence">
+                    <strong>Example:</strong><br>
+                    你好！ → Hello!
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>2. 我叫... (Wǒ jiào...) - My name is...</h4>
+                <p>Structure: 我 (I) + 叫 (called) + name</p>
+                <div class="example-sentence">
+                    <strong>Example:</strong><br>
+                    我叫李明。 → My name is Li Ming.
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>3. Question: 你叫什么名字？ (Nǐ jiào shénme míngzi?)</h4>
+                <p>Structure: 你 (you) + 叫 (called) + 什么 (what) + 名字 (name)</p>
+                <div class="example-sentence">
+                    <strong>Example:</strong><br>
+                    你叫什么名字？ → What is your name?
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz -->
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. How do you say "Hello" in Chinese?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) 谢谢</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) 你好</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) 再见</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) 对不起</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>2. What does "我叫..." mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) You are...</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) My name is...</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) I like...</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) I want...</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>3. How do you say "Goodbye" in Chinese?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) 你好</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">B) 谢谢</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">C) 再见</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) 没关系</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Downloads -->
+        <div class="section">
+            <h2>📥 Downloads</h2>
+            <div class="downloads">
+                <a href="#" class="download-btn">📄 PDF Transcript</a>
+                <a href="#" class="download-btn">🎵 MP3 Audio</a>
+                <a href="#" class="download-btn">📝 Vocabulary List</a>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-lessons">
+            <a href="#" class="nav-btn disabled">← Previous Lesson</a>
+            <a href="lesson-02.html" class="nav-btn">Next Lesson: Numbers →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>ChinesePod101</h4>
+                <p>Free Chinese learning for everyone.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Lessons</h4>
+                <ul>
+                    <li><a href="#">Audio Lessons</a></li>
+                    <li><a href="#">Video Lessons</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Pinyin Chart</a></li>
+                    <li><a href="#">Dictionary</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 ChinesePod101</p>
+        </div>
+    </footer>
+
+    <script>
+        // Audio Player
+        let isPlaying = false;
+        let currentTime = 0;
+        let duration = 300; // 5 minutes in seconds
+        let speed = 1;
+        let loop = false;
+        
+        const playBtn = document.getElementById('playBtn');
+        const progressFill = document.getElementById('progressFill');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const speedBtn = document.getElementById('speedBtn');
+        const loopBtn = document.getElementById('loopBtn');
+        
+        playBtn.addEventListener('click', function() {
+            isPlaying = !isPlaying;
+            playBtn.textContent = isPlaying ? '⏸' : '▶';
+            
+            if (isPlaying) {
+                simulatePlayback();
+            }
+        });
+        
+        function simulatePlayback() {
+            if (!isPlaying) return;
+            
+            currentTime += speed;
+            if (currentTime >= duration) {
+                if (loop) {
+                    currentTime = 0;
+                } else {
+                    isPlaying = false;
+                    playBtn.textContent = '▶';
+                    return;
+                }
+            }
+            
+            const percent = (currentTime / duration) * 100;
+            progressFill.style.width = percent + '%';
+            
+            const mins = Math.floor(currentTime / 60);
+            const secs = Math.floor(currentTime % 60);
+            const dMins = Math.floor(duration / 60);
+            const dSecs = duration % 60;
+            timeDisplay.textContent = `${mins}:${secs.toString().padStart(2, '0')} / ${dMins}:${dSecs.toString().padStart(2, '0')}`;
+            
+            setTimeout(simulatePlayback, 1000);
+        }
+        
+        speedBtn.addEventListener('click', function() {
+            const speeds = [0.5, 0.75, 1, 1.25, 1.5];
+            const currentIndex = speeds.indexOf(speed);
+            speed = speeds[(currentIndex + 1) % speeds.length];
+            speedBtn.textContent = speed + 'x Speed';
+        });
+        
+        loopBtn.addEventListener('click', function() {
+            loop = !loop;
+            loopBtn.style.background = loop ? '#ff6b35' : '#333';
+        });
+        
+        // Text-to-Speech
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            } else {
+                alert('🔊 Pronunciation: ' + text);
+            }
+        }
+        
+        // Quiz
+        function checkAnswer(element, isCorrect) {
+            const options = element.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.onclick = null);
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+                // Show correct answer
+                options.forEach(opt => {
+                    if (opt.textContent.includes('B)') || opt.textContent.includes('C)')) {
+                        // Mark correct based on question
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

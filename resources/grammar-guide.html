@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Guide - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .grammar-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .grammar-header { background: linear-gradient(135deg, #f093fb, #f5576c); color: white; padding: 2.5rem; border-radius: 15px; margin-bottom: 2rem; text-align: center; }
+        .grammar-header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .section { background: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #f5576c; padding-bottom: 0.5rem; }
+        .grammar-item { background: #f8f9fa; padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem; border-left: 4px solid #f5576c; }
+        .grammar-item h3 { color: #f5576c; margin-bottom: 0.5rem; font-size: 1.2rem; }
+        .grammar-pattern { background: #1a1a2e; color: #fff; padding: 0.8rem 1.2rem; border-radius: 8px; font-family: monospace; margin: 0.5rem 0; display: inline-block; }
+        .grammar-example { margin: 0.8rem 0; padding-left: 1rem; }
+        .example-zh { font-family: 'Microsoft YaHei'; font-size: 1.1rem; color: #1a1a2e; }
+        .example-py { color: #f5576c; font-size: 0.95rem; }
+        .example-en { color: #666; font-size: 0.9rem; }
+        .play-btn { background: #f5576c; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 5px; cursor: pointer; font-size: 0.9rem; }
+        .level-badge { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem; margin-bottom: 0.5rem; }
+        @media (max-width: 768px) { .grammar-pattern { font-size: 0.9rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="grammar-page">
+        <div class="grammar-header">
+            <h1>📖 Chinese Grammar Guide</h1>
+            <p>Essential grammar patterns for beginners</p>
+        </div>
+
+        <div class="section">
+            <h2>1. Basic Sentence Structure</h2>
+            <div class="grammar-item">
+                <span class="level-badge">Beginner</span>
+                <h3>Subject + Verb + Object</h3>
+                <p>Chinese follows the same basic word order as English.</p>
+                <div class="grammar-pattern">Subject + Verb + Object</div>
+                <div class="grammar-example">
+                    <div class="example-zh">我 吃 苹果。<button class="play-btn" onclick="speak('我吃苹果')">🔊</button></div>
+                    <div class="example-py">Wǒ chī píngguǒ.</div>
+                    <div class="example-en">I eat apples.</div>
+                </div>
+                <div class="grammar-example">
+                    <div class="example-zh">他 学 中文。<button class="play-btn" onclick="speak('他学中文')">🔊</button></div>
+                    <div class="example-py">Tā xué Zhōngwén.</div>
+                    <div class="example-en">He studies Chinese.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. Questions</h2>
+            <div class="grammar-item">
+                <span class="level-badge">Beginner</span>
+                <h3>吗 (ma) Questions</h3>
+                <p>Add 吗 at the end of a statement to make it a yes/no question.</p>
+                <div class="grammar-pattern">Statement + 吗？</div>
+                <div class="grammar-example">
+                    <div class="example-zh">你好吗？<button class="play-btn" onclick="speak('你好吗')">🔊</button></div>
+                    <div class="example-py">Nǐ hǎo ma?</div>
+                    <div class="example-en">Are you well?</div>
+                </div>
+                <div class="grammar-example">
+                    <div class="example-zh">你是中国人吗？<button class="play-btn" onclick="speak('你是中国人吗')">🔊</button></div>
+                    <div class="example-py">Nǐ shì Zhōngguórén ma?</div>
+                    <div class="example-en">Are you Chinese?</div>
+                </div>
+            </div>
+
+            <div class="grammar-item">
+                <span class="level-badge">Beginner</span>
+                <h3>什么 (shénme) - What</h3>
+                <div class="grammar-pattern">... + 什么？</div>
+                <div class="grammar-example">
+                    <div class="example-zh">这是什么？<button class="play-btn" onclick="speak('这是什么')">🔊</button></div>
+                    <div class="example-py">Zhè shì shénme?</div>
+                    <div class="example-en">What is this?</div>
+                </div>
+                <div class="grammar-example">
+                    <div class="example-zh">你叫什么名字？<button class="play-btn" onclick="speak('你叫什么名字')">🔊</button></div>
+                    <div class="example-py">Nǐ jiào shénme míngzi?</div>
+                    <div class="example-en">What is your name?</div>
+                </div>
+            </div>
+
+            <div class="grammar-item">
+                <span class="level-badge">Beginner</span>
+                <h3>几 (jǐ) / 多少 (duōshao) - How many/much</h3>
+                <p>几 is used for small numbers (under 10), 多少 for larger numbers.</p>
+                <div class="grammar-example">
+                    <div class="example-zh">你几岁？<button class="play-btn" onclick="speak('你几岁')">🔊</button></div>
+                    <div class="example-py">Nǐ jǐ suì?</div>
+                    <div class="example-en">How old are you? (for children)</div>
+                </div>
+                <div class="grammar-example">
+                    <div class="example-zh">这个多少钱？<button class="play-btn" onclick="speak('这个多少钱')">🔊</button></div>
+                    <div class="example-py">Zhège duōshao qián?</div>
+                    <div class="example-en">How much is this?</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Measure Words</h2>
+            <div class="grammar-item">
+                <span class="level-badge">Beginner</span>
+                <h3>Number + Measure Word + Noun</h3>
+                <p>Chinese requires measure words between numbers and nouns.</p>
+                <div class="grammar-pattern">Number + 个 (gè) + Noun</div>
+                <div class="grammar-example">
+                    <div class="example-zh">一个人<button class="play-btn" onclick="speak('一个人')">🔊</button></div>
+                    <div class="example-py">yí gè rén</div>
+                    <div class="example-en">one person</div>
+                </div>
+                <div class="grammar-example">
+                    <div class="example-zh">三个苹果<button class="play-btn" onclick="speak('三个苹果')">🔊</button></div>
+                    <div class="example-py">sān gè píngguǒ</div>
+                    <div class="example-en">three apples</div>
+                </div>
+                <p style="margin-top: 1rem;"><strong>Common measure words:</strong></p>
+                <ul style="color: #666;">
+                    <li>个 (gè) - general</li>
+                    <li>只 (zhī) - animals</li>
+                    <li>本 (běn) - books</li>
+                    <li>杯 (bēi) - cups</li>
+                    <li>碗 (wǎn) - bowls</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. 了 (le) - Past Tense</h2>
+            <div class="grammar-item">
+                <span class="level-badge">Beginner</span>
+                <h3>Verb + 了</h3>
+                <p>Use 了 to indicate completed action.</p>
+                <div class="grammar-pattern">Subject + Verb + 了 + Object</div>
+                <div class="grammar-example">
+                    <div class="example-zh">我吃了早饭。<button class="play-btn" onclick="speak('我吃了早饭')">🔊</button></div>
+                    <div class="example-py">Wǒ chī le zǎofàn.</div>
+                    <div class="example-en">I ate breakfast.</div>
+                </div>
+                <div class="grammar-example">
+                    <div class="example-zh">他去了北京。<button class="play-btn" onclick="speak('他去了北京')">🔊</button></div>
+                    <div class="example-py">Tā qù le Běijīng.</div>
+                    <div class="example-en">He went to Beijing.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. 不 (bù) - Negation</h2>
+            <div class="grammar-item">
+                <span class="level-badge">Beginner</span>
+                <h3>不 + Verb/Adjective</h3>
+                <p>Use 不 to negate verbs and adjectives.</p>
+                <div class="grammar-pattern">Subject + 不 + Verb/Adjective</div>
+                <div class="grammar-example">
+                    <div class="example-zh">我不吃肉。<button class="play-btn" onclick="speak('我不吃肉')">🔊</button></div>
+                    <div class="example-py">Wǒ bù chī ròu.</div>
+                    <div class="example-en">I don't eat meat.</div>
+                </div>
+                <div class="grammar-example">
+                    <div class="example-zh">这个不好吃。<button class="play-btn" onclick="speak('这个不好吃')">🔊</button></div>
+                    <div class="example-py">Zhège bù hǎochī.</div>
+                    <div class="example-en">This is not delicious.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>6. 的 (de) - Possession</h2>
+            <div class="grammar-item">
+                <span class="level-badge">Beginner</span>
+                <h3>Possessor + 的 + Noun</h3>
+                <p>Use 的 to show possession (like 's in English).</p>
+                <div class="grammar-pattern">A + 的 + B (A's B)</div>
+                <div class="grammar-example">
+                    <div class="example-zh">我的书<button class="play-btn" onclick="speak('我的书')">🔊</button></div>
+                    <div class="example-py">wǒ de shū</div>
+                    <div class="example-en">my book</div>
+                </div>
+                <div class="grammar-example">
+                    <div class="example-zh">中国的食物<button class="play-btn" onclick="speak('中国的食物')">🔊</button></div>
+                    <div class="example-py">Zhōngguó de shíwù</div>
+                    <div class="example-en">Chinese food</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+        }
+    </script>
+</body>
+</html>

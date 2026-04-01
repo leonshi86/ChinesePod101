@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 12: 爱好 (Hobbies) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .hobby-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .hobby-card { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .hobby-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .hobby-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .hobby-char { font-size: 1.3rem; }
+        .hobby-pinyin { font-size: 0.9rem; opacity: 0.9; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 50px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; font-size: 0.95rem; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-sm { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-py { color: #ff6b35; font-weight: bold; }
+        .vocab-mn { color: #666; }
+        .vocab-btn { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .grammar-box h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .like-scale { display: flex; justify-content: space-around; margin: 1.5rem 0; padding: 1rem; background: #e8f5e9; border-radius: 10px; }
+        .like-item { text-align: center; cursor: pointer; padding: 1rem; border-radius: 8px; transition: all 0.3s; }
+        .like-item:hover { background: #c8e6c9; }
+        .quiz-section { background: #fce4ec; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .nav-btn:hover { background: #e55a2b; }
+        @media (max-width: 768px) { .hobby-grid { grid-template-columns: repeat(2, 1fr); } .lesson-title { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="#">Beginner</a></div>
+            <h1 class="lesson-title">Lesson 12: 爱好 (Hobbies)</h1>
+            <p>Learn how to talk about hobbies and interests in Chinese.</p>
+            <div class="lesson-meta"><span>⏱ 10 minutes</span><span>📚 Beginner</span><span>🏷 16 words</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 10:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Common Hobbies</h2>
+            <div class="hobby-grid">
+                <div class="hobby-card" onclick="speak('看书')" style="background: linear-gradient(135deg, #42a5f5, #1976d2);"><div class="hobby-icon">📚</div><div class="hobby-char">看书</div><div class="hobby-pinyin">kànshū</div></div>
+                <div class="hobby-card" onclick="speak('听音乐')" style="background: linear-gradient(135deg, #ab47bc, #7b1fa2);"><div class="hobby-icon">🎵</div><div class="hobby-char">听音乐</div><div class="hobby-pinyin">tīng yīnyuè</div></div>
+                <div class="hobby-card" onclick="speak('看电影')" style="background: linear-gradient(135deg, #ef5350, #c62828);"><div class="hobby-icon">🎬</div><div class="hobby-char">看电影</div><div class="hobby-pinyin">kàn diànyǐng</div></div>
+                <div class="hobby-card" onclick="speak('运动')" style="background: linear-gradient(135deg, #66bb6a, #388e3c);"><div class="hobby-icon">⚽</div><div class="hobby-char">运动</div><div class="hobby-pinyin">yùndòng</div></div>
+                <div class="hobby-card" onclick="speak('打游戏')" style="background: linear-gradient(135deg, #ffa726, #f57c00);"><div class="hobby-icon">🎮</div><div class="hobby-char">打游戏</div><div class="hobby-pinyin">dǎ yóuxì</div></div>
+                <div class="hobby-card" onclick="speak('旅行')" style="background: linear-gradient(135deg, #26c6da, #0097a7);"><div class="hobby-icon">✈️</div><div class="hobby-char">旅行</div><div class="hobby-pinyin">lǚxíng</div></div>
+                <div class="hobby-card" onclick="speak('做饭')" style="background: linear-gradient(135deg, #ec407a, #c2185b);"><div class="hobby-icon">🍳</div><div class="hobby-char">做饭</div><div class="hobby-pinyin">zuòfàn</div></div>
+                <div class="hobby-card" onclick="speak('拍照')" style="background: linear-gradient(135deg, #5c6bc0, #3949ab);"><div class="hobby-icon">📷</div><div class="hobby-char">拍照</div><div class="hobby-pinyin">pāizhào</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>❤️ Expressing Preferences</h2>
+            <div class="vocab-item"><span class="vocab-char">喜欢</span><div class="vocab-info"><div class="vocab-py">xǐhuan</div><div class="vocab-mn">to like</div></div><button class="vocab-btn" onclick="speak('喜欢')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">爱</span><div class="vocab-info"><div class="vocab-py">ài</div><div class="vocab-mn">to love</div></div><button class="vocab-btn" onclick="speak('爱')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">不喜欢</span><div class="vocab-info"><div class="vocab-py">bù xǐhuan</div><div class="vocab-mn">to not like</div></div><button class="vocab-btn" onclick="speak('不喜欢')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">最</span><div class="vocab-info"><div class="vocab-py">zuì</div><div class="vocab-mn">most / the best</div></div><button class="vocab-btn" onclick="speak('最')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">爱好</span><div class="vocab-info"><div class="vocab-py">àihào</div><div class="vocab-mn">hobby</div></div><button class="vocab-btn" onclick="speak('爱好')">🔊</button></div>
+            
+            <div class="like-scale">
+                <div class="like-item" onclick="speak('我很喜欢')"><div style="font-size: 1.5rem;">😍</div><div>我很喜欢</div><div style="font-size: 0.8rem;">I really like it</div></div>
+                <div class="like-item" onclick="speak('我喜欢')"><div style="font-size: 1.5rem;">😊</div><div>我喜欢</div><div style="font-size: 0.8rem;">I like it</div></div>
+                <div class="like-item" onclick="speak('还可以')"><div style="font-size: 1.5rem;">😐</div><div>还可以</div><div style="font-size: 0.8rem;">It's okay</div></div>
+                <div class="like-item" onclick="speak('不喜欢')"><div style="font-size: 1.5rem;">😕</div><div>不喜欢</div><div style="font-size: 0.8rem;">I don't like it</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - Talking About Hobbies</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">你的爱好是什么？</div><div class="py-text">Nǐ de àihào shì shénme?</div><div class="en-text">What are your hobbies?</div></div><button class="play-sm" onclick="speak('你的爱好是什么')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">我喜欢看书和听音乐。</div><div class="py-text">Wǒ xǐhuan kànshū hé tīng yīnyuè.</div><div class="en-text">I like reading and listening to music.</div></div><button class="play-sm" onclick="speak('我喜欢看书和听音乐')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">你喜欢运动吗？</div><div class="py-text">Nǐ xǐhuan yùndòng ma?</div><div class="en-text">Do you like sports?</div></div><button class="play-sm" onclick="speak('你喜欢运动吗')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">不太喜欢。你呢？</div><div class="py-text">Bú tài xǐhuan. Nǐ ne?</div><div class="en-text">Not really. How about you?</div></div><button class="play-sm" onclick="speak('不太喜欢。你呢')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">我很喜欢打篮球。</div><div class="py-text">Wǒ hěn xǐhuan dǎ lánqiú.</div><div class="en-text">I really like playing basketball.</div></div><button class="play-sm" onclick="speak('我很喜欢打篮球')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            <div class="grammar-box">
+                <h4>1. 喜欢 + Verb/Noun</h4>
+                <p>Express what you like.<br>
+                我喜欢看书。= I like reading.<br>
+                我喜欢咖啡。= I like coffee.</p>
+            </div>
+            <div class="grammar-box">
+                <h4>2. 最喜欢 (Like...the most)</h4>
+                <p>Express your favorite.<br>
+                我最喜欢看电影。= I like watching movies the most.<br>
+                你最喜欢什么？= What do you like the most?</p>
+            </div>
+            <div class="grammar-box">
+                <h4>3. 和 (and)</h4>
+                <p>Connect two items.<br>
+                我喜欢看书和听音乐。= I like reading and listening to music.<br>
+                我有猫和狗。= I have a cat and a dog.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. What does "看书" mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) Reading</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) Watching TV</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Shopping</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. How do you say "I like music"?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) 我喜欢音乐</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) 我有音乐</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 我听音乐</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. "打游戏" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) Play sports</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) Play video games</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Play music</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. "你的爱好是什么？" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) What's your name?</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) What are your hobbies?</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) What's your job?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-11.html" class="nav-btn">← Lesson 11</a>
+            <a href="lesson-13.html" class="nav-btn">Lesson 13 →</a>
+        </div>
+    </div>
+
+    <script>
+        var playing = false, time = 0, duration = 600;
+        document.getElementById('playBtn').onclick = function() {
+            playing = !playing;
+            this.textContent = playing ? '⏸' : '▶';
+            if (playing) playAudio();
+        };
+        function playAudio() {
+            if (!playing) return;
+            time++;
+            if (time >= duration) { playing = false; document.getElementById('playBtn').textContent = '▶'; return; }
+            document.getElementById('progressFill').style.width = (time / duration * 100) + '%';
+            var mins = Math.floor(time / 60), secs = time % 60;
+            document.getElementById('timeDisplay').textContent = mins + ':' + (secs < 10 ? '0' : '') + secs + ' / 10:00';
+            setTimeout(playAudio, 1000);
+        }
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                var u = new SpeechSynthesisUtterance(text);
+                u.lang = 'zh-CN';
+                u.rate = 0.9;
+                speechSynthesis.speak(u);
+            }
+        }
+        function check(el, ok) { el.classList.add(ok ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>

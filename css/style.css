@@ -1,0 +1,482 @@
+/* ChinesePod101 - Main Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation */
+.navbar {
+    background: #1a1a2e;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.logo-zh {
+    font-family: 'Microsoft YaHei', sans-serif;
+    color: #ff6b35;
+}
+
+.logo-en {
+    color: white;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.nav-menu a:hover {
+    color: white;
+}
+
+.btn-login {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ff6b35;
+    border-radius: 5px;
+    color: #ff6b35 !important;
+}
+
+.btn-signup {
+    background: #ff6b35;
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+.hero-desc {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    opacity: 0.8;
+    font-size: 1.1rem;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-start {
+    background: #ff6b35;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-learn {
+    border: 1px solid white;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Features */
+.features {
+    padding: 4rem 2rem;
+    background: #f8f9fa;
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: #1a1a2e;
+    margin-bottom: 0.5rem;
+}
+
+/* Lesson Types */
+.lesson-types {
+    padding: 4rem 2rem;
+}
+
+.lesson-types h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.lesson-type {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-top: 4px solid #ff6b35;
+}
+
+.type-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.lesson-type h3 {
+    margin-bottom: 0.5rem;
+}
+
+.lesson-type ul {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.lesson-type li {
+    padding: 0.3rem 0;
+    color: #666;
+}
+
+.btn-lesson {
+    display: inline-block;
+    color: #ff6b35;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+/* Pathways */
+.pathways {
+    padding: 4rem 2rem;
+    background: #1a1a2e;
+    color: white;
+}
+
+.pathways h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-desc {
+    text-align: center;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.pathway-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.pathway-card {
+    background: #16213e;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.level-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.level-badge.beginner { background: #2e7d32; }
+.level-badge.intermediate { background: #f57c00; }
+.level-badge.advanced { background: #c62828; }
+
+.pathway-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.pathway-card p {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.lesson-count {
+    color: #ff6b35;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.btn-pathway {
+    display: inline-block;
+    color: #ff6b35;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Resources */
+.resources {
+    padding: 4rem 2rem;
+}
+
+.resources h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.resource-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+}
+
+.resource-icon {
+    font-size: 2rem;
+    font-family: 'Microsoft YaHei', sans-serif;
+    color: #ff6b35;
+}
+
+.resource-card h3 {
+    margin: 1rem 0 0.5rem;
+}
+
+/* Sample Lesson */
+.sample-lesson {
+    padding: 4rem 2rem;
+    background: #f8f9fa;
+}
+
+.sample-lesson h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.lesson-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.player-placeholder {
+    background: #1a1a2e;
+    border-radius: 10px;
+    aspect-ratio: 16/9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.play-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.lesson-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.lesson-meta {
+    color: #666;
+    margin: 1rem 0;
+}
+
+.lesson-meta span {
+    margin-right: 1rem;
+}
+
+.lesson-vocab {
+    background: #fff3e0;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+.lesson-vocab ul {
+    list-style: none;
+}
+
+.lesson-vocab li {
+    padding: 0.3rem 0;
+}
+
+.btn-full-lesson {
+    display: inline-block;
+    background: #ff6b35;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* CTA */
+.cta {
+    background: #ff6b35;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.btn-signup-large {
+    display: inline-block;
+    background: white;
+    color: #ff6b35;
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    background: #1a1a2e;
+    color: white;
+    padding: 3rem 2rem 1rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.footer-col h4 {
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col a {
+    color: #aaa;
+    text-decoration: none;
+    display: block;
+    padding: 0.3rem 0;
+}
+
+.footer-col a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu { display: none; }
+    .hero h1 { font-size: 2rem; }
+    .lesson-preview { grid-template-columns: 1fr; }
+    .footer-container { grid-template-columns: 1fr 1fr; }
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 13: 打电话 (Making Phone Calls) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .phone-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .phone-card { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .phone-card:hover { background: #fff3e0; transform: translateY(-3px); }
+        .phone-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .phone-char { font-size: 1.3rem; font-family: 'Microsoft YaHei'; }
+        .phone-pinyin { color: #ff6b35; font-size: 0.9rem; }
+        .phone-meaning { color: #666; font-size: 0.85rem; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 50px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; font-size: 0.95rem; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-sm { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-py { color: #ff6b35; font-weight: bold; }
+        .vocab-mn { color: #666; }
+        .vocab-btn { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .grammar-box h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .phone-demo { background: #1a1a2e; color: white; padding: 2rem; border-radius: 15px; max-width: 300px; margin: 1rem auto; text-align: center; }
+        .phone-screen { background: #16213e; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; }
+        .quiz-section { background: #e0f7fa; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .nav-btn:hover { background: #e55a2b; }
+        @media (max-width: 768px) { .phone-grid { grid-template-columns: repeat(2, 1fr); } .lesson-title { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="#">Beginner</a></div>
+            <h1 class="lesson-title">Lesson 13: 打电话 (Making Phone Calls)</h1>
+            <p>Learn essential phrases for phone conversations in Chinese.</p>
+            <div class="lesson-meta"><span>⏱ 10 minutes</span><span>📚 Beginner</span><span>🏷 14 words</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 10:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📞 Phone Vocabulary</h2>
+            <div class="phone-grid">
+                <div class="phone-card" onclick="speak('电话')"><div class="phone-icon">📱</div><div class="phone-char">电话</div><div class="phone-pinyin">diànhuà</div><div class="phone-meaning">phone</div></div>
+                <div class="phone-card" onclick="speak('手机')"><div class="phone-icon">📲</div><div class="phone-char">手机</div><div class="phone-pinyin">shǒujī</div><div class="phone-meaning">mobile phone</div></div>
+                <div class="phone-card" onclick="speak('打电话')"><div class="phone-icon">📞</div><div class="phone-char">打电话</div><div class="phone-pinyin">dǎ diànhuà</div><div class="phone-meaning">make a call</div></div>
+                <div class="phone-card" onclick="speak('接电话')"><div class="phone-icon">☎️</div><div class="phone-char">接电话</div><div class="phone-pinyin">jiē diànhuà</div><div class="phone-meaning">answer phone</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🗣️ Phone Phrases</h2>
+            <div class="vocab-item"><span class="vocab-char">喂</span><div class="vocab-info"><div class="vocab-py">wéi</div><div class="vocab-mn">Hello (on phone)</div></div><button class="vocab-btn" onclick="speak('喂')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">在吗</span><div class="vocab-info"><div class="vocab-py">zài ma</div><div class="vocab-mn">Are you there?</div></div><button class="vocab-btn" onclick="speak('在吗')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">我是...</span><div class="vocab-info"><div class="vocab-py">wǒ shì...</div><div class="vocab-mn">This is... (speaking)</div></div><button class="vocab-btn" onclick="speak('我是')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">请稍等</span><div class="vocab-info"><div class="vocab-py">qǐng shāoděng</div><div class="vocab-mn">please wait a moment</div></div><button class="vocab-btn" onclick="speak('请稍等')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">打错了</span><div class="vocab-info"><div class="vocab-py">dǎ cuò le</div><div class="vocab-mn">wrong number</div></div><button class="vocab-btn" onclick="speak('打错了')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">回头见</span><div class="vocab-info"><div class="vocab-py">huítóu jiàn</div><div class="vocab-mn">talk to you later</div></div><button class="vocab-btn" onclick="speak('回头见')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">再见</span><div class="vocab-info"><div class="vocab-py">zàijiàn</div><div class="vocab-mn">goodbye</div></div><button class="vocab-btn" onclick="speak('再见')">🔊</button></div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - Making a Call</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">喂，你好！</div><div class="py-text">Wéi, nǐ hǎo!</div><div class="en-text">Hello!</div></div><button class="play-sm" onclick="speak('喂，你好')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">你好，请问你是哪位？</div><div class="py-text">Nǐ hǎo, qǐngwèn nǐ shì nǎ wèi?</div><div class="en-text">Hello, who is this?</div></div><button class="play-sm" onclick="speak('你好，请问你是哪位')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">我是小明，王老师在吗？</div><div class="py-text">Wǒ shì Xiǎomíng, Wáng lǎoshī zài ma?</div><div class="en-text">This is Xiaoming, is Teacher Wang there?</div></div><button class="play-sm" onclick="speak('我是小明，王老师在吗')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">请稍等。</div><div class="py-text">Qǐng shāoděng.</div><div class="en-text">Please wait a moment.</div></div><button class="play-sm" onclick="speak('请稍等')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">好的，谢谢。</div><div class="py-text">Hǎo de, xièxie.</div><div class="en-text">OK, thanks.</div></div><button class="play-sm" onclick="speak('好的，谢谢')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - Wrong Number</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">喂，你好！</div><div class="py-text">Wéi, nǐ hǎo!</div><div class="en-text">Hello!</div></div><button class="play-sm" onclick="speak('喂，你好')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">你好，请问是张先生吗？</div><div class="py-text">Nǐ hǎo, qǐngwèn shì Zhāng xiānsheng ma?</div><div class="en-text">Hello, is this Mr. Zhang?</div></div><button class="play-sm" onclick="speak('你好，请问是张先生吗')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">不是，你打错了。</div><div class="py-text">Bú shì, nǐ dǎ cuò le.</div><div class="en-text">No, you have the wrong number.</div></div><button class="play-sm" onclick="speak('不是，你打错了')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">对不起。</div><div class="py-text">Duìbuqǐ.</div><div class="en-text">Sorry.</div></div><button class="play-sm" onclick="speak('对不起')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">没关系。</div><div class="py-text">Méi guānxi.</div><div class="en-text">That's OK.</div></div><button class="play-sm" onclick="speak('没关系')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            <div class="grammar-box">
+                <h4>1. 喂 (Wéi) - Phone Greeting</h4>
+                <p>Used only when answering or making phone calls.<br>
+                喂，你好！= Hello! (on phone)</p>
+            </div>
+            <div class="grammar-box">
+                <h4>2. 我是... (This is...)</h4>
+                <p>Introduce yourself on the phone.<br>
+                我是小明。= This is Xiaoming.<br>
+                我是李华。= This is Li Hua.</p>
+            </div>
+            <div class="grammar-box">
+                <h4>3. ...在吗？(Is ... there?)</h4>
+                <p>Ask if someone is available.<br>
+                王老师在吗？= Is Teacher Wang there?<br>
+                你爸爸在吗？= Is your dad there?</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. What do you say when answering the phone?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) 你好</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) 喂</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 谢谢</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. "打错了" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) Call again</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) Wrong number</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Phone is broken</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. How do you say "Please wait a moment"?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) 请稍等</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) 请进来</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 请坐</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. "王老师在吗？" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) Who is Teacher Wang?</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) Is Teacher Wang there?</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Where is Teacher Wang?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-12.html" class="nav-btn">← Lesson 12</a>
+            <a href="lesson-14.html" class="nav-btn">Lesson 14 →</a>
+        </div>
+    </div>
+
+    <script>
+        var playing = false, time = 0, duration = 600;
+        document.getElementById('playBtn').onclick = function() {
+            playing = !playing;
+            this.textContent = playing ? '⏸' : '▶';
+            if (playing) playAudio();
+        };
+        function playAudio() {
+            if (!playing) return;
+            time++;
+            if (time >= duration) { playing = false; document.getElementById('playBtn').textContent = '▶'; return; }
+            document.getElementById('progressFill').style.width = (time / duration * 100) + '%';
+            var mins = Math.floor(time / 60), secs = time % 60;
+            document.getElementById('timeDisplay').textContent = mins + ':' + (secs < 10 ? '0' : '') + secs + ' / 10:00';
+            setTimeout(playAudio, 1000);
+        }
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                var u = new SpeechSynthesisUtterance(text);
+                u.lang = 'zh-CN';
+                u.rate = 0.9;
+                speechSynthesis.speak(u);
+            }
+        }
+        function check(el, ok) { el.classList.add(ok ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>

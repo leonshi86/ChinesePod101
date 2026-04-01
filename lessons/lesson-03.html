@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3: 颜色与位置 (Colors & Position) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .color-card { padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; transition: transform 0.2s; }
+        .color-card:hover { transform: scale(1.05); }
+        .color-swatch { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 0.5rem; border: 2px solid #ddd; }
+        .color-char { font-size: 1.5rem; font-family: 'Microsoft YaHei', sans-serif; }
+        .color-pinyin { color: #ff6b35; }
+        .color-meaning { color: #666; font-size: 0.9rem; }
+        .position-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 400px; margin: 0 auto; }
+        .position-card { background: #f8f9fa; padding: 1rem; border-radius: 8px; text-align: center; cursor: pointer; }
+        .position-card:hover { background: #fff3e0; }
+        .position-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .position-char { font-size: 1.2rem; font-family: 'Microsoft YaHei', sans-serif; }
+        .position-pinyin { color: #ff6b35; font-size: 0.9rem; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 50px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; font-size: 0.95rem; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-btn-small { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 80px; }
+        .vocab-pinyin { color: #ff6b35; font-weight: bold; }
+        .vocab-meaning { color: #666; }
+        .vocab-audio { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .quiz-section { background: #e8f5e9; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .downloads { display: flex; gap: 1rem; }
+        .download-btn { background: #1a1a2e; color: white; padding: 0.8rem 1.5rem; border-radius: 5px; text-decoration: none; }
+        @media (max-width: 768px) { .color-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › Beginner</div>
+            <h1 class="lesson-title">Lesson 3: 颜色与位置 (Colors & Position)</h1>
+            <p>Learn colors, directions, and how to describe where things are.</p>
+            <div class="lesson-meta"><span>⏱ 7 minutes</span><span>📚 Beginner</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 7:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎨 Colors 颜色</h2>
+            <div class="color-grid">
+                <div class="color-card" onclick="speak('红')"><div class="color-swatch" style="background:#ff0000"></div><div class="color-char">红</div><div class="color-pinyin">hóng</div><div class="color-meaning">red</div></div>
+                <div class="color-card" onclick="speak('黄')"><div class="color-swatch" style="background:#ffff00"></div><div class="color-char">黄</div><div class="color-pinyin">huáng</div><div class="color-meaning">yellow</div></div>
+                <div class="color-card" onclick="speak('蓝')"><div class="color-swatch" style="background:#0000ff"></div><div class="color-char">蓝</div><div class="color-pinyin">lán</div><div class="color-meaning">blue</div></div>
+                <div class="color-card" onclick="speak('绿')"><div class="color-swatch" style="background:#00ff00"></div><div class="color-char">绿</div><div class="color-pinyin">lǜ</div><div class="color-meaning">green</div></div>
+                <div class="color-card" onclick="speak('白')"><div class="color-swatch" style="background:#ffffff; border:2px solid #ccc"></div><div class="color-char">白</div><div class="color-pinyin">bái</div><div class="color-meaning">white</div></div>
+                <div class="color-card" onclick="speak('黑')"><div class="color-swatch" style="background:#000000"></div><div class="color-char">黑</div><div class="color-pinyin">hēi</div><div class="color-meaning">black</div></div>
+                <div class="color-card" onclick="speak('粉红')"><div class="color-swatch" style="background:#ffc0cb"></div><div class="color-char">粉红</div><div class="color-pinyin">fěnhóng</div><div class="color-meaning">pink</div></div>
+                <div class="color-card" onclick="speak('橙')"><div class="color-swatch" style="background:#ffa500"></div><div class="color-char">橙</div><div class="color-pinyin">chéng</div><div class="color-meaning">orange</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📍 Position 位置</h2>
+            <div class="position-grid">
+                <div class="position-card" onclick="speak('上')"><div class="position-icon">⬆️</div><div class="position-char">上</div><div class="position-pinyin">shàng - up</div></div>
+                <div class="position-card" onclick="speak('下')"><div class="position-icon">⬇️</div><div class="position-char">下</div><div class="position-pinyin">xià - down</div></div>
+                <div class="position-card" onclick="speak('里')"><div class="position-icon">⬇️</div><div class="position-char">里</div><div class="position-pinyin">lǐ - inside</div></div>
+                <div class="position-card" onclick="speak('外')"><div class="position-icon">⬆️</div><div class="position-char">外</div><div class="position-pinyin">wài - outside</div></div>
+                <div class="position-card" onclick="speak('前')"><div class="position-icon">⬅️</div><div class="position-char">前</div><div class="position-pinyin">qián - front</div></div>
+                <div class="position-card" onclick="speak('后')"><div class="position-icon">➡️</div><div class="position-char">后</div><div class="position-pinyin">hòu - back</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">这个是什么颜色？</div><div class="py-text">Zhège shì shénme yánsè?</div><div class="en-text">What color is this?</div></div><button class="play-btn-small" onclick="speak('这个是什么颜色')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">这是红色。</div><div class="py-text">Zhè shì hóngsè.</div><div class="en-text">It's red.</div></div><button class="play-btn-small" onclick="speak('这是红色')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">猫在哪里？</div><div class="py-text">Māo zài nǎlǐ?</div><div class="en-text">Where is the cat?</div></div><button class="play-btn-small" onclick="speak('猫在哪里')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">猫在椅子下面。</div><div class="py-text">Māo zài yǐzi xiàmiàn.</div><div class="en-text">The cat is under the chair.</div></div><button class="play-btn-small" onclick="speak('猫在椅子下面')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Vocabulary</h2>
+            <div class="vocab-item"><span class="vocab-char">颜色</span><div><div class="vocab-pinyin">yánsè</div><div class="vocab-meaning">color</div></div><button class="vocab-audio" onclick="speak('颜色')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">这个</span><div><div class="vocab-pinyin">zhège</div><div class="vocab-meaning">this one</div></div><button class="vocab-audio" onclick="speak('这个')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">那里</span><div><div class="vocab-pinyin">nàlǐ</div><div class="vocab-meaning">there</div></div><button class="vocab-audio" onclick="speak('那里')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">这里</span><div><div class="vocab-pinyin">zhèlǐ</div><div class="vocab-meaning">here</div></div><button class="vocab-audio" onclick="speak('这里')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">在</span><div><div class="vocab-pinyin">zài</div><div class="vocab-meaning">at, in, on</div></div><button class="vocab-audio" onclick="speak('在')">🔊</button></div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar</h2>
+            <div class="grammar-box"><h4>这个 +颜色 = This is (color)</h4><p>这个是红色。= This is red.</p></div>
+            <div class="grammar-box"><h4>东西 +在+ 位置 = Something is at/in/on place</h4><p>猫在椅子下面。= The cat is under the chair.</p></div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question"><p>1. What color is 红色?</p><div class="quiz-options"><div class="quiz-option" onclick="c(this,true)">A) red</div><div class="quiz-option" onclick="c(this,false)">B) blue</div><div class="quiz-option" onclick="c(this,false)">C) yellow</div></div></div>
+                <div class="quiz-question"><p>2. "在椅子下面" means:</p><div class="quiz-options"><div class="quiz-option" onclick="c(this,false)">A) on the chair</div><div class="quiz-option" onclick="c(this,false)">B) next to the chair</div><div class="quiz-option" onclick="c(this,true)">C) under the chair</div></div></div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-02.html" class="nav-btn">← Lesson 2</a>
+            <a href="#" class="nav-btn" style="background:#ccc">Lesson 4 →</a>
+        </div>
+    </div>
+
+    <script>
+        var p=false,t=0,d=420;
+        document.getElementById('playBtn').onclick=function(){p=!p;this.textContent=p?'⏸':'▶';if(p)play()};
+        function play(){if(!p)return;t++;if(t>=d){p=false;this.textContent='▶';return}document.getElementById('progressFill').style.width=(t/d*100)+'%';document.getElementById('timeDisplay').textContent=Math.floor(t/60)+':'+(t%60)+' / 7:00';setTimeout(play,1000)}
+        function speak(txt){if('speechSynthesis' in window){var u=new SpeechSynthesisUtterance(txt);u.lang='zh-CN';speechSynthesis.speak(u)}}
+        function c(el,ok){el.classList.add(ok?'correct':'wrong')}
+    </script>
+</body>
+</html>

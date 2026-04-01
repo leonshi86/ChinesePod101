@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 7: 购物 (Shopping) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .item-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .item-card { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .item-card:hover { background: #fff3e0; transform: translateY(-3px); }
+        .item-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .item-char { font-size: 1.3rem; font-family: 'Microsoft YaHei'; }
+        .item-pinyin { color: #ff6b35; font-size: 0.9rem; }
+        .item-meaning { color: #666; font-size: 0.85rem; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 50px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; font-size: 0.95rem; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-sm { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 80px; }
+        .vocab-py { color: #ff6b35; font-weight: bold; }
+        .vocab-mn { color: #666; }
+        .vocab-btn { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .grammar-box h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .grammar-box p { margin: 0; line-height: 1.8; }
+        .price-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .price-table th, .price-table td { padding: 0.8rem; text-align: left; border-bottom: 1px solid #eee; }
+        .price-table th { background: #1a1a2e; color: white; }
+        .price-table tr:hover { background: #fff3e0; }
+        .quiz-section { background: #e8f5e9; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .nav-btn:hover { background: #e55a2b; }
+        .nav-btn.disabled { background: #ccc; pointer-events: none; }
+        .tip-box { background: #e3f2fd; padding: 1.5rem; border-radius: 10px; margin-top: 1rem; border-left: 4px solid #2196f3; }
+        .tip-box h4 { color: #1565c0; margin-bottom: 0.5rem; }
+        @media (max-width: 768px) {
+            .item-grid { grid-template-columns: repeat(2, 1fr); }
+            .lesson-title { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="#">Beginner</a></div>
+            <h1 class="lesson-title">Lesson 7: 购物 (Shopping)</h1>
+            <p>Learn how to shop, ask prices, and bargain in Chinese.</p>
+            <div class="lesson-meta"><span>⏱ 10 minutes</span><span>📚 Beginner</span><span>🏷 15 words</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 10:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛒 Shopping Vocabulary</h2>
+            <div class="item-grid">
+                <div class="item-card" onclick="speak('商店')"><div class="item-emoji">🏪</div><div class="item-char">商店</div><div class="item-pinyin">shāngdiàn</div><div class="item-meaning">store</div></div>
+                <div class="item-card" onclick="speak('超市')"><div class="item-emoji">🏬</div><div class="item-char">超市</div><div class="item-pinyin">chāoshì</div><div class="item-meaning">supermarket</div></div>
+                <div class="item-card" onclick="speak('市场')"><div class="item-emoji">集市</div><div class="item-char">市场</div><div class="item-pinyin">shìchǎng</div><div class="item-meaning">market</div></div>
+                <div class="item-card" onclick="speak('衣服')"><div class="item-emoji">👕</div><div class="item-char">衣服</div><div class="item-pinyin">yīfu</div><div class="item-meaning">clothes</div></div>
+                <div class="item-card" onclick="speak('鞋子')"><div class="item-emoji">👟</div><div class="item-char">鞋子</div><div class="item-pinyin">xiézi</div><div class="item-meaning">shoes</div></div>
+                <div class="item-card" onclick="speak('包')"><div class="item-emoji">👜</div><div class="item-char">包</div><div class="item-pinyin">bāo</div><div class="item-meaning">bag</div></div>
+                <div class="item-card" onclick="speak('手机')"><div class="item-emoji">📱</div><div class="item-char">手机</div><div class="item-pinyin">shǒujī</div><div class="item-meaning">phone</div></div>
+                <div class="item-card" onclick="speak('电脑')"><div class="item-emoji">💻</div><div class="item-char">电脑</div><div class="item-pinyin">diànnǎo</div><div class="item-meaning">computer</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💰 Price & Numbers</h2>
+            <div class="vocab-item"><span class="vocab-char">钱</span><div><div class="vocab-py">qián</div><div class="vocab-mn">money</div></div><button class="vocab-btn" onclick="speak('钱')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">元</span><div><div class="vocab-py">yuán</div><div class="vocab-mn">Yuan (Chinese currency)</div></div><button class="vocab-btn" onclick="speak('元')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">块</span><div><div class="vocab-py">kuài</div><div class="vocab-mn">colloquial for Yuan</div></div><button class="vocab-btn" onclick="speak('块')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">多少钱</span><div><div class="vocab-py">duōshao qián</div><div class="vocab-mn">how much (money)</div></div><button class="vocab-btn" onclick="speak('多少钱')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">便宜</span><div><div class="vocab-py">piányi</div><div class="vocab-mn">cheap</div></div><button class="vocab-btn" onclick="speak('便宜')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">贵</span><div><div class="vocab-py">guì</div><div class="vocab-mn">expensive</div></div><button class="vocab-btn" onclick="speak('贵')">🔊</button></div>
+            
+            <table class="price-table">
+                <tr><th>Chinese</th><th>Pinyin</th><th>English</th></tr>
+                <tr><td>一块钱</td><td>yí kuài qián</td><td>1 Yuan</td></tr>
+                <tr><td>五块钱</td><td>wǔ kuài qián</td><td>5 Yuan</td></tr>
+                <tr><td>十块钱</td><td>shí kuài qián</td><td>10 Yuan</td></tr>
+                <tr><td>五十块</td><td>wǔshí kuài</td><td>50 Yuan</td></tr>
+                <tr><td>一百块</td><td>yì bǎi kuài</td><td>100 Yuan</td></tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - At a Clothing Store</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">店员:</span><div><div class="ch-text">您好，想买什么？</div><div class="py-text">Nín hǎo, xiǎng mǎi shénme?</div><div class="en-text">Hello, what would you like to buy?</div></div><button class="play-sm" onclick="speak('您好，想买什么？')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">我想看看这件衣服。</div><div class="py-text">Wǒ xiǎng kànkan zhè jiàn yīfu.</div><div class="en-text">I'd like to look at this shirt.</div></div><button class="play-sm" onclick="speak('我想看看这件衣服')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">店员:</span><div><div class="ch-text">好的，这是新款。您穿多大？</div><div class="py-text">Hǎo de, zhè shì xīnkuǎn. Nín chuān duōdà?</div><div class="en-text">OK, this is new style. What size do you wear?</div></div><button class="play-sm" onclick="speak('好的，这是新款。您穿多大？')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">中号。多少钱？</div><div class="py-text">Zhōnghào. Duōshao qián?</div><div class="en-text">Medium. How much?</div></div><button class="play-sm" onclick="speak('中号。多少钱？')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">店员:</span><div><div class="ch-text">一百五十块。</div><div class="py-text">Yì bǎi wǔshí kuài.</div><div class="en-text">150 Yuan.</div></div><button class="play-sm" onclick="speak('一百五十块')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">太贵了，便宜一点儿吧？</div><div class="py-text">Tài guì le, piányi yìdiǎnr ba?</div><div class="en-text">Too expensive, can it be cheaper?</div></div><button class="play-sm" onclick="speak('太贵了，便宜一点儿吧？')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">店员:</span><div><div class="ch-text">好吧，一百二十块。</div><div class="py-text">Hǎo ba, yì bǎi èrshí kuài.</div><div class="en-text">OK, 120 Yuan.</div></div><button class="play-sm" onclick="speak('好吧，一百二十块')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">好的，我要了。</div><div class="py-text">Hǎo de, wǒ yào le.</div><div class="en-text">OK, I'll take it.</div></div><button class="play-sm" onclick="speak('好的，我要了')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Key Phrases</h2>
+            <div class="vocab-item"><span class="vocab-char">买</span><div><div class="vocab-py">mǎi</div><div class="vocab-mn">to buy</div></div><button class="vocab-btn" onclick="speak('买')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">卖</span><div><div class="vocab-py">mài</div><div class="vocab-mn">to sell</div></div><button class="vocab-btn" onclick="speak('卖')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">看看</span><div><div class="vocab-py">kànkan</div><div class="vocab-mn">to look at / browse</div></div><button class="vocab-btn" onclick="speak('看看')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">太...了</span><div><div class="vocab-py">tài...le</div><div class="vocab-mn">too / so (emphatic)</div></div><button class="vocab-btn" onclick="speak('太贵了')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">可以便宜吗</span><div><div class="vocab-py">kěyǐ piányi ma</div><div class="vocab-mn">Can it be cheaper?</div></div><button class="vocab-btn" onclick="speak('可以便宜吗')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">我要了</span><div><div class="vocab-py">wǒ yào le</div><div class="vocab-mn">I'll take it</div></div><button class="vocab-btn" onclick="speak('我要了')">🔊</button></div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            <div class="grammar-box">
+                <h4>1. 多少钱？(How much?)</h4>
+                <p>Used to ask about price. Example: 这个多少钱？(How much is this?)</p>
+            </div>
+            <div class="grammar-box">
+                <h4>2. 太 + adjective + 了</h4>
+                <p>Expresses "too" or "so" with emphasis.<br>
+                太贵了！= Too expensive!<br>
+                太便宜了！= So cheap!<br>
+                太好了！= Great! / That's too good!</p>
+            </div>
+            <div class="grammar-box">
+                <h4>3. Verb + 一点儿 (a little bit)</h4>
+                <p>Asks for a slight change.<br>
+                便宜一点儿 = a little cheaper<br>
+                快一点儿 = a little faster</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Bargaining Tips in China</h4>
+                <p>In markets and small shops, bargaining is common! Start at 50-70% of the asking price. In department stores and supermarkets, prices are fixed.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. How do you ask "How much is this?"</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) 这是什么？</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) 这个多少钱？</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 你好吗？</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. What does "太贵了" mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) Very cheap</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) Too expensive</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Very beautiful</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. How do you say "I'll take it"?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) 我买了</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) 我要了</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 我看了</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. "便宜一点儿" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) A little cheaper</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) Very cheap</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Too cheap</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-06.html" class="nav-btn">← Lesson 6</a>
+            <a href="lesson-08.html" class="nav-btn">Lesson 8 →</a>
+        </div>
+    </div>
+
+    <script>
+        var playing = false;
+        var time = 0;
+        var duration = 600;
+        
+        document.getElementById('playBtn').onclick = function() {
+            playing = !playing;
+            this.textContent = playing ? '⏸' : '▶';
+            if (playing) playAudio();
+        };
+        
+        function playAudio() {
+            if (!playing) return;
+            time++;
+            if (time >= duration) {
+                playing = false;
+                document.getElementById('playBtn').textContent = '▶';
+                return;
+            }
+            document.getElementById('progressFill').style.width = (time / duration * 100) + '%';
+            var mins = Math.floor(time / 60);
+            var secs = time % 60;
+            document.getElementById('timeDisplay').textContent = mins + ':' + (secs < 10 ? '0' : '') + secs + ' / 10:00';
+            setTimeout(playAudio, 1000);
+        }
+        
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                var utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.9;
+                speechSynthesis.speak(utterance);
+            }
+        }
+        
+        function check(element, isCorrect) {
+            if (isCorrect) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+</html>

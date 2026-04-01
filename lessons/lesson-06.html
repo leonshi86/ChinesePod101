@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 6: 点餐 (Ordering Food) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .food-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .food-card { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; }
+        .food-card:hover { background: #fff3e0; }
+        .food-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .food-char { font-size: 1.3rem; font-family: 'Microsoft YaHei'; }
+        .food-pinyin { color: #ff6b35; font-size: 0.9rem; }
+        .food-meaning { color: #666; font-size: 0.85rem; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 50px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; font-size: 0.95rem; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-sm { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 80px; }
+        .vocab-py { color: #ff6b35; font-weight: bold; }
+        .vocab-mn { color: #666; }
+        .vocab-btn { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .quiz-section { background: #e8f5e9; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .nav-btn.disabled { background: #ccc; pointer-events: none; }
+        @media (max-width: 768px) { .food-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › Beginner</div>
+            <h1 class="lesson-title">Lesson 6: 点餐 (Ordering Food)</h1>
+            <p>Learn how to order food and drinks in Chinese.</p>
+            <div class="lesson-meta"><span>⏱ 8 minutes</span><span>📚 Beginner</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 8:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🍜 Food Vocabulary</h2>
+            <div class="food-grid">
+                <div class="food-card" onclick="speak('米饭')"><div class="food-emoji">🍚</div><div class="food-char">米饭</div><div class="food-pinyin">mǐfàn</div><div class="food-meaning">rice</div></div>
+                <div class="food-card" onclick="speak('面条')"><div class="food-emoji">🍜</div><div class="food-char">面条</div><div class="food-pinyin">miàntiáo</div><div class="food-meaning">noodles</div></div>
+                <div class="food-card" onclick="speak('饺子')"><div class="food-emoji">🥟</div><div class="food-char">饺子</div><div class="food-pinyin">jiǎozi</div><div class="food-meaning">dumplings</div></div>
+                <div class="food-card" onclick="speak('包子')"><div class="food-emoji">🥟</div><div class="food-char">包子</div><div class="food-pinyin">bāozi</div><div class="food-meaning">steamed bun</div></div>
+                <div class="food-card" onclick="speak('炒菜')"><div class="food-emoji">🥬</div><div class="food-char">炒菜</div><div class="food-pinyin">chǎocài</div><div class="food-meaning">stir-fry</div></div>
+                <div class="food-card" onclick="speak('汤')"><div class="food-emoji">🍲</div><div class="food-char">汤</div><div class="food-pinyin">tāng</div><div class="food-meaning">soup</div></div>
+                <div class="food-card" onclick="speak('咖啡')"><div class="food-emoji">☕</div><div class="food-char">咖啡</div><div class="food-pinyin">kāfēi</div><div class="food-meaning">coffee</div></div>
+                <div class="food-card" onclick="speak('茶')"><div class="food-emoji">🍵</div><div class="food-char">茶</div><div class="food-pinyin">chá</div><div class="food-meaning">tea</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - At a Restaurant</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">服务员:</span><div><div class="ch-text">请问几位？</div><div class="py-text">Qǐngwèn jǐ wèi?</div><div class="en-text">How many people?</div></div><button class="play-sm" onclick="speak('请问几位')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">两位。</div><div class="py-text">Liǎng wèi.</div><div class="en-text">Two people.</div></div><button class="play-sm" onclick="speak('两位')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">服务员:</span><div><div class="ch-text">想吃什么？</div><div class="py-text">Xiǎng chī shénme?</div><div class="en-text">What would you like to eat?</div></div><button class="play-sm" onclick="speak('想吃什么')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">我要一碗面条和一份饺子。</div><div class="py-text">Wǒ yào yì wǎn miàntiáo hé yí fèn jiǎozi.</div><div class="en-text">I want a bowl of noodles and a plate of dumplings.</div></div><button class="play-sm" onclick="speak('我要一碗面条和一份饺子')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">服务员:</span><div><div class="ch-text">喝什么？</div><div class="py-text">Hē shénme?</div><div class="en-text">What to drink?</div></div><button class="play-sm" onclick="speak('喝什么')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">请给我一杯茶。</div><div class="py-text">Qǐng gěi wǒ yì bēi chá.</div><div class="en-text">Please give me a cup of tea.</div></div><button class="play-sm" onclick="speak('请给我一杯茶')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">服务员:</span><div><div class="ch-text">好的，马上来。</div><div class="py-text">Hǎo de, mǎshàng lái.</div><div class="en-text">OK, coming right up.</div></div><button class="play-sm" onclick="speak('好的马上来')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Key Phrases</h2>
+            <div class="vocab-item"><span class="vocab-char">要</span><div><div class="vocab-py">yào</div><div class="vocab-mn">to want</div></div><button class="vocab-btn" onclick="speak('要')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">请</span><div><div class="vocab-py">qǐng</div><div class="vocab-mn">please</div></div><button class="vocab-btn" onclick="speak('请')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">给我</span><div><div class="vocab-py">gěi wǒ</div><div class="vocab-mn">give me</div></div><button class="vocab-btn" onclick="speak('给我')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">多少钱</span><div><div class="vocab-py">duōshao qián</div><div class="vocab-mn">how much</div></div><button class="vocab-btn" onclick="speak('多少钱')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">买单</span><div><div class="vocab-py">mǎidān</div><div class="vocab-mn">pay the bill</div></div><button class="vocab-btn" onclick="speak('买单')">🔊</button></div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar</h2>
+            <div class="grammar-box"><h4>我要 + quantity + food</h4><p>我要一碗面条。= I want a bowl of noodles.<br>我要两杯咖啡。= I want two cups of coffee.</p></div>
+            <div class="grammar-box"><h4>请给我 + quantity + item</h4><p>请给我一杯茶。= Please give me a cup of tea.<br>请给我三个饺子。= Please give me three dumplings.</p></div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question"><p>1. How do you say "I want rice"?</p><div class="quiz-options"><div class="quiz-option" onclick="c(this,true)">A) 我要米饭</div><div class="quiz-option" onclick="c(this,false)">B) 我吃米饭</div><div class="quiz-option" onclick="c(this,false)">C) 米饭好吃</div></div></div>
+                <div class="quiz-question"><p>2. "请问几位?" means:</p><div class="quiz-options"><div class="quiz-option" onclick="c(this,false)">A) What do you want?</div><div class="quiz-option" onclick="c(this,true)">B) How many people?</div><div class="quiz-option" onclick="c(this,false)">C) Where are you from?</div></div></div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-05.html" class="nav-btn">← Lesson 5</a>
+            <a href="lesson-07.html" class="nav-btn">Lesson 7 →</a>
+        </div>
+    </div>
+
+    <script>
+        var p=false,t=0,d=480;
+        document.getElementById('playBtn').onclick=function(){p=!p;this.textContent=p?'⏸':'▶';if(p)play()};
+        function play(){if(!p)return;t++;if(t>=d){p=false;return}document.getElementById('progressFill').style.width=(t/d*100)+'%';document.getElementById('timeDisplay').textContent=Math.floor(t/60)+':'+(t%60)+' / 8:00';setTimeout(play,1000)}
+        function speak(txt){if('speechSynthesis' in window){var u=new SpeechSynthesisUtterance(txt);u.lang='zh-CN';speechSynthesis.speak(u)}}
+        function c(el,ok){el.classList.add(ok?'correct':'wrong')}
+    </script>
+</body>
+</html>

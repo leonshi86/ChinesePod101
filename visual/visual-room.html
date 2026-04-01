@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片学中文 - My Room - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: #f0f0f0; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: all 0.3s; text-decoration: none; color: #333; }
+        .topic-tab.active { background: #ff6b35; color: white; }
+        .topic-tab:hover { background: #ddd; }
+        .learn-area { display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: start; }
+        .diagram-container { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; }
+        .room-svg { width: 100%; max-width: 600px; margin: 0 auto; display: block; }
+        .room-item { cursor: pointer; transition: all 0.3s; }
+        .room-item:hover { filter: brightness(1.1); transform: scale(1.02); }
+        .room-item.active { filter: brightness(1.2); }
+        .label-line { stroke: #ff6b35; stroke-width: 2; stroke-dasharray: 4,2; }
+        .label-dot { fill: #ff6b35; }
+        .label-text { font-family: 'Microsoft YaHei', sans-serif; font-size: 13px; fill: #333; cursor: pointer; font-weight: bold; }
+        .label-pinyin { font-size: 10px; fill: #ff6b35; cursor: pointer; }
+        .info-panel { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: sticky; top: 2rem; }
+        .info-header { text-align: center; margin-bottom: 1.5rem; }
+        .info-char { font-size: 5rem; font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; }
+        .info-pinyin { font-size: 2rem; color: #ff6b35; margin: 0.5rem 0; }
+        .info-english { font-size: 1.5rem; color: #666; }
+        .play-btn-large { width: 100%; background: #ff6b35; color: white; border: none; padding: 1rem; border-radius: 10px; font-size: 1.2rem; cursor: pointer; margin: 1rem 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .play-btn-large:hover { background: #e55a2b; }
+        .example-sentences { margin-top: 1.5rem; }
+        .example-sentences h4 { color: #1a1a2e; margin-bottom: 1rem; }
+        .example-item { background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem; cursor: pointer; }
+        .example-item:hover { background: #fff3e0; }
+        .example-zh { font-family: 'Microsoft YaHei', sans-serif; font-size: 1.1rem; }
+        .example-py { color: #ff6b35; font-size: 0.9rem; }
+        .example-en { color: #888; font-size: 0.9rem; }
+        .word-list { margin-top: 1.5rem; max-height: 300px; overflow-y: auto; }
+        .word-list h4 { color: #1a1a2e; margin-bottom: 1rem; }
+        .word-item { display: flex; align-items: center; padding: 0.8rem; background: #f8f9fa; border-radius: 8px; margin-bottom: 0.5rem; cursor: pointer; gap: 1rem; }
+        .word-item:hover { background: #fff3e0; }
+        .word-item.active { background: #fff3e0; border-left: 3px solid #ff6b35; }
+        .word-char { font-size: 1.5rem; font-family: 'Microsoft YaHei'; }
+        .word-py { color: #ff6b35; }
+        .word-en { color: #666; font-size: 0.9rem; }
+        .word-play { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 5px; cursor: pointer; margin-left: auto; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        @media (max-width: 900px) { .learn-area { grid-template-columns: 1fr; } .info-panel { position: static; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="img-page">
+        <div class="img-header">
+            <h1>🎨 图片学中文 - My Room</h1>
+            <p>Interactive Visual Learning - Click any item to learn!</p>
+        </div>
+
+        <div class="topic-tabs">
+            <a href="visual-body.html" class="topic-tab">👤 My Body</a>
+            <button class="topic-tab active">🏠 My Room</button>
+            <a href="visual-animals.html" class="topic-tab">🐱 Animals</a>
+            <a href="visual-food.html" class="topic-tab">🍎 Food</a>
+            <a href="visual-colors.html" class="topic-tab">🌈 Colors</a>
+        </div>
+
+        <div class="learn-area">
+            <div class="diagram-container">
+                <svg class="room-svg" viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Room Background -->
+                    <rect x="0" y="0" width="600" height="450" fill="#FFF8E7"/>
+                    
+                    <!-- Floor -->
+                    <rect x="0" y="320" width="600" height="130" fill="#DEB887"/>
+                    
+                    <!-- Back Wall -->
+                    <rect x="0" y="0" width="600" height="320" fill="#FFEFD5"/>
+                    
+                    <!-- Window -->
+                    <rect class="room-item" id="window" x="400" y="50" width="150" height="180" fill="#87CEEB" stroke="#8B4513" stroke-width="8" onclick="selectPart('window')"/>
+                    <line x1="475" y1="50" x2="475" y2="230" stroke="#8B4513" stroke-width="4"/>
+                    <line x1="400" y1="140" x2="550" y2="140" stroke="#8B4513" stroke-width="4"/>
+                    
+                    <!-- Curtains -->
+                    <path d="M390 40 Q380 140 390 240" fill="none" stroke="#CD853F" stroke-width="15"/>
+                    <path d="M560 40 Q570 140 560 240" fill="none" stroke="#CD853F" stroke-width="15"/>
+                    
+                    <!-- Bed -->
+                    <rect class="room-item" id="bed" x="30" y="200" width="220" height="150" rx="10" fill="#E6E6FA" stroke="#9370DB" stroke-width="3" onclick="selectPart('bed')"/>
+                    <rect x="30" y="180" width="220" height="30" rx="5" fill="#9370DB"/>
+                    <rect x="40" y="210" width="80" height="60" fill="#FFF" rx="5"/>
+                    <rect x="130" y="210" width="80" height="60" fill="#FFF" rx="5"/>
+                    <ellipse cx="80" cy="240" rx="30" ry="20" fill="#FFB6C1"/>
+                    <ellipse cx="170" cy="240" rx="30" ry="20" fill="#87CEEB"/>
+                    
+                    <!-- Pillow -->
+                    <rect class="room-item" id="pillow" x="50" y="185" width="60" height="25" rx="5" fill="#FFF" stroke="#DDD" onclick="selectPart('pillow')"/>
+                    
+                    <!-- Desk -->
+                    <rect class="room-item" id="desk" x="300" y="250" width="180" height="80" fill="#8B4513" stroke="#654321" stroke-width="2" onclick="selectPart('desk')"/>
+                    <rect x="310" y="330" width="20" height="50" fill="#654321"/>
+                    <rect x="450" y="330" width="20" height="50" fill="#654321"/>
+                    
+                    <!-- Computer -->
+                    <rect class="room-item" id="computer" x="350" y="210" width="80" height="50" fill="#333" stroke="#222" stroke-width="2" onclick="selectPart('computer')"/>
+                    <rect x="355" y="215" width="70" height="40" fill="#4A90D9"/>
+                    <rect x="375" y="260" width="30" height="10" fill="#333"/>
+                    <rect x="365" y="268" width="50" height="5" fill="#333"/>
+                    
+                    <!-- Chair -->
+                    <rect class="room-item" id="chair" x="360" y="340" width="60" height="10" fill="#4169E1" onclick="selectPart('chair')"/>
+                    <rect x="360" y="350" width="60" height="50" fill="#4169E1"/>
+                    <rect x="365" y="400" width="10" height="30" fill="#333"/>
+                    <rect x="405" y="400" width="10" height="30" fill="#333"/>
+                    
+                    <!-- Bookshelf -->
+                    <rect class="room-item" id="bookshelf" x="500" y="250" width="80" height="150" fill="#8B4513" stroke="#654321" stroke-width="2" onclick="selectPart('bookshelf')"/>
+                    <rect x="505" y="255" width="70" height="30" fill="#FF6B6B"/>
+                    <rect x="505" y="290" width="70" height="30" fill="#4ECDC4"/>
+                    <rect x="505" y="325" width="70" height="30" fill="#FFE66D"/>
+                    <rect x="505" y="360" width="70" height="30" fill="#95E1D3"/>
+                    
+                    <!-- Lamp -->
+                    <rect class="room-item" id="lamp" x="280" y="280" width="15" height="70" fill="#333" onclick="selectPart('lamp')"/>
+                    <ellipse cx="287" cy="270" rx="25" ry="20" fill="#FFD700"/>
+                    <ellipse cx="287" cy="265" rx="20" ry="15" fill="#FFF8DC"/>
+                    
+                    <!-- Door -->
+                    <rect class="room-item" id="door" x="10" y="100" width="70" height="220" fill="#DEB887" stroke="#8B4513" stroke-width="4" onclick="selectPart('door')"/>
+                    <circle cx="70" cy="210" r="6" fill="#FFD700"/>
+                    
+                    <!-- Clock -->
+                    <circle class="room-item" id="clock" cx="320" cy="80" r="35" fill="#FFF" stroke="#333" stroke-width="3" onclick="selectPart('clock')"/>
+                    <line x1="320" y1="80" x2="320" y2="55" stroke="#333" stroke-width="3"/>
+                    <line x1="320" y1="80" x2="340" y2="80" stroke="#333" stroke-width="2"/>
+                    <circle cx="320" cy="80" r="4" fill="#FF6B35"/>
+                    
+                    <!-- Picture/Photo -->
+                    <rect class="room-item" id="picture" x="200" y="50" width="80" height="60" fill="#FFF" stroke="#8B4513" stroke-width="5" onclick="selectPart('picture')"/>
+                    <circle cx="230" cy="75" r="15" fill="#FFB6C1"/>
+                    <rect x="215" y="90" width="30" height="15" fill="#87CEEB"/>
+                    
+                    <!-- Rug -->
+                    <ellipse class="room-item" id="rug" cx="300" cy="400" rx="100" ry="40" fill="#E74C3C" opacity="0.7" onclick="selectPart('rug')"/>
+                    
+                    <!-- Labels -->
+                    <g id="labels">
+                        <!-- Bed -->
+                        <line class="label-line" x1="140" y1="200" x2="140" y2="160"/>
+                        <circle class="label-dot" cx="140" cy="160" r="4"/>
+                        <text class="label-text" x="100" y="155">床</text>
+                        <text class="label-pinyin" x="100" y="168">chuáng</text>
+                        
+                        <!-- Desk -->
+                        <line class="label-line" x1="390" y1="250" x2="390" y2="195"/>
+                        <circle class="label-dot" cx="390" cy="195" r="4"/>
+                        <text class="label-text" x="365" y="190">桌子</text>
+                        <text class="label-pinyin" x="365" y="203">zhuōzi</text>
+                        
+                        <!-- Chair -->
+                        <line class="label-line" x1="420" y1="370" x2="480" y2="370"/>
+                        <circle class="label-dot" cx="480" cy="370" r="4"/>
+                        <text class="label-text" x="490" y="368">椅子</text>
+                        <text class="label-pinyin" x="490" y="381">yǐzi</text>
+                        
+                        <!-- Window -->
+                        <line class="label-line" x1="520" y1="100" x2="570" y2="70"/>
+                        <circle class="label-dot" cx="570" cy="70" r="4"/>
+                        <text class="label-text" x="560" y="55">窗户</text>
+                        <text class="label-pinyin" x="560" y="68">chuānghu</text>
+                        
+                        <!-- Door -->
+                        <line class="label-line" x1="45" y1="100" x2="45" y2="60"/>
+                        <circle class="label-dot" cx="45" cy="60" r="4"/>
+                        <text class="label-text" x="25" y="55">门</text>
+                        <text class="label-pinyin" x="20" y="68">mén</text>
+                        
+                        <!-- Lamp -->
+                        <line class="label-line" x1="260" y1="270" x2="220" y2="250"/>
+                        <circle class="label-dot" cx="220" cy="250" r="4"/>
+                        <text class="label-text" x="180" y="248">灯</text>
+                        <text class="label-pinyin" x="180" y="261">dēng</text>
+                        
+                        <!-- Clock -->
+                        <line class="label-line" x1="355" y1="80" x2="400" y2="50"/>
+                        <circle class="label-dot" cx="400" cy="50" r="4"/>
+                        <text class="label-text" x="410" y="48">钟</text>
+                        <text class="label-pinyin" x="410" y="61">zhōng</text>
+                        
+                        <!-- Computer -->
+                        <line class="label-line" x1="430" y1="235" x2="470" y2="220"/>
+                        <circle class="label-dot" cx="470" cy="220" r="4"/>
+                        <text class="label-text" x="480" y="218">电脑</text>
+                        <text class="label-pinyin" x="480" y="231">diànnǎo</text>
+                        
+                        <!-- Bookshelf -->
+                        <line class="label-line" x1="540" y1="250" x2="570" y2="230"/>
+                        <circle class="label-dot" cx="570" cy="230" r="4"/>
+                        <text class="label-text" x="555" y="220">书架</text>
+                        <text class="label-pinyin" x="555" y="233">shūjià</text>
+                        
+                        <!-- Picture -->
+                        <line class="label-line" x1="240" y1="50" x2="240" y2="25"/>
+                        <circle class="label-dot" cx="240" cy="25" r="4"/>
+                        <text class="label-text" x="220" y="22">画</text>
+                        <text class="label-pinyin" x="220" y="35">huà</text>
+                    </g>
+                </svg>
+                <p style="text-align:center; color:#888; margin-top:1rem;">👆 点击房间里的物品学习中文！</p>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-header">
+                    <div class="info-char" id="infoChar">床</div>
+                    <div class="info-pinyin" id="infoPinyin">chuáng</div>
+                    <div class="info-english" id="infoEnglish">bed</div>
+                </div>
+                
+                <button class="play-btn-large" onclick="playCurrent()">🔊 听发音</button>
+                
+                <div class="example-sentences">
+                    <h4>📝 例句 Examples</h4>
+                    <div class="example-item" onclick="speak('我在床上睡觉')">
+                        <div class="example-zh">我在床上睡觉。</div>
+                        <div class="example-py">Wǒ zài chuáng shàng shuìjiào.</div>
+                        <div class="example-en">I sleep on the bed.</div>
+                    </div>
+                    <div class="example-item" onclick="speak('这张床很舒服')">
+                        <div class="example-zh">这张床很舒服。</div>
+                        <div class="example-py">Zhè zhāng chuáng hěn shūfu.</div>
+                        <div class="example-en">This bed is very comfortable.</div>
+                    </div>
+                </div>
+                
+                <div class="word-list">
+                    <h4>📚 所有单词 All Words</h4>
+                    <div class="word-item active" onclick="selectPart('bed')"><span class="word-char">床</span><div><span class="word-py">chuáng</span> <span class="word-en">bed</span></div><button class="word-play" onclick="event.stopPropagation();speak('床')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('desk')"><span class="word-char">桌子</span><div><span class="word-py">zhuōzi</span> <span class="word-en">desk</span></div><button class="word-play" onclick="event.stopPropagation();speak('桌子')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('chair')"><span class="word-char">椅子</span><div><span class="word-py">yǐzi</span> <span class="word-en">chair</span></div><button class="word-play" onclick="event.stopPropagation();speak('椅子')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('window')"><span class="word-char">窗户</span><div><span class="word-py">chuānghu</span> <span class="word-en">window</span></div><button class="word-play" onclick="event.stopPropagation();speak('窗户')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('door')"><span class="word-char">门</span><div><span class="word-py">mén</span> <span class="word-en">door</span></div><button class="word-play" onclick="event.stopPropagation();speak('门')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('lamp')"><span class="word-char">灯</span><div><span class="word-py">dēng</span> <span class="word-en">lamp</span></div><button class="word-play" onclick="event.stopPropagation();speak('灯')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('clock')"><span class="word-char">钟</span><div><span class="word-py">zhōng</span> <span class="word-en">clock</span></div><button class="word-play" onclick="event.stopPropagation();speak('钟')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('computer')"><span class="word-char">电脑</span><div><span class="word-py">diànnǎo</span> <span class="word-en">computer</span></div><button class="word-play" onclick="event.stopPropagation();speak('电脑')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('bookshelf')"><span class="word-char">书架</span><div><span class="word-py">shūjià</span> <span class="word-en">bookshelf</span></div><button class="word-play" onclick="event.stopPropagation();speak('书架')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('picture')"><span class="word-char">画</span><div><span class="word-py">huà</span> <span class="word-en">picture</span></div><button class="word-play" onclick="event.stopPropagation();speak('画')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('pillow')"><span class="word-char">枕头</span><div><span class="word-py">zhěntou</span> <span class="word-en">pillow</span></div><button class="word-play" onclick="event.stopPropagation();speak('枕头')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('rug')"><span class="word-char">地毯</span><div><span class="word-py">dìtǎn</span> <span class="word-en">rug</span></div><button class="word-play" onclick="event.stopPropagation();speak('地毯')">🔊</button></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="visual-body.html" class="nav-btn">← My Body</a>
+            <a href="visual-animals.html" class="nav-btn">Animals →</a>
+        </div>
+    </div>
+
+    <script>
+        const roomItems = {
+            bed: { char: '床', pinyin: 'chuáng', english: 'bed', examples: ['我在床上睡觉', '这张床很舒服'] },
+            desk: { char: '桌子', pinyin: 'zhuōzi', english: 'desk', examples: ['桌子上有一本书', '我在桌子旁边学习'] },
+            chair: { char: '椅子', pinyin: 'yǐzi', english: 'chair', examples: ['请坐椅子', '这把椅子很舒服'] },
+            window: { char: '窗户', pinyin: 'chuānghu', english: 'window', examples: ['打开窗户', '窗户很大'] },
+            door: { char: '门', pinyin: 'mén', english: 'door', examples: ['关门', '开门'] },
+            lamp: { char: '灯', pinyin: 'dēng', english: 'lamp', examples: ['开灯', '关灯'] },
+            clock: { char: '钟', pinyin: 'zhōng', english: 'clock', examples: ['墙上有钟', '钟几点了'] },
+            computer: { char: '电脑', pinyin: 'diànnǎo', english: 'computer', examples: ['我用电脑工作', '电脑在桌子上'] },
+            bookshelf: { char: '书架', pinyin: 'shūjià', english: 'bookshelf', examples: ['书架上有很多书', '书架在墙边'] },
+            picture: { char: '画', pinyin: 'huà', english: 'picture', examples: ['墙上有一幅画', '这幅画很漂亮'] },
+            pillow: { char: '枕头', pinyin: 'zhěntou', english: 'pillow', examples: ['枕头很软', '我的枕头是白色的'] },
+            rug: { char: '地毯', pinyin: 'dìtǎn', english: 'rug', examples: ['地毯是红色的', '坐在地毯上'] }
+        };
+
+        let currentPart = 'bed';
+
+        function selectPart(partId) {
+            currentPart = partId;
+            const part = roomItems[partId];
+            if (!part) return;
+            
+            document.getElementById('infoChar').textContent = part.char;
+            document.getElementById('infoPinyin').textContent = part.pinyin;
+            document.getElementById('infoEnglish').textContent = part.english;
+            
+            document.querySelectorAll('.word-item').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.word-item').forEach(item => {
+                if (item.querySelector('.word-char').textContent === part.char) {
+                    item.classList.add('active');
+                }
+            });
+            
+            document.querySelectorAll('.room-item').forEach(el => el.classList.remove('active'));
+            const targetEl = document.getElementById(partId);
+            if (targetEl) targetEl.classList.add('active');
+            
+            speak(part.char);
+        }
+
+        function playCurrent() {
+            const part = roomItems[currentPart];
+            if (part) speak(part.char);
+        }
+
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+        }
+    </script>
+</body>
+</html>

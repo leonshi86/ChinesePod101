@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片学中文 - Animals - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #11998e, #38ef7d); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: #f0f0f0; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: all 0.3s; text-decoration: none; color: #333; }
+        .topic-tab.active { background: #ff6b35; color: white; }
+        .topic-tab:hover { background: #ddd; }
+        .learn-area { display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: start; }
+        .diagram-container { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .animals-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .animal-card { background: #f8f9fa; padding: 1.5rem; border-radius: 15px; text-align: center; cursor: pointer; transition: all 0.3s; border: 3px solid transparent; }
+        .animal-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .animal-card.active { border-color: #ff6b35; background: #fff3e0; }
+        .animal-emoji { font-size: 4rem; margin-bottom: 0.5rem; }
+        .animal-char { font-size: 1.5rem; font-family: 'Microsoft YaHei'; color: #1a1a2e; }
+        .animal-pinyin { color: #ff6b35; font-size: 1rem; }
+        .info-panel { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: sticky; top: 2rem; }
+        .info-header { text-align: center; margin-bottom: 1.5rem; }
+        .info-emoji { font-size: 6rem; }
+        .info-char { font-size: 4rem; font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; }
+        .info-pinyin { font-size: 2rem; color: #ff6b35; margin: 0.5rem 0; }
+        .info-english { font-size: 1.5rem; color: #666; }
+        .play-btn-large { width: 100%; background: #ff6b35; color: white; border: none; padding: 1rem; border-radius: 10px; font-size: 1.2rem; cursor: pointer; margin: 1rem 0; }
+        .play-btn-large:hover { background: #e55a2b; }
+        .example-sentences { margin-top: 1.5rem; }
+        .example-sentences h4 { color: #1a1a2e; margin-bottom: 1rem; }
+        .example-item { background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem; cursor: pointer; }
+        .example-item:hover { background: #fff3e0; }
+        .example-zh { font-family: 'Microsoft YaHei', sans-serif; font-size: 1.1rem; }
+        .example-py { color: #ff6b35; font-size: 0.9rem; }
+        .example-en { color: #888; font-size: 0.9rem; }
+        .sound-section { margin-top: 1.5rem; padding: 1rem; background: #e8f5e9; border-radius: 10px; }
+        .sound-section h4 { color: #2e7d32; margin-bottom: 0.5rem; }
+        .sound-btn { background: #4caf50; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+        .sound-btn:hover { background: #388e3c; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        @media (max-width: 900px) { .learn-area { grid-template-columns: 1fr; } .animals-grid { grid-template-columns: repeat(2, 1fr); } .info-panel { position: static; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="img-page">
+        <div class="img-header">
+            <h1>🎨 图片学中文 - Animals</h1>
+            <p>Interactive Visual Learning - Click any animal to learn!</p>
+        </div>
+
+        <div class="topic-tabs">
+            <a href="visual-body.html" class="topic-tab">👤 My Body</a>
+            <a href="visual-room.html" class="topic-tab">🏠 My Room</a>
+            <button class="topic-tab active">🐱 Animals</button>
+            <a href="visual-food.html" class="topic-tab">🍎 Food</a>
+            <a href="visual-colors.html" class="topic-tab">🌈 Colors</a>
+        </div>
+
+        <div class="learn-area">
+            <div class="diagram-container">
+                <div class="animals-grid">
+                    <div class="animal-card active" onclick="selectAnimal('dog')"><div class="animal-emoji">🐕</div><div class="animal-char">狗</div><div class="animal-pinyin">gǒu</div></div>
+                    <div class="animal-card" onclick="selectAnimal('cat')"><div class="animal-emoji">🐱</div><div class="animal-char">猫</div><div class="animal-pinyin">māo</div></div>
+                    <div class="animal-card" onclick="selectAnimal('bird')"><div class="animal-emoji">🐦</div><div class="animal-char">鸟</div><div class="animal-pinyin">niǎo</div></div>
+                    <div class="animal-card" onclick="selectAnimal('fish')"><div class="animal-emoji">🐟</div><div class="animal-char">鱼</div><div class="animal-pinyin">yú</div></div>
+                    <div class="animal-card" onclick="selectAnimal('rabbit')"><div class="animal-emoji">🐰</div><div class="animal-char">兔子</div><div class="animal-pinyin">tùzi</div></div>
+                    <div class="animal-card" onclick="selectAnimal('chicken')"><div class="animal-emoji">🐔</div><div class="animal-char">鸡</div><div class="animal-pinyin">jī</div></div>
+                    <div class="animal-card" onclick="selectAnimal('pig')"><div class="animal-emoji">🐷</div><div class="animal-char">猪</div><div class="animal-pinyin">zhū</div></div>
+                    <div class="animal-card" onclick="selectAnimal('cow')"><div class="animal-emoji">🐄</div><div class="animal-char">牛</div><div class="animal-pinyin">niú</div></div>
+                    <div class="animal-card" onclick="selectAnimal('sheep')"><div class="animal-emoji">🐑</div><div class="animal-char">羊</div><div class="animal-pinyin">yáng</div></div>
+                    <div class="animal-card" onclick="selectAnimal('horse')"><div class="animal-emoji">🐴</div><div class="animal-char">马</div><div class="animal-pinyin">mǎ</div></div>
+                    <div class="animal-card" onclick="selectAnimal('duck')"><div class="animal-emoji">🦆</div><div class="animal-char">鸭子</div><div class="animal-pinyin">yāzi</div></div>
+                    <div class="animal-card" onclick="selectAnimal('mouse')"><div class="animal-emoji">🐭</div><div class="animal-char">老鼠</div><div class="animal-pinyin">lǎoshǔ</div></div>
+                    <div class="animal-card" onclick="selectAnimal('elephant')"><div class="animal-emoji">🐘</div><div class="animal-char">大象</div><div class="animal-pinyin">dàxiàng</div></div>
+                    <div class="animal-card" onclick="selectAnimal('tiger')"><div class="animal-emoji">🐯</div><div class="animal-char">老虎</div><div class="animal-pinyin">lǎohǔ</div></div>
+                    <div class="animal-card" onclick="selectAnimal('lion')"><div class="animal-emoji">🦁</div><div class="animal-char">狮子</div><div class="animal-pinyin">shīzi</div></div>
+                    <div class="animal-card" onclick="selectAnimal('monkey')"><div class="animal-emoji">🐵</div><div class="animal-char">猴子</div><div class="animal-pinyin">hóuzi</div></div>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-header">
+                    <div class="info-emoji" id="infoEmoji">🐕</div>
+                    <div class="info-char" id="infoChar">狗</div>
+                    <div class="info-pinyin" id="infoPinyin">gǒu</div>
+                    <div class="info-english" id="infoEnglish">dog</div>
+                </div>
+                
+                <button class="play-btn-large" onclick="playCurrent()">🔊 听发音</button>
+                
+                <div class="example-sentences">
+                    <h4>📝 例句 Examples</h4>
+                    <div class="example-item" id="example1" onclick="speak('我有一只狗')">
+                        <div class="example-zh">我有一只狗。</div>
+                        <div class="example-py">Wǒ yǒu yì zhī gǒu.</div>
+                        <div class="example-en">I have a dog.</div>
+                    </div>
+                    <div class="example-item" id="example2" onclick="speak('狗很可爱')">
+                        <div class="example-zh">狗很可爱。</div>
+                        <div class="example-py">Gǒu hěn kě'ài.</div>
+                        <div class="example-en">Dogs are cute.</div>
+                    </div>
+                </div>
+                
+                <div class="sound-section">
+                    <h4>🔊 动物叫声 Animal Sounds</h4>
+                    <button class="sound-btn" onclick="speak('汪汪')">汪汪 (wāng wāng)</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="visual-room.html" class="nav-btn">← My Room</a>
+            <a href="visual-food.html" class="nav-btn">Food →</a>
+        </div>
+    </div>
+
+    <script>
+        const animals = {
+            dog: { emoji: '🐕', char: '狗', pinyin: 'gǒu', english: 'dog', examples: ['我有一只狗', '狗很可爱'], sound: '汪汪', soundPinyin: 'wāng wāng' },
+            cat: { emoji: '🐱', char: '猫', pinyin: 'māo', english: 'cat', examples: ['猫喜欢吃鱼', '小猫很可爱'], sound: '喵喵', soundPinyin: 'miāo miāo' },
+            bird: { emoji: '🐦', char: '鸟', pinyin: 'niǎo', english: 'bird', examples: ['鸟会飞', '树上有鸟'], sound: '叽叽喳喳', soundPinyin: 'jīji zhāzhā' },
+            fish: { emoji: '🐟', char: '鱼', pinyin: 'yú', english: 'fish', examples: ['鱼在水里游', '我喜欢吃鱼'], sound: '吐泡泡', soundPinyin: 'tǔ pàopao' },
+            rabbit: { emoji: '🐰', char: '兔子', pinyin: 'tùzi', english: 'rabbit', examples: ['兔子有长耳朵', '兔子吃胡萝卜'], sound: '蹦蹦跳跳', soundPinyin: 'bèngbèng tiàotiào' },
+            chicken: { emoji: '🐔', char: '鸡', pinyin: 'jī', english: 'chicken', examples: ['公鸡会打鸣', '母鸡下蛋'], sound: '咯咯咯', soundPinyin: 'gē gē gē' },
+            pig: { emoji: '🐷', char: '猪', pinyin: 'zhū', english: 'pig', examples: ['猪很胖', '猪喜欢睡觉'], sound: '哼哼', soundPinyin: 'hēng hēng' },
+            cow: { emoji: '🐄', char: '牛', pinyin: 'niú', english: 'cow', examples: ['牛吃草', '牛奶很好喝'], sound: '哞哞', soundPinyin: 'mōu mōu' },
+            sheep: { emoji: '🐑', char: '羊', pinyin: 'yáng', english: 'sheep', examples: ['羊有羊毛', '羊群在山上'], sound: '咩咩', soundPinyin: 'miē miē' },
+            horse: { emoji: '🐴', char: '马', pinyin: 'mǎ', english: 'horse', examples: ['马跑得快', '骑马'], sound: '嘶', soundPinyin: 'sī' },
+            duck: { emoji: '🦆', char: '鸭子', pinyin: 'yāzi', english: 'duck', examples: ['鸭子会游泳', '鸭子叫嘎嘎'], sound: '嘎嘎', soundPinyin: 'gā gā' },
+            mouse: { emoji: '🐭', char: '老鼠', pinyin: 'lǎoshǔ', english: 'mouse', examples: ['老鼠偷吃东西', '猫抓老鼠'], sound: '吱吱', soundPinyin: 'zī zī' },
+            elephant: { emoji: '🐘', char: '大象', pinyin: 'dàxiàng', english: 'elephant', examples: ['大象有长鼻子', '大象很大'], sound: '昂', soundPinyin: 'áng' },
+            tiger: { emoji: '🐯', char: '老虎', pinyin: 'lǎohǔ', english: 'tiger', examples: ['老虎是森林之王', '老虎有条纹'], sound: '吼', soundPinyin: 'hǒu' },
+            lion: { emoji: '🦁', char: '狮子', pinyin: 'shīzi', english: 'lion', examples: ['狮子很威猛', '雄狮有鬃毛'], sound: '吼', soundPinyin: 'hǒu' },
+            monkey: { emoji: '🐵', char: '猴子', pinyin: 'hóuzi', english: 'monkey', examples: ['猴子喜欢爬树', '猴子吃香蕉'], sound: '吱吱', soundPinyin: 'zī zī' }
+        };
+
+        let currentAnimal = 'dog';
+
+        function selectAnimal(animalId) {
+            currentAnimal = animalId;
+            const animal = animals[animalId];
+            if (!animal) return;
+            
+            document.getElementById('infoEmoji').textContent = animal.emoji;
+            document.getElementById('infoChar').textContent = animal.char;
+            document.getElementById('infoPinyin').textContent = animal.pinyin;
+            document.getElementById('infoEnglish').textContent = animal.english;
+            
+            document.getElementById('example1').innerHTML = `<div class="example-zh">${animal.examples[0]}。</div><div class="example-py">${animal.examples[0]}</div><div class="example-en">${animal.examples[0]}</div>`;
+            document.getElementById('example2').innerHTML = `<div class="example-zh">${animal.examples[1]}。</div><div class="example-py">${animal.examples[1]}</div><div class="example-en">${animal.examples[1]}</div>`;
+            
+            document.querySelector('.sound-section').innerHTML = `<h4>🔊 动物叫声 Animal Sounds</h4><button class="sound-btn" onclick="speak('${animal.sound}')">${animal.sound} (${animal.soundPinyin})</button>`;
+            
+            document.querySelectorAll('.animal-card').forEach(card => card.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            speak(animal.char);
+        }
+
+        function playCurrent() {
+            const animal = animals[currentAnimal];
+            if (animal) speak(animal.char);
+        }
+
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+        }
+    </script>
+</body>
+</html>

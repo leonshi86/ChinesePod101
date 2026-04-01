@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2: 数字 (Numbers) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; font-size: 0.9rem; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; border-radius: 4px; width: 0%; }
+        .time-display { color: #aaa; font-size: 0.9rem; min-width: 80px; }
+        .player-options { display: flex; gap: 1rem; }
+        .speed-btn, .loop-btn { background: #333; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #ff6b35; }
+        .number-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+        .number-card { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; transition: transform 0.2s; }
+        .number-card:hover { transform: scale(1.05); background: #fff3e0; }
+        .number-char { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; }
+        .number-pinyin { color: #ff6b35; font-size: 1.1rem; margin: 0.5rem 0; }
+        .number-digit { color: #666; }
+        .tip-box { background: #e3f2fd; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #1976d2; margin: 1rem 0; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; align-items: flex-start; }
+        .dialogue-line:last-child { border-bottom: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 60px; }
+        .chinese-text { font-size: 1.2rem; font-family: 'Microsoft YaHei', sans-serif; }
+        .pinyin-text { color: #666; font-size: 0.95rem; }
+        .english-text { color: #888; font-size: 0.9rem; }
+        .play-line { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei', sans-serif; min-width: 80px; }
+        .vocab-pinyin { color: #ff6b35; font-weight: bold; }
+        .vocab-meaning { color: #666; }
+        .vocab-audio { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-point { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .quiz-section { background: #e8f5e9; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; margin-bottom: 0.5rem; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .downloads { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .download-btn { background: #1a1a2e; color: white; padding: 0.8rem 1.5rem; border-radius: 5px; text-decoration: none; }
+        @media (max-width: 768px) { .number-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › Beginner › Survival Chinese</div>
+            <h1 class="lesson-title">Lesson 2: 数字 (Numbers)</h1>
+            <p>Learn to count from 1 to 99 and talk about age and phone numbers.</p>
+            <div class="lesson-meta"><span>⏱ 8 minutes</span><span>📚 Beginner</span><span>🎯 Survival Chinese</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 8:00</div>
+            </div>
+            <div class="player-options">
+                <button class="speed-btn" id="speedBtn">1x Speed</button>
+                <button class="loop-btn" id="loopBtn">🔁 Loop</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔢 Numbers 1-10</h2>
+            <p>Click any number to hear pronunciation:</p>
+            <div class="number-grid">
+                <div class="number-card" onclick="speak('一')"><div class="number-char">一</div><div class="number-pinyin">yī</div><div class="number-digit">1</div></div>
+                <div class="number-card" onclick="speak('二')"><div class="number-char">二</div><div class="number-pinyin">èr</div><div class="number-digit">2</div></div>
+                <div class="number-card" onclick="speak('三')"><div class="number-char">三</div><div class="number-pinyin">sān</div><div class="number-digit">3</div></div>
+                <div class="number-card" onclick="speak('四')"><div class="number-char">四</div><div class="number-pinyin">sì</div><div class="number-digit">4</div></div>
+                <div class="number-card" onclick="speak('五')"><div class="number-char">五</div><div class="number-pinyin">wǔ</div><div class="number-digit">5</div></div>
+                <div class="number-card" onclick="speak('六')"><div class="number-char">六</div><div class="number-pinyin">liù</div><div class="number-digit">6</div></div>
+                <div class="number-card" onclick="speak('七')"><div class="number-char">七</div><div class="number-pinyin">qī</div><div class="number-digit">7</div></div>
+                <div class="number-card" onclick="speak('八')"><div class="number-char">八</div><div class="number-pinyin">bā</div><div class="number-digit">8</div></div>
+                <div class="number-card" onclick="speak('九')"><div class="number-char">九</div><div class="number-pinyin">jiǔ</div><div class="number-digit">9</div></div>
+                <div class="number-card" onclick="speak('十')"><div class="number-char">十</div><div class="number-pinyin">shí</div><div class="number-digit">10</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔢 Numbers 11-99</h2>
+            <div class="tip-box">
+                <strong>💡 Pattern:</strong><br>
+                11-19: 十 + number → 十一(11), 十二(12)...<br>
+                20,30...: number + 十 → 二十(20), 三十(30)...<br>
+                21-99: number + 十 + number → 二十一(21), 三十五(35)...
+            </div>
+            <div class="number-grid">
+                <div class="number-card" onclick="speak('十一')"><div class="number-char">十一</div><div class="number-pinyin">shíyī</div><div class="number-digit">11</div></div>
+                <div class="number-card" onclick="speak('二十')"><div class="number-char">二十</div><div class="number-pinyin">èrshí</div><div class="number-digit">20</div></div>
+                <div class="number-card" onclick="speak('二十一')"><div class="number-char">二十一</div><div class="number-pinyin">èrshíyī</div><div class="number-digit">21</div></div>
+                <div class="number-card" onclick="speak('三十')"><div class="number-char">三十</div><div class="number-pinyin">sānshí</div><div class="number-digit">30</div></div>
+                <div class="number-card" onclick="speak('九十九')"><div class="number-char">九十九</div><div class="number-pinyin">jiǔshíjiǔ</div><div class="number-digit">99</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="chinese-text">你几岁？</div><div class="pinyin-text">Nǐ jǐ suì?</div><div class="english-text">How old are you?</div></div><button class="play-line" onclick="speak('你几岁')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="chinese-text">我二十五岁。</div><div class="pinyin-text">Wǒ èrshíwǔ suì.</div><div class="english-text">I'm 25 years old.</div></div><button class="play-line" onclick="speak('我二十五岁')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="chinese-text">你的电话号码是多少？</div><div class="pinyin-text">Nǐ de diànhuà hàomǎ shì duōshao?</div><div class="english-text">What's your phone number?</div></div><button class="play-line" onclick="speak('你的电话号码是多少')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="chinese-text">一三八一二三四五六七八。</div><div class="pinyin-text">Yī-sān-bā-yī-èr-sān-sì-wǔ-liù-qī-bā.</div><div class="english-text">138-1234-5678</div></div><button class="play-line" onclick="speak('一三八一二三四五六七八')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Vocabulary</h2>
+            <div class="vocab-item"><span class="vocab-char">几</span><div><div class="vocab-pinyin">jǐ</div><div class="vocab-meaning">how many</div></div><button class="vocab-audio" onclick="speak('几')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">岁</span><div><div class="vocab-pinyin">suì</div><div class="vocab-meaning">year (age)</div></div><button class="vocab-audio" onclick="speak('岁')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">电话</span><div><div class="vocab-pinyin">diànhuà</div><div class="vocab-meaning">telephone</div></div><button class="vocab-audio" onclick="speak('电话')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">号码</span><div><div class="vocab-pinyin">hàomǎ</div><div class="vocab-meaning">number</div></div><button class="vocab-audio" onclick="speak('号码')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">多少</span><div><div class="vocab-pinyin">duōshao</div><div class="vocab-meaning">how much</div></div><button class="vocab-audio" onclick="speak('多少')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">零</span><div><div class="vocab-pinyin">líng</div><div class="vocab-meaning">zero</div></div><button class="vocab-audio" onclick="speak('零')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">百</span><div><div class="vocab-pinyin">bǎi</div><div class="vocab-meaning">hundred</div></div><button class="vocab-audio" onclick="speak('百')">🔊</button></div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            <div class="grammar-point"><h4>1. 几岁 (jǐ suì) - Asking age</h4><p>Used for children or young people. For adults, use 您多大？ (Nín duō dà?)</p></div>
+            <div class="grammar-point"><h4>2. 电话号码 (diànhuà hàomǎ)</h4><p>Phone numbers are read digit by digit: 一三八... not 一百三十八</p></div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question"><p>1. What is "三十五"?</p><div class="quiz-options"><div class="quiz-option" onclick="check(this,false)">A) 25</div><div class="quiz-option" onclick="check(this,true)">B) 35</div><div class="quiz-option" onclick="check(this,false)">C) 53</div></div></div>
+                <div class="quiz-question"><p>2. How do you say "zero"?</p><div class="quiz-options"><div class="quiz-option" onclick="check(this,false)">A) 一</div><div class="quiz-option" onclick="check(this,true)">B) 零</div><div class="quiz-option" onclick="check(this,false)">C) 十</div></div></div>
+                <div class="quiz-question"><p>3. "你几岁?" means:</p><div class="quiz-options"><div class="quiz-option" onclick="check(this,false)">A) What's your name?</div><div class="quiz-option" onclick="check(this,true)">B) How old are you?</div><div class="quiz-option" onclick="check(this,false)">C) Where are you?</div></div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📥 Downloads</h2>
+            <div class="downloads"><a href="#" class="download-btn">📄 PDF</a><a href="#" class="download-btn">🎵 MP3</a></div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-01.html" class="nav-btn">← Lesson 1</a>
+            <a href="#" class="nav-btn" style="background:#ccc">Lesson 3 →</a>
+        </div>
+    </div>
+
+    <script>
+        let playing=false,time=0,duration=480,speed=1,loop=false;
+        document.getElementById('playBtn').onclick=function(){playing=!playing;this.textContent=playing?'⏸':'▶';if(playing)play()};
+        document.getElementById('speedBtn').onclick=function(){speed=speed==1?0.5:speed==0.5?1.5:1;this.textContent=speed+'x'};
+        document.getElementById('loopBtn').onclick=function(){loop=!loop;this.style.background=loop?'#ff6b35':'#333'};
+        function play(){if(!playing)return;time+=speed;if(time>=duration){if(loop)time=0;else{playing=false;document.getElementById('playBtn').textContent='▶';return}}document.getElementById('progressFill').style.width=(time/duration*100)+'%';document.getElementById('timeDisplay').textContent=Math.floor(time/60)+':'+Math.floor(time%60)+' / 8:00';setTimeout(play,1000)}
+        function speak(t){if('speechSynthesis' in window){var u=new SpeechSynthesisUtterance(t);u.lang='zh-CN';u.rate=0.8;speechSynthesis.speak(u)}}
+        function check(el,ok){el.classList.add(ok?'correct':'wrong')}
+    </script>
+</body>
+</html>
