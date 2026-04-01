@@ -31,7 +31,7 @@ ChinesePod101/
     └── fonts/
 ```
 
-## 网站结构（模仿IndonesianPod101）
+## 网站结构
 
 ### 首页模块
 
