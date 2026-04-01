@@ -1,0 +1,361 @@
+/* Auth Pages Styles */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+}
+
+.auth-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    min-height: 500px;
+}
+
+.auth-sidebar {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+    padding: 3rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-sidebar::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.auth-sidebar h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.auth-sidebar p {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+.auth-features {
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.auth-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.auth-feature-icon {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.auth-main {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #1a1a2e;
+}
+
+.auth-logo .logo-zh {
+    color: #ff6b35;
+}
+
+.auth-logo .logo-en {
+    color: #1a1a2e;
+}
+
+.auth-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-title h1 {
+    font-size: 1.8rem;
+    color: #1a1a2e;
+    margin-bottom: 0.5rem;
+}
+
+.auth-title p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.auth-form {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #ff6b35;
+}
+
+.forgot-password {
+    color: #ff6b35;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.btn-auth {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #ff6b35 0%, #ff8e53 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-auth:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+}
+
+.btn-auth:active {
+    transform: translateY(0);
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.auth-divider span {
+    padding: 0 1rem;
+}
+
+.social-login {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-social {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.btn-social:hover {
+    border-color: #ff6b35;
+    background: #fff8f5;
+}
+
+.btn-social img {
+    width: 20px;
+    height: 20px;
+}
+
+.auth-footer {
+    text-align: center;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.auth-footer a {
+    color: #ff6b35;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.password-strength {
+    margin-top: 0.5rem;
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.password-strength-bar {
+    height: 100%;
+    width: 0;
+    transition: all 0.3s;
+}
+
+.password-strength-bar.weak {
+    width: 33%;
+    background: #ff4444;
+}
+
+.password-strength-bar.medium {
+    width: 66%;
+    background: #ffaa00;
+}
+
+.password-strength-bar.strong {
+    width: 100%;
+    background: #00cc66;
+}
+
+.form-hint {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 0.3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+    }
+    
+    .auth-sidebar {
+        width: 100%;
+        padding: 2rem;
+        min-height: auto;
+    }
+    
+    .auth-main {
+        padding: 2rem;
+    }
+    
+    .auth-features {
+        display: none;
+    }
+}
+
+/* Success message */
+.auth-success {
+    text-align: center;
+    padding: 2rem;
+}
+
+.auth-success .success-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.auth-success h2 {
+    color: #00cc66;
+    margin-bottom: 0.5rem;
+}
+
+.auth-success p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
