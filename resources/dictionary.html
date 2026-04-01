@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Dictionary - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .dict-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .dict-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; text-align: center; }
+        .dict-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .search-box { max-width: 600px; margin: 2rem auto; position: relative; }
+        .search-box input { width: 100%; padding: 1rem 1.5rem; font-size: 1.2rem; border: 2px solid #ff6b35; border-radius: 50px; outline: none; }
+        .search-box input:focus { box-shadow: 0 0 10px rgba(255,107,53,0.3); }
+        .search-box button { position: absolute; right: 5px; top: 5px; background: #ff6b35; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 50px; font-size: 1rem; cursor: pointer; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #ff6b35; }
+        .category-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .tab-btn { background: #f0f0f0; border: none; padding: 0.6rem 1.2rem; border-radius: 25px; cursor: pointer; }
+        .tab-btn.active { background: #ff6b35; color: white; }
+        .tab-btn:hover { background: #ddd; }
+        .tab-btn.active:hover { background: #e55a2b; }
+        .dict-item { display: flex; align-items: center; padding: 1rem; border-bottom: 1px solid #eee; gap: 1rem; }
+        .dict-item:last-child { border-bottom: none; }
+        .dict-char { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; min-width: 60px; text-align: center; }
+        .dict-info { flex: 1; }
+        .dict-pinyin { color: #ff6b35; font-weight: bold; }
+        .dict-meaning { color: #333; }
+        .dict-example { color: #888; font-size: 0.9rem; font-style: italic; margin-top: 0.3rem; }
+        .dict-audio { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .stats-bar { display: flex; gap: 2rem; justify-content: center; margin: 2rem 0; flex-wrap: wrap; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: bold; color: #ff6b35; }
+        .stat-label { color: #666; }
+        .hsk-filter { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .hsk-btn { background: #fff3e0; border: 1px solid #ff6b35; color: #ff6b35; padding: 0.4rem 1rem; border-radius: 20px; cursor: pointer; font-size: 0.85rem; }
+        .hsk-btn.active { background: #ff6b35; color: white; }
+        .no-result { text-align: center; padding: 2rem; color: #999; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+            <div class="nav-menu">
+                <a href="../index.html#lessons">Lessons</a>
+                <a href="../index.html#pathways">Pathways</a>
+                <a href="../index.html#resources">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dict-page">
+        <div class="dict-header">
+            <h1>词典 Dictionary</h1>
+            <p>Search Chinese characters and words with pronunciation and examples</p>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search in Chinese, pinyin, or English...">
+            <button onclick="searchDict()">🔍</button>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item"><div class="stat-number">500</div><div class="stat-label">Words</div></div>
+            <div class="stat-item"><div class="stat-number">300</div><div class="stat-label">Characters</div></div>
+            <div class="stat-item"><div class="stat-number">6</div><div class="stat-label">HSK Levels</div></div>
+        </div>
+
+        <div class="section">
+            <h2>📖 HSK Vocabulary</h2>
+            <div class="hsk-filter">
+                <button class="hsk-btn active" onclick="filterHSK('all', this)">All</button>
+                <button class="hsk-btn" onclick="filterHSK(1, this)">HSK 1</button>
+                <button class="hsk-btn" onclick="filterHSK(2, this)">HSK 2</button>
+                <button class="hsk-btn" onclick="filterHSK(3, this)">HSK 3</button>
+            </div>
+            <div id="dictResults">
+                <div class="dict-item" data-hsk="1" data-zh="我" data-py="wǒ" data-en="I me">
+                    <span class="dict-char">我</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">wǒ</div>
+                        <div class="dict-meaning">I, me</div>
+                        <div class="dict-example">我是学生。 wǒ shì xuéshēng. I am a student.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('我')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="1" data-zh="你" data-py="nǐ" data-en="you">
+                    <span class="dict-char">你</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">nǐ</div>
+                        <div class="dict-meaning">you</div>
+                        <div class="dict-example">你好！ nǐ hǎo! Hello!</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('你')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="1" data-zh="好" data-py="hǎo" data-en="good">
+                    <span class="dict-char">好</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">hǎo</div>
+                        <div class="dict-meaning">good, well</div>
+                        <div class="dict-example">很好。 hěn hǎo. Very good.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('好')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="1" data-zh="谢谢" data-py="xièxie" data-en="thank you">
+                    <span class="dict-char">谢谢</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">xièxie</div>
+                        <div class="dict-meaning">thank you</div>
+                        <div class="dict-example">谢谢！ xièxie! Thank you!</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('谢谢')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="1" data-zh="吃" data-py="chī" data-en="eat">
+                    <span class="dict-char">吃</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">chī</div>
+                        <div class="dict-meaning">to eat</div>
+                        <div class="dict-example">吃饭了吗？ chīfàn le ma? Have you eaten?</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('吃')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="1" data-zh="喝" data-py="hē" data-en="drink">
+                    <span class="dict-char">喝</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">hē</div>
+                        <div class="dict-meaning">to drink</div>
+                        <div class="dict-example">喝茶。 hē chá. Drink tea.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('喝')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="1" data-zh="去" data-py="qù" data-en="go">
+                    <span class="dict-char">去</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">qù</div>
+                        <div class="dict-meaning">to go</div>
+                        <div class="dict-example">你去哪里？ nǐ qù nǎlǐ? Where are you going?</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('去')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="1" data-zh="大" data-py="dà" data-en="big">
+                    <span class="dict-char">大</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">dà</div>
+                        <div class="dict-meaning">big, large</div>
+                        <div class="dict-example">很大。 hěn dà. Very big.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('大')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="1" data-zh="小" data-py="xiǎo" data-en="small">
+                    <span class="dict-char">小</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">xiǎo</div>
+                        <div class="dict-meaning">small, little</div>
+                        <div class="dict-example">很小。 hěn xiǎo. Very small.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('小')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="1" data-zh="人" data-py="rén" data-en="person">
+                    <span class="dict-char">人</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">rén</div>
+                        <div class="dict-meaning">person, people</div>
+                        <div class="dict-example">中国人。 zhōngguó rén. Chinese person.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('人')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="2" data-zh="喜欢" data-py="xǐhuan" data-en="like">
+                    <span class="dict-char">喜欢</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">xǐhuan</div>
+                        <div class="dict-meaning">to like, to be fond of</div>
+                        <div class="dict-example">我喜欢中国。 wǒ xǐhuan zhōngguó. I like China.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('喜欢')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="2" data-zh="工作" data-py="gōngzuò" data-en="work">
+                    <span class="dict-char">工作</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">gōngzuò</div>
+                        <div class="dict-meaning">work, job</div>
+                        <div class="dict-example">我的工作。 wǒ de gōngzuò. My work.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('工作')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="2" data-zh="学习" data-py="xuéxí" data-en="study">
+                    <span class="dict-char">学习</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">xuéxí</div>
+                        <div class="dict-meaning">to study, to learn</div>
+                        <div class="dict-example">学习中文。 xuéxí zhōngwén. Study Chinese.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('学习')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="2" data-zh="朋友" data-py="péngyou" data-en="friend">
+                    <span class="dict-char">朋友</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">péngyou</div>
+                        <div class="dict-meaning">friend</div>
+                        <div class="dict-example">好朋友。 hǎo péngyou. Good friend.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('朋友')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="2" data-zh="漂亮" data-py="piàoliang" data-en="beautiful">
+                    <span class="dict-char">漂亮</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">piàoliang</div>
+                        <div class="dict-meaning">beautiful, pretty</div>
+                        <div class="dict-example">很漂亮。 hěn piàoliang. Very beautiful.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('漂亮')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="3" data-zh="环境" data-py="huánjìng" data-en="environment">
+                    <span class="dict-char">环境</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">huánjìng</div>
+                        <div class="dict-meaning">environment, surroundings</div>
+                        <div class="dict-example">保护环境。 bǎohù huánjìng. Protect the environment.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('环境')">🔊</button>
+                </div>
+                <div class="dict-item" data-hsk="3" data-zh="经济" data-py="jīngjì" data-en="economy">
+                    <span class="dict-char">经济</span>
+                    <div class="dict-info">
+                        <div class="dict-pinyin">jīngjì</div>
+                        <div class="dict-meaning">economy, economic</div>
+                        <div class="dict-example">经济发展。 jīngjì fāzhǎn. Economic development.</div>
+                    </div>
+                    <button class="dict-audio" onclick="speak('经济')">🔊</button>
+                </div>
+            </div>
+            <div id="noResult" class="no-result" style="display:none;">
+                <p>😕 No results found. Try another search term.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-bottom" style="background: #1a1a2e; color: #666; padding: 1rem; text-align: center;">
+            <p>© 2026 ChinesePod101</p>
+        </div>
+    </footer>
+
+    <script>
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        function searchDict() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const items = document.querySelectorAll('.dict-item');
+            let found = false;
+            items.forEach(item => {
+                const zh = item.dataset.zh.toLowerCase();
+                const py = item.dataset.py.toLowerCase();
+                const en = item.dataset.en.toLowerCase();
+                if (zh.includes(query) || py.includes(query) || en.includes(query)) {
+                    item.style.display = 'flex';
+                    found = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            document.getElementById('noResult').style.display = found ? 'none' : 'block';
+        }
+
+        document.getElementById('searchInput').addEventListener('keyup', searchDict);
+
+        function filterHSK(level, btn) {
+            document.querySelectorAll('.hsk-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const items = document.querySelectorAll('.dict-item');
+            items.forEach(item => {
+                if (level === 'all' || item.dataset.hsk <= level) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            document.getElementById('noResult').style.display = 'none';
+            document.getElementById('searchInput').value = '';
+        }
+    </script>
+</body>
+</html>

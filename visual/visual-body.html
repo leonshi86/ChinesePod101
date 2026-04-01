@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片学中文 - My Body - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #ff6b6b, #ff8e53); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: #f0f0f0; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: all 0.3s; }
+        .topic-tab.active { background: #ff6b35; color: white; }
+        .topic-tab:hover { background: #ddd; }
+        .learn-area { display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: start; }
+        .diagram-container { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; }
+        .body-svg { width: 100%; max-width: 450px; margin: 0 auto; display: block; }
+        .body-part { cursor: pointer; transition: all 0.3s; }
+        .body-part:hover { filter: brightness(1.1); }
+        .body-part.active { filter: brightness(1.2); }
+        .label-line { stroke: #ff6b35; stroke-width: 2; stroke-dasharray: 4,2; }
+        .label-dot { fill: #ff6b35; }
+        .label-text { font-family: 'Microsoft YaHei', sans-serif; font-size: 14px; fill: #333; cursor: pointer; font-weight: bold; }
+        .label-pinyin { font-size: 11px; fill: #ff6b35; cursor: pointer; }
+        .info-panel { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: sticky; top: 2rem; }
+        .info-header { text-align: center; margin-bottom: 1.5rem; }
+        .info-char { font-size: 5rem; font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; }
+        .info-pinyin { font-size: 2rem; color: #ff6b35; margin: 0.5rem 0; }
+        .info-english { font-size: 1.5rem; color: #666; }
+        .play-btn-large { width: 100%; background: #ff6b35; color: white; border: none; padding: 1rem; border-radius: 10px; font-size: 1.2rem; cursor: pointer; margin: 1rem 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .play-btn-large:hover { background: #e55a2b; }
+        .example-sentences { margin-top: 1.5rem; }
+        .example-sentences h4 { color: #1a1a2e; margin-bottom: 1rem; }
+        .example-item { background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem; cursor: pointer; }
+        .example-item:hover { background: #fff3e0; }
+        .example-zh { font-family: 'Microsoft YaHei', sans-serif; font-size: 1.1rem; }
+        .example-py { color: #ff6b35; font-size: 0.9rem; }
+        .example-en { color: #888; font-size: 0.9rem; }
+        .word-list { margin-top: 1.5rem; max-height: 300px; overflow-y: auto; }
+        .word-list h4 { color: #1a1a2e; margin-bottom: 1rem; }
+        .word-item { display: flex; align-items: center; padding: 0.8rem; background: #f8f9fa; border-radius: 8px; margin-bottom: 0.5rem; cursor: pointer; gap: 1rem; }
+        .word-item:hover { background: #fff3e0; }
+        .word-item.active { background: #fff3e0; border-left: 3px solid #ff6b35; }
+        .word-char { font-size: 1.5rem; font-family: 'Microsoft YaHei'; }
+        .word-py { color: #ff6b35; }
+        .word-en { color: #666; font-size: 0.9rem; }
+        .word-play { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 5px; cursor: pointer; margin-left: auto; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        @media (max-width: 900px) { .learn-area { grid-template-columns: 1fr; } .info-panel { position: static; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+            <div class="nav-menu">
+                <a href="../index.html#lessons">Lessons</a>
+                <a href="../index.html#resources">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="img-page">
+        <div class="img-header">
+            <h1>🎨 图片学中文 - My Body</h1>
+            <p>Interactive Visual Learning - Click any part to learn!</p>
+        </div>
+
+        <div class="topic-tabs">
+            <button class="topic-tab active" onclick="location.href='visual-body.html'">👤 My Body</button>
+            <button class="topic-tab" onclick="alert('Coming soon!')">🏠 My Room</button>
+            <button class="topic-tab" onclick="alert('Coming soon!')">🐱 Animals</button>
+            <button class="topic-tab" onclick="alert('Coming soon!')">🍎 Food</button>
+            <button class="topic-tab" onclick="alert('Coming soon!')">🌈 Colors</button>
+        </div>
+
+        <div class="learn-area">
+            <div class="diagram-container">
+                <svg class="body-svg" viewBox="0 0 400 550" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Cute Girl Character (like Mei from Totoro) -->
+                    
+                    <!-- Hair (back) - dark brown -->
+                    <ellipse cx="200" cy="95" rx="75" ry="70" fill="#3d2314"/>
+                    
+                    <!-- Face -->
+                    <ellipse class="body-part" id="face" cx="200" cy="100" rx="60" ry="65" fill="#FFE4D0" stroke="#E8C4A8" stroke-width="1" onclick="selectPart('face')"/>
+                    
+                    <!-- Hair (front bangs) -->
+                    <path class="body-part" id="hair" d="M140 70 Q140 35 200 30 Q260 35 260 70 Q260 55 230 50 Q200 45 170 50 Q140 55 140 70" fill="#3d2314" onclick="selectPart('hair')"/>
+                    <!-- Side hair -->
+                    <ellipse cx="145" cy="100" rx="20" ry="45" fill="#3d2314"/>
+                    <ellipse cx="255" cy="100" rx="20" ry="45" fill="#3d2314"/>
+                    
+                    <!-- Eyes - big cute eyes -->
+                    <ellipse class="body-part" id="eye-left" cx="175" cy="95" rx="15" ry="18" fill="white" stroke="#333" stroke-width="1" onclick="selectPart('eye')"/>
+                    <ellipse cx="178" cy="98" rx="10" ry="12" fill="#4a3728"/>
+                    <ellipse cx="181" cy="94" rx="4" ry="5" fill="white"/>
+                    
+                    <ellipse class="body-part" id="eye-right" cx="225" cy="95" rx="15" ry="18" fill="white" stroke="#333" stroke-width="1" onclick="selectPart('eye')"/>
+                    <ellipse cx="222" cy="98" rx="10" ry="12" fill="#4a3728"/>
+                    <ellipse cx="219" cy="94" rx="4" ry="5" fill="white"/>
+                    
+                    <!-- Eyebrows -->
+                    <path d="M160 75 Q175 70 190 75" fill="none" stroke="#3d2314" stroke-width="2"/>
+                    <path d="M210 75 Q225 70 240 75" fill="none" stroke="#3d2314" stroke-width="2"/>
+                    
+                    <!-- Blush -->
+                    <ellipse cx="155" cy="115" rx="12" ry="8" fill="#FFB6C1" opacity="0.5"/>
+                    <ellipse cx="245" cy="115" rx="12" ry="8" fill="#FFB6C1" opacity="0.5"/>
+                    
+                    <!-- Nose - small cute -->
+                    <ellipse class="body-part" id="nose" cx="200" cy="115" rx="5" ry="4" fill="#EDCDB8" onclick="selectPart('nose')"/>
+                    
+                    <!-- Mouth - smiling -->
+                    <path class="body-part" id="mouth" d="M188 135 Q200 145 212 135" fill="none" stroke="#d4736a" stroke-width="2" stroke-linecap="round" onclick="selectPart('mouth')"/>
+                    
+                    <!-- Ears -->
+                    <ellipse class="body-part" id="ear-left" cx="140" cy="100" rx="8" ry="15" fill="#FFE4D0" stroke="#E8C4A8" stroke-width="1" onclick="selectPart('ear')"/>
+                    <ellipse class="body-part" id="ear-right" cx="260" cy="100" rx="8" ry="15" fill="#FFE4D0" stroke="#E8C4A8" stroke-width="1" onclick="selectPart('ear')"/>
+                    
+                    <!-- Neck -->
+                    <rect class="body-part" id="neck" x="185" y="160" width="30" height="25" fill="#FFE4D0" stroke="#E8C4A8" stroke-width="1" onclick="selectPart('neck')"/>
+                    
+                    <!-- Dress/Body -->
+                    <path class="body-part" id="body" d="M140 185 Q130 190 125 250 L115 380 Q115 390 130 390 L270 390 Q285 390 285 380 L275 250 Q270 190 260 185 Q200 175 140 185" fill="#7CB9E8" stroke="#5a9fd4" stroke-width="2" onclick="selectPart('body')"/>
+                    
+                    <!-- Dress collar -->
+                    <path d="M165 185 L200 210 L235 185" fill="none" stroke="white" stroke-width="3"/>
+                    
+                    <!-- Arms -->
+                    <path class="body-part" id="arm-left" d="M125 200 Q100 210 85 260 Q80 280 90 285 Q100 280 105 265 Q115 240 130 220" fill="#FFE4D0" stroke="#E8C4A8" stroke-width="1" onclick="selectPart('arm')"/>
+                    <path class="body-part" id="arm-right" d="M275 200 Q300 210 315 260 Q320 280 310 285 Q300 280 295 265 Q285 240 270 220" fill="#FFE4D0" stroke="#E8C4A8" stroke-width="1" onclick="selectPart('arm')"/>
+                    
+                    <!-- Hands -->
+                    <ellipse class="body-part" id="hand-left" cx="90" cy="290" rx="12" ry="15" fill="#FFE4D0" stroke="#E8C4A8" stroke-width="1" onclick="selectPart('hand')"/>
+                    <ellipse class="body-part" id="hand-right" cx="310" cy="290" rx="12" ry="15" fill="#FFE4D0" stroke="#E8C4A8" stroke-width="1" onclick="selectPart('hand')"/>
+                    
+                    <!-- Legs -->
+                    <path class="body-part" id="leg-left" d="M155 390 L150 480 L145 490 Q145 500 160 500 L170 500 Q175 500 175 490 L178 480 L180 390" fill="#FFE4D0" stroke="#E8C4A8" stroke-width="1" onclick="selectPart('leg')"/>
+                    <path class="body-part" id="leg-right" d="M245 390 L250 480 L255 490 Q255 500 240 500 L230 500 Q225 500 225 490 L222 480 L220 390" fill="#FFE4D0" stroke="#E8C4A8" stroke-width="1" onclick="selectPart('leg')"/>
+                    
+                    <!-- Shoes -->
+                    <ellipse class="body-part" id="foot-left" cx="162" cy="505" rx="25" ry="12" fill="#8B4513" stroke="#6B3510" stroke-width="1" onclick="selectPart('foot')"/>
+                    <ellipse class="body-part" id="foot-right" cx="238" cy="505" rx="25" ry="12" fill="#8B4513" stroke="#6B3510" stroke-width="1" onclick="selectPart('foot')"/>
+                    
+                    <!-- Labels with lines -->
+                    <g id="labels">
+                        <!-- Head/Face -->
+                        <line class="label-line" x1="260" y1="80" x2="310" y2="50"/>
+                        <circle class="label-dot" cx="310" cy="50" r="4"/>
+                        <text class="label-text" x="320" y="48" onclick="selectPart('face')">脸</text>
+                        <text class="label-pinyin" x="320" y="62" onclick="selectPart('face')">liǎn</text>
+                        
+                        <!-- Hair -->
+                        <line class="label-line" x1="250" y1="40" x2="310" y2="25"/>
+                        <circle class="label-dot" cx="310" cy="25" r="4"/>
+                        <text class="label-text" x="320" y="22" onclick="selectPart('hair')">头发</text>
+                        <text class="label-pinyin" x="320" y="37" onclick="selectPart('hair')">tóufa</text>
+                        
+                        <!-- Eye -->
+                        <line class="label-line" x1="240" y1="95" x2="290" y2="85"/>
+                        <circle class="label-dot" cx="290" cy="85" r="4"/>
+                        <text class="label-text" x="300" y="83" onclick="selectPart('eye')">眼睛</text>
+                        <text class="label-pinyin" x="300" y="97" onclick="selectPart('eye')">yǎnjing</text>
+                        
+                        <!-- Nose -->
+                        <line class="label-line" x1="210" y1="115" x2="290" y2="115"/>
+                        <circle class="label-dot" cx="290" cy="115" r="4"/>
+                        <text class="label-text" x="300" y="113" onclick="selectPart('nose')">鼻子</text>
+                        <text class="label-pinyin" x="300" y="127" onclick="selectPart('nose')">bízi</text>
+                        
+                        <!-- Mouth -->
+                        <line class="label-line" x1="215" y1="140" x2="290" y2="145"/>
+                        <circle class="label-dot" cx="290" cy="145" r="4"/>
+                        <text class="label-text" x="300" y="143" onclick="selectPart('mouth')">嘴</text>
+                        <text class="label-pinyin" x="300" y="157" onclick="selectPart('mouth')">zuǐ</text>
+                        
+                        <!-- Ear -->
+                        <line class="label-line" x1="268" y1="100" x2="310" y2="175"/>
+                        <circle class="label-dot" cx="310" cy="175" r="4"/>
+                        <text class="label-text" x="320" y="173" onclick="selectPart('ear')">耳朵</text>
+                        <text class="label-pinyin" x="320" y="187" onclick="selectPart('ear')">ěrduo</text>
+                        
+                        <!-- Hand -->
+                        <line class="label-line" x1="320" y1="290" x2="360" y2="280"/>
+                        <circle class="label-dot" cx="360" cy="280" r="4"/>
+                        <text class="label-text" x="370" y="278" onclick="selectPart('hand')">手</text>
+                        <text class="label-pinyin" x="370" y="292" onclick="selectPart('hand')">shǒu</text>
+                        
+                        <!-- Body/Dress -->
+                        <line class="label-line" x1="115" y1="280" x2="60" y2="260"/>
+                        <circle class="label-dot" cx="60" cy="260" r="4"/>
+                        <text class="label-text" x="15" y="258">身体</text>
+                        <text class="label-pinyin" x="15" y="272">shēntǐ</text>
+                        
+                        <!-- Arm -->
+                        <line class="label-line" x1="85" y1="240" x2="40" y2="220"/>
+                        <circle class="label-dot" cx="40" cy="220" r="4"/>
+                        <text class="label-text" x="5" y="218">手臂</text>
+                        <text class="label-pinyin" x="5" y="232">shǒubì</text>
+                        
+                        <!-- Leg -->
+                        <line class="label-line" x1="145" y1="440" x2="60" y2="420"/>
+                        <circle class="label-dot" cx="60" cy="420" r="4"/>
+                        <text class="label-text" x="15" y="418">腿</text>
+                        <text class="label-pinyin" x="15" y="432">tuǐ</text>
+                        
+                        <!-- Foot -->
+                        <line class="label-line" x1="190" y1="505" x2="60" y2="490"/>
+                        <circle class="label-dot" cx="60" cy="490" r="4"/>
+                        <text class="label-text" x="15" y="488">脚</text>
+                        <text class="label-pinyin" x="15" y="502">jiǎo</text>
+                    </g>
+                </svg>
+                <p style="text-align:center; color:#888; margin-top:1rem;">👆 点击身体部位学习中文！</p>
+            </div>
+
+            <div class="info-panel">
+                <div class="info-header">
+                    <div class="info-char" id="infoChar">脸</div>
+                    <div class="info-pinyin" id="infoPinyin">liǎn</div>
+                    <div class="info-english" id="infoEnglish">face</div>
+                </div>
+                
+                <button class="play-btn-large" onclick="playCurrent()">
+                    🔊 听发音
+                </button>
+                
+                <div class="example-sentences">
+                    <h4>📝 例句 Examples</h4>
+                    <div class="example-item" onclick="speak('她的脸很圆')">
+                        <div class="example-zh">她的脸很圆。</div>
+                        <div class="example-py">Tā de liǎn hěn yuán.</div>
+                        <div class="example-en">Her face is round.</div>
+                    </div>
+                    <div class="example-item" onclick="speak('洗脸')">
+                        <div class="example-zh">洗脸</div>
+                        <div class="example-py">xǐ liǎn</div>
+                        <div class="example-en">wash face</div>
+                    </div>
+                </div>
+                
+                <div class="word-list">
+                    <h4>📚 所有单词 All Words</h4>
+                    <div class="word-item active" onclick="selectPart('face')"><span class="word-char">脸</span><div><span class="word-py">liǎn</span> <span class="word-en">face</span></div><button class="word-play" onclick="event.stopPropagation();speak('脸')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('hair')"><span class="word-char">头发</span><div><span class="word-py">tóufa</span> <span class="word-en">hair</span></div><button class="word-play" onclick="event.stopPropagation();speak('头发')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('eye')"><span class="word-char">眼睛</span><div><span class="word-py">yǎnjing</span> <span class="word-en">eye</span></div><button class="word-play" onclick="event.stopPropagation();speak('眼睛')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('nose')"><span class="word-char">鼻子</span><div><span class="word-py">bízi</span> <span class="word-en">nose</span></div><button class="word-play" onclick="event.stopPropagation();speak('鼻子')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('mouth')"><span class="word-char">嘴</span><div><span class="word-py">zuǐ</span> <span class="word-en">mouth</span></div><button class="word-play" onclick="event.stopPropagation();speak('嘴')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('ear')"><span class="word-char">耳朵</span><div><span class="word-py">ěrduo</span> <span class="word-en">ear</span></div><button class="word-play" onclick="event.stopPropagation();speak('耳朵')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('hand')"><span class="word-char">手</span><div><span class="word-py">shǒu</span> <span class="word-en">hand</span></div><button class="word-play" onclick="event.stopPropagation();speak('手')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('foot')"><span class="word-char">脚</span><div><span class="word-py">jiǎo</span> <span class="word-en">foot</span></div><button class="word-play" onclick="event.stopPropagation();speak('脚')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('body')"><span class="word-char">身体</span><div><span class="word-py">shēntǐ</span> <span class="word-en">body</span></div><button class="word-play" onclick="event.stopPropagation();speak('身体')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('arm')"><span class="word-char">手臂</span><div><span class="word-py">shǒubì</span> <span class="word-en">arm</span></div><button class="word-play" onclick="event.stopPropagation();speak('手臂')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('leg')"><span class="word-char">腿</span><div><span class="word-py">tuǐ</span> <span class="word-en">leg</span></div><button class="word-play" onclick="event.stopPropagation();speak('腿')">🔊</button></div>
+                    <div class="word-item" onclick="selectPart('neck')"><span class="word-char">脖子</span><div><span class="word-py">bózi</span> <span class="word-en">neck</span></div><button class="word-play" onclick="event.stopPropagation();speak('脖子')">🔊</button></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="../index.html" class="nav-btn">← Home</a>
+            <a href="#" class="nav-btn" style="background:#ccc">Next Topic →</a>
+        </div>
+    </div>
+
+    <script>
+        const bodyParts = {
+            face: { char: '脸', pinyin: 'liǎn', english: 'face', examples: ['她的脸很圆', '洗脸'] },
+            hair: { char: '头发', pinyin: 'tóufa', english: 'hair', examples: ['她的头发很长', '我喜欢你的头发'] },
+            eye: { char: '眼睛', pinyin: 'yǎnjing', english: 'eye', examples: ['她的眼睛很大', '我的眼睛不舒服'] },
+            nose: { char: '鼻子', pinyin: 'bízi', english: 'nose', examples: ['他的鼻子很高', '鼻子流血了'] },
+            mouth: { char: '嘴', pinyin: 'zuǐ', english: 'mouth', examples: ['闭上嘴', '张开嘴'] },
+            ear: { char: '耳朵', pinyin: 'ěrduo', english: 'ear', examples: ['耳朵疼', '我有两只耳朵'] },
+            hand: { char: '手', pinyin: 'shǒu', english: 'hand', examples: ['洗手', '手冷'] },
+            foot: { char: '脚', pinyin: 'jiǎo', english: 'foot', examples: ['脚疼', '我的脚很大'] },
+            body: { char: '身体', pinyin: 'shēntǐ', english: 'body', examples: ['身体好吗', '运动对身体好'] },
+            arm: { char: '手臂', pinyin: 'shǒubì', english: 'arm', examples: ['手臂疼', '举起手臂'] },
+            leg: { char: '腿', pinyin: 'tuǐ', english: 'leg', examples: ['腿很长', '跑步锻炼腿'] },
+            neck: { char: '脖子', pinyin: 'bózi', english: 'neck', examples: ['脖子疼', '长脖子'] }
+        };
+
+        let currentPart = 'face';
+
+        function selectPart(partId) {
+            currentPart = partId;
+            const part = bodyParts[partId];
+            if (!part) return;
+            
+            document.getElementById('infoChar').textContent = part.char;
+            document.getElementById('infoPinyin').textContent = part.pinyin;
+            document.getElementById('infoEnglish').textContent = part.english;
+            
+            document.querySelectorAll('.word-item').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.word-item').forEach(item => {
+                if (item.querySelector('.word-char').textContent === part.char) {
+                    item.classList.add('active');
+                }
+            });
+            
+            document.querySelectorAll('.body-part').forEach(el => el.classList.remove('active'));
+            const targetEl = document.getElementById(partId) || document.getElementById(partId + '-left');
+            if (targetEl) targetEl.classList.add('active');
+            
+            speak(part.char);
+        }
+
+        function playCurrent() {
+            const part = bodyParts[currentPart];
+            if (part) speak(part.char);
+        }
+
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+        }
+    </script>
+</body>
+</html>

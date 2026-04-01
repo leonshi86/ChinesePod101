@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4: 家人 (Family) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .family-tree { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+        .family-row { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+        .family-card { background: #f8f9fa; padding: 1.5rem 2rem; border-radius: 10px; text-align: center; cursor: pointer; transition: transform 0.2s; min-width: 120px; }
+        .family-card:hover { transform: scale(1.05); background: #fff3e0; }
+        .family-emoji { font-size: 2rem; margin-bottom: 0.5rem; }
+        .family-char { font-size: 1.5rem; font-family: 'Microsoft YaHei', sans-serif; }
+        .family-pinyin { color: #ff6b35; }
+        .family-meaning { color: #666; font-size: 0.9rem; }
+        .family-connector { color: #ccc; font-size: 1.5rem; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 50px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-sm { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 80px; }
+        .vocab-py { color: #ff6b35; font-weight: bold; }
+        .vocab-mn { color: #666; }
+        .vocab-btn { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .tip-box { background: #e3f2fd; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #1976d2; margin-bottom: 1rem; }
+        .quiz-section { background: #e8f5e9; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        @media (max-width: 768px) { .family-row { gap: 0.5rem; } .family-card { min-width: 90px; padding: 1rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › Beginner</div>
+            <h1 class="lesson-title">Lesson 4: 家人 (Family)</h1>
+            <p>Learn how to talk about your family members.</p>
+            <div class="lesson-meta"><span>⏱ 7 minutes</span><span>📚 Beginner</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 7:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>👨‍👩‍👧‍👦 Family Members</h2>
+            <div class="family-tree">
+                <div class="family-row">
+                    <div class="family-card" onclick="speak('爷爷')"><div class="family-emoji">👴</div><div class="family-char">爷爷</div><div class="family-pinyin">yéye</div><div class="family-meaning">grandpa (paternal)</div></div>
+                    <div class="family-card" onclick="speak('奶奶')"><div class="family-emoji">👵</div><div class="family-char">奶奶</div><div class="family-pinyin">nǎinai</div><div class="family-meaning">grandma (paternal)</div></div>
+                </div>
+                <div class="family-connector">▼ ▼ ▼</div>
+                <div class="family-row">
+                    <div class="family-card" onclick="speak('爸爸')"><div class="family-emoji">👨</div><div class="family-char">爸爸</div><div class="family-pinyin">bàba</div><div class="family-meaning">father</div></div>
+                    <div class="family-card" onclick="speak('妈妈')"><div class="family-emoji">👩</div><div class="family-char">妈妈</div><div class="family-pinyin">māma</div><div class="family-meaning">mother</div></div>
+                </div>
+                <div class="family-connector">▼ ▼ ▼</div>
+                <div class="family-row">
+                    <div class="family-card" onclick="speak('哥哥')"><div class="family-emoji">👦</div><div class="family-char">哥哥</div><div class="family-pinyin">gēge</div><div class="family-meaning">older brother</div></div>
+                    <div class="family-card" onclick="speak('我')"><div class="family-emoji">🙋</div><div class="family-char">我</div><div class="family-pinyin">wǒ</div><div class="family-meaning">me</div></div>
+                    <div class="family-card" onclick="speak('妹妹')"><div class="family-emoji">👧</div><div class="family-char">妹妹</div><div class="family-pinyin">mèimei</div><div class="family-meaning">younger sister</div></div>
+                </div>
+                <div class="family-connector">▼ ▼ ▼</div>
+                <div class="family-row">
+                    <div class="family-card" onclick="speak('儿子')"><div class="family-emoji">👶</div><div class="family-char">儿子</div><div class="family-pinyin">érzi</div><div class="family-meaning">son</div></div>
+                    <div class="family-card" onclick="speak('女儿')"><div class="family-emoji">👧</div><div class="family-char">女儿</div><div class="family-pinyin">nǚ'ér</div><div class="family-meaning">daughter</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📖 Key Vocabulary</h2>
+            <div class="vocab-item"><span class="vocab-char">丈夫</span><div><div class="vocab-py">zhàngfu</div><div class="vocab-mn">husband</div></div><button class="vocab-btn" onclick="speak('丈夫')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">妻子</span><div><div class="vocab-py">qīzi</div><div class="vocab-mn">wife</div></div><button class="vocab-btn" onclick="speak('妻子')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">弟弟</span><div><div class="vocab-py">dìdi</div><div class="vocab-mn">younger brother</div></div><button class="vocab-btn" onclick="speak('弟弟')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">姐姐</span><div><div class="vocab-py">jiějie</div><div class="vocab-mn">older sister</div></div><button class="vocab-btn" onclick="speak('姐姐')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">家人</span><div><div class="vocab-py">jiārén</div><div class="vocab-mn">family members</div></div><button class="vocab-btn" onclick="speak('家人')">🔊</button></div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">你家有几口人？</div><div class="py-text">Nǐ jiā yǒu jǐ kǒu rén?</div><div class="en-text">How many people are in your family?</div></div><button class="play-sm" onclick="speak('你家有几口人')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">我家有五口人。爸爸、妈妈、哥哥、妹妹和我。</div><div class="py-text">Wǒ jiā yǒu wǔ kǒu rén. Bàba, māma, gēge, mèimei hé wǒ.</div><div class="en-text">There are 5 people. Dad, Mom, older brother, younger sister and me.</div></div><button class="play-sm" onclick="speak('我家有五口人')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">你爸爸做什么工作？</div><div class="py-text">Nǐ bàba zuò shénme gōngzuò?</div><div class="en-text">What does your dad do?</div></div><button class="play-sm" onclick="speak('你爸爸做什么工作')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">他是医生。</div><div class="py-text">Tā shì yīshēng.</div><div class="en-text">He is a doctor.</div></div><button class="play-sm" onclick="speak('他是医生')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar</h2>
+            <div class="grammar-box"><h4>家有 + number + 口人</h4><p>我家有三口人。= My family has 3 people.<br>Note: 口 is the measure word for family members.</p></div>
+            <div class="grammar-box"><h4>这是我的 + family member</h4><p>这是我爸爸。= This is my dad.<br>NOT: 这是我的爸爸 (also OK, but 这是我爸爸 is more natural)</p></div>
+            <div class="tip-box"><strong>💡 Cultural Note:</strong><br>Family is very important in Chinese culture. When introducing family, start from the oldest. Father's side family uses different titles from mother's side: 爷爷/奶奶 (paternal) vs 外公/外婆 (maternal).</div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question"><p>1. "哥哥" means:</p><div class="quiz-options"><div class="quiz-option" onclick="c(this,false)">A) younger brother</div><div class="quiz-option" onclick="c(this,true)">B) older brother</div><div class="quiz-option" onclick="c(this,false)">C) father</div></div></div>
+                <div class="quiz-question"><p>2. How to ask "How many people in your family?"</p><div class="quiz-options"><div class="quiz-option" onclick="c(this,false)">A) 你有家人吗？</div><div class="quiz-option" onclick="c(this,true)">B) 你家有几口人？</div><div class="quiz-option" onclick="c(this,false)">C) 你爱你的家人吗？</div></div></div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-03.html" class="nav-btn">← Lesson 3</a>
+            <a href="#" class="nav-btn" style="background:#ccc">Lesson 5 →</a>
+        </div>
+    </div>
+
+    <script>
+        var p=false,t=0,d=420;
+        document.getElementById('playBtn').onclick=function(){p=!p;this.textContent=p?'⏸':'▶';if(p)play()};
+        function play(){if(!p)return;t++;if(t>=d){p=false;return}document.getElementById('progressFill').style.width=(t/d*100)+'%';document.getElementById('timeDisplay').textContent=Math.floor(t/60)+':'+(t%60)+' / 7:00';setTimeout(play,1000)}
+        function speak(txt){if('speechSynthesis' in window){var u=new SpeechSynthesisUtterance(txt);u.lang='zh-CN';speechSynthesis.speak(u)}}
+        function c(el,ok){el.classList.add(ok?'correct':'wrong')}
+    </script>
+</body>
+</html>
