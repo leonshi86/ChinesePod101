@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survival Chinese Pathway - ChinesePod101</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .pathway-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .pathway-header { background: linear-gradient(135deg, #11998e, #38ef7d); color: white; padding: 2.5rem; border-radius: 15px; margin-bottom: 2rem; }
+        .pathway-header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .pathway-meta { display: flex; gap: 2rem; margin-top: 1rem; opacity: 0.9; }
+        .pathway-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; }
+        .stat-box { background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 10px; text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: bold; }
+        .stat-label { font-size: 0.9rem; opacity: 0.9; }
+        .section { background: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #38ef7d; padding-bottom: 0.5rem; }
+        .lesson-list { display: flex; flex-direction: column; gap: 1rem; }
+        .lesson-item { display: flex; align-items: center; padding: 1.5rem; background: #f8f9fa; border-radius: 12px; transition: all 0.3s; text-decoration: none; color: inherit; border-left: 4px solid transparent; }
+        .lesson-item:hover { background: #e8f5e9; border-left-color: #38ef7d; transform: translateX(5px); }
+        .lesson-number { width: 50px; height: 50px; background: linear-gradient(135deg, #11998e, #38ef7d); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; margin-right: 1.5rem; flex-shrink: 0; }
+        .lesson-info { flex: 1; }
+        .lesson-title { font-size: 1.2rem; font-family: 'Microsoft YaHei'; color: #1a1a2e; margin-bottom: 0.3rem; }
+        .lesson-desc { color: #666; font-size: 0.95rem; }
+        .lesson-duration { color: #999; font-size: 0.9rem; }
+        .lesson-arrow { color: #38ef7d; font-size: 1.5rem; }
+        .progress-section { background: linear-gradient(135deg, #f5f7fa, #c3cfe2); padding: 2rem; border-radius: 15px; margin-bottom: 2rem; }
+        .progress-bar-container { background: #ddd; height: 20px; border-radius: 10px; margin: 1rem 0; overflow: hidden; }
+        .progress-bar-fill { height: 100%; background: linear-gradient(135deg, #11998e, #38ef7d); width: 0%; transition: width 0.5s; }
+        .progress-text { display: flex; justify-content: space-between; color: #666; }
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .skill-item { display: flex; align-items: center; gap: 0.8rem; padding: 1rem; background: #f8f9fa; border-radius: 10px; }
+        .skill-icon { font-size: 2rem; }
+        .skill-name { font-weight: bold; color: #1a1a2e; }
+        .skill-desc { color: #666; font-size: 0.9rem; }
+        .cta-section { text-align: center; padding: 2rem; }
+        .cta-btn { display: inline-block; background: linear-gradient(135deg, #11998e, #38ef7d); color: white; padding: 1rem 3rem; border-radius: 30px; font-size: 1.2rem; text-decoration: none; font-weight: bold; transition: all 0.3s; box-shadow: 0 5px 20px rgba(17,153,142,0.3); }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(17,153,142,0.4); }
+        @media (max-width: 768px) { .pathway-stats { grid-template-columns: repeat(2, 1fr); } .skills-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+            <div class="nav-menu">
+                <a href="index.html#lessons">Lessons</a>
+                <a href="index.html#pathways">Pathways</a>
+                <a href="index.html#resources">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pathway-page">
+        <div class="pathway-header">
+            <h1>🎒 Survival Chinese</h1>
+            <p>Learn essential Chinese for travel and daily life. Perfect for beginners who want to start speaking immediately!</p>
+            <div class="pathway-meta">
+                <span>📚 25 Lessons</span>
+                <span>⏱ ~4 Hours</span>
+                <span>🎯 Beginner</span>
+            </div>
+            <div class="pathway-stats">
+                <div class="stat-box"><div class="stat-number">200+</div><div class="stat-label">Words</div></div>
+                <div class="stat-box"><div class="stat-number">50+</div><div class="stat-label">Phrases</div></div>
+                <div class="stat-box"><div class="stat-number">25</div><div class="stat-label">Dialogues</div></div>
+                <div class="stat-box"><div class="stat-number">100</div><div class="stat-label">Quiz Questions</div></div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h3 style="color: #1a1a2e; margin-bottom: 0.5rem;">📊 Your Progress</h3>
+            <div class="progress-bar-container"><div class="progress-bar-fill" id="progressFill"></div></div>
+            <div class="progress-text"><span id="progressText">0 of 25 lessons completed</span><span id="progressPercent">0%</span></div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 What You'll Learn</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><div class="skill-icon">🗣️</div><div><div class="skill-name">Basic Greetings</div><div class="skill-desc">Hello, goodbye, thank you</div></div></div>
+                <div class="skill-item"><div class="skill-icon">🛒</div><div><div class="skill-name">Shopping</div><div class="skill-desc">Ask prices, bargain, buy things</div></div></div>
+                <div class="skill-item"><div class="skill-icon">🍽️</div><div><div class="skill-name">Ordering Food</div><div class="skill-desc">Order at restaurants</div></div></div>
+                <div class="skill-item"><div class="skill-icon">🗺️</div><div><div class="skill-name">Asking Directions</div><div class="skill-desc">Find your way around</div></div></div>
+                <div class="skill-item"><div class="skill-icon">🚕</div><div><div class="skill-name">Transportation</div><div class="skill-desc">Take taxi, bus, subway</div></div></div>
+                <div class="skill-item"><div class="skill-icon">🏨</div><div><div class="skill-name">Hotel Check-in</div><div class="skill-desc">Book and check into hotels</div></div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Course Content</h2>
+            <div class="lesson-list">
+                <a href="lessons/lesson-01.html" class="lesson-item"><div class="lesson-number">1</div><div class="lesson-info"><div class="lesson-title">你好 - Hello</div><div class="lesson-desc">Learn basic greetings and introductions</div></div><div class="lesson-duration">5 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-02.html" class="lesson-item"><div class="lesson-number">2</div><div class="lesson-info"><div class="lesson-title">数字 - Numbers</div><div class="lesson-desc">Count from 1 to 100</div></div><div class="lesson-duration">8 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-03.html" class="lesson-item"><div class="lesson-number">3</div><div class="lesson-info"><div class="lesson-title">颜色与位置 - Colors & Position</div><div class="lesson-desc">Describe colors and locations</div></div><div class="lesson-duration">7 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-04.html" class="lesson-item"><div class="lesson-number">4</div><div class="lesson-info"><div class="lesson-title">家人 - Family</div><div class="lesson-desc">Talk about family members</div></div><div class="lesson-duration">8 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-05.html" class="lesson-item"><div class="lesson-number">5</div><div class="lesson-info"><div class="lesson-title">时间与日期 - Time & Date</div><div class="lesson-desc">Tell time and dates</div></div><div class="lesson-duration">8 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-06.html" class="lesson-item"><div class="lesson-number">6</div><div class="lesson-info"><div class="lesson-title">点餐 - Ordering Food</div><div class="lesson-desc">Order at restaurants</div></div><div class="lesson-duration">8 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-07.html" class="lesson-item"><div class="lesson-number">7</div><div class="lesson-info"><div class="lesson-title">购物 - Shopping</div><div class="lesson-desc">Shop and bargain</div></div><div class="lesson-duration">10 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-08.html" class="lesson-item"><div class="lesson-number">8</div><div class="lesson-info"><div class="lesson-title">问路 - Asking Directions</div><div class="lesson-desc">Ask for and give directions</div></div><div class="lesson-duration">10 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-09.html" class="lesson-item"><div class="lesson-number">9</div><div class="lesson-info"><div class="lesson-title">交通 - Transportation</div><div class="lesson-desc">Take taxi, bus, train, subway</div></div><div class="lesson-duration">10 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-10.html" class="lesson-item"><div class="lesson-number">10</div><div class="lesson-info"><div class="lesson-title">天气 - Weather</div><div class="lesson-desc">Talk about weather</div></div><div class="lesson-duration">10 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-11.html" class="lesson-item"><div class="lesson-number">11</div><div class="lesson-info"><div class="lesson-title">日常生活 - Daily Routine</div><div class="lesson-desc">Describe daily activities</div></div><div class="lesson-duration">10 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-12.html" class="lesson-item"><div class="lesson-number">12</div><div class="lesson-info"><div class="lesson-title">爱好 - Hobbies</div><div class="lesson-desc">Talk about hobbies and interests</div></div><div class="lesson-duration">10 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-13.html" class="lesson-item"><div class="lesson-number">13</div><div class="lesson-info"><div class="lesson-title">打电话 - Making Phone Calls</div><div class="lesson-desc">Phone conversation basics</div></div><div class="lesson-duration">10 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-14.html" class="lesson-item"><div class="lesson-number">14</div><div class="lesson-info"><div class="lesson-title">看病 - Seeing a Doctor</div><div class="lesson-desc">Describe symptoms at hospital</div></div><div class="lesson-duration">10 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-15.html" class="lesson-item"><div class="lesson-number">15</div><div class="lesson-info"><div class="lesson-title">住酒店 - Staying at a Hotel</div><div class="lesson-desc">Hotel check-in and check-out</div></div><div class="lesson-duration">10 min</div><span class="lesson-arrow">→</span></a>
+                <a href="lessons/lesson-16.html" class="lesson-item"><div class="lesson-number">16</div><div class="lesson-info"><div class="lesson-title">求助 - Asking for Help</div><div class="lesson-desc">Emergency phrases and getting help</div></div><div class="lesson-duration">10 min</div><span class="lesson-arrow">→</span></a>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <a href="lessons/lesson-01.html" class="cta-btn">🚀 Start Learning Now</a>
+        </div>
+    </div>
+
+    <script>
+        // Simple progress tracking
+        const completed = JSON.parse(localStorage.getItem('chineseProgress') || '[]');
+        const total = 16;
+        const percent = Math.round((completed.length / total) * 100);
+        document.getElementById('progressFill').style.width = percent + '%';
+        document.getElementById('progressText').textContent = completed.length + ' of ' + total + ' lessons completed';
+        document.getElementById('progressPercent').textContent = percent + '%';
+    </script>
+</body>
+</html>

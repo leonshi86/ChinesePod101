@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 10: 天气 (Weather) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .weather-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .weather-card { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .weather-card:hover { background: #fff3e0; transform: translateY(-3px); }
+        .weather-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .weather-char { font-size: 1.3rem; font-family: 'Microsoft YaHei'; }
+        .weather-pinyin { color: #ff6b35; font-size: 0.9rem; }
+        .weather-meaning { color: #666; font-size: 0.85rem; }
+        .temp-scale { display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; padding: 1.5rem; background: #e3f2fd; border-radius: 10px; }
+        .temp-item { text-align: center; }
+        .temp-value { font-size: 2rem; font-weight: bold; color: #1a1a2e; }
+        .temp-label { color: #666; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 50px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; font-size: 0.95rem; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-sm { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-py { color: #ff6b35; font-weight: bold; }
+        .vocab-mn { color: #666; }
+        .vocab-btn { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .grammar-box h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .season-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1rem; }
+        .season-card { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; }
+        .season-card:hover { transform: scale(1.05); }
+        .quiz-section { background: #fff8e1; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .nav-btn:hover { background: #e55a2b; }
+        @media (max-width: 768px) { .weather-grid, .season-grid { grid-template-columns: repeat(2, 1fr); } .lesson-title { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="#">Beginner</a></div>
+            <h1 class="lesson-title">Lesson 10: 天气 (Weather)</h1>
+            <p>Learn how to talk about weather in Chinese.</p>
+            <div class="lesson-meta"><span>⏱ 10 minutes</span><span>📚 Beginner</span><span>🏷 16 words</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 10:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌤️ Weather Words</h2>
+            <div class="weather-grid">
+                <div class="weather-card" onclick="speak('晴天')"><div class="weather-icon">☀️</div><div class="weather-char">晴天</div><div class="weather-pinyin">qíngtiān</div><div class="weather-meaning">sunny</div></div>
+                <div class="weather-card" onclick="speak('阴天')"><div class="weather-icon">☁️</div><div class="weather-char">阴天</div><div class="weather-pinyin">yīntiān</div><div class="weather-meaning">cloudy</div></div>
+                <div class="weather-card" onclick="speak('下雨')"><div class="weather-icon">🌧️</div><div class="weather-char">下雨</div><div class="weather-pinyin">xiàyǔ</div><div class="weather-meaning">raining</div></div>
+                <div class="weather-card" onclick="speak('下雪')"><div class="weather-icon">❄️</div><div class="weather-char">下雪</div><div class="weather-pinyin">xiàxuě</div><div class="weather-meaning">snowing</div></div>
+                <div class="weather-card" onclick="speak('刮风')"><div class="weather-icon">💨</div><div class="weather-char">刮风</div><div class="weather-pinyin">guāfēng</div><div class="weather-meaning">windy</div></div>
+                <div class="weather-card" onclick="speak('多云')"><div class="weather-icon">⛅</div><div class="weather-char">多云</div><div class="weather-pinyin">duōyún</div><div class="weather-meaning">partly cloudy</div></div>
+                <div class="weather-card" onclick="speak('雷阵雨')"><div class="weather-icon">⛈️</div><div class="weather-char">雷阵雨</div><div class="weather-pinyin">léizhènyǔ</div><div class="weather-meaning">thunderstorm</div></div>
+                <div class="weather-card" onclick="speak('雾霾')"><div class="weather-icon">🌫️</div><div class="weather-char">雾霾</div><div class="weather-pinyin">wùmái</div><div class="weather-meaning">smog/haze</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌡️ Temperature & Feeling</h2>
+            <div class="vocab-item"><span class="vocab-char">热</span><div class="vocab-info"><div class="vocab-py">rè</div><div class="vocab-mn">hot</div></div><button class="vocab-btn" onclick="speak('热')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">冷</span><div class="vocab-info"><div class="vocab-py">lěng</div><div class="vocab-mn">cold</div></div><button class="vocab-btn" onclick="speak('冷')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">暖和</span><div class="vocab-info"><div class="vocab-py">nuǎnhuo</div><div class="vocab-mn">warm</div></div><button class="vocab-btn" onclick="speak('暖和')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">凉快</span><div class="vocab-info"><div class="vocab-py">liángkuai</div><div class="vocab-mn">cool</div></div><button class="vocab-btn" onclick="speak('凉快')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">温度</span><div class="vocab-info"><div class="vocab-py">wēndù</div><div class="vocab-mn">temperature</div></div><button class="vocab-btn" onclick="speak('温度')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">度</span><div class="vocab-info"><div class="vocab-py">dù</div><div class="vocab-mn">degree</div></div><button class="vocab-btn" onclick="speak('度')">🔊</button></div>
+            
+            <div class="temp-scale">
+                <div class="temp-item"><div class="temp-value">35°C</div><div class="temp-label">很热 (very hot)</div></div>
+                <div class="temp-item"><div class="temp-value">25°C</div><div class="temp-label">暖和 (warm)</div></div>
+                <div class="temp-item"><div class="temp-value">15°C</div><div class="temp-label">凉快 (cool)</div></div>
+                <div class="temp-item"><div class="temp-value">5°C</div><div class="temp-label">很冷 (very cold)</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🍂 Four Seasons</h2>
+            <div class="season-grid">
+                <div class="season-card" onclick="speak('春天')" style="background: linear-gradient(135deg, #66bb6a, #43a047);"><div style="font-size: 2rem;">🌸</div><div style="font-size: 1.3rem;">春天</div><div style="font-size: 0.9rem;">chūntiān</div><div style="font-size: 0.8rem;">spring</div></div>
+                <div class="season-card" onclick="speak('夏天')" style="background: linear-gradient(135deg, #ff9800, #f57c00);"><div style="font-size: 2rem;">☀️</div><div style="font-size: 1.3rem;">夏天</div><div style="font-size: 0.9rem;">xiàtiān</div><div style="font-size: 0.8rem;">summer</div></div>
+                <div class="season-card" onclick="speak('秋天')" style="background: linear-gradient(135deg, #ff7043, #f4511e);"><div style="font-size: 2rem;">🍂</div><div style="font-size: 1.3rem;">秋天</div><div style="font-size: 0.9rem;">qiūtiān</div><div style="font-size: 0.8rem;">autumn</div></div>
+                <div class="season-card" onclick="speak('冬天')" style="background: linear-gradient(135deg, #64b5f6, #42a5f5);"><div style="font-size: 2rem;">❄️</div><div style="font-size: 1.3rem;">冬天</div><div style="font-size: 0.9rem;">dōngtiān</div><div style="font-size: 0.8rem;">winter</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - Talking About Weather</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">今天天气怎么样？</div><div class="py-text">Jīntiān tiānqì zěnmeyàng?</div><div class="en-text">How's the weather today?</div></div><button class="play-sm" onclick="speak('今天天气怎么样')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">今天晴天，很暖和。</div><div class="py-text">Jīntiān qíngtiān, hěn nuǎnhuo.</div><div class="en-text">It's sunny today, very warm.</div></div><button class="play-sm" onclick="speak('今天晴天，很暖和')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">多少度？</div><div class="py-text">Duōshao dù?</div><div class="en-text">What's the temperature?</div></div><button class="play-sm" onclick="speak('多少度')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">二十五度左右。</div><div class="py-text">Èrshíwǔ dù zuǒyòu.</div><div class="en-text">Around 25 degrees.</div></div><button class="play-sm" onclick="speak('二十五度左右')">🔊</button></div>
+            </div>
+            
+            <div class="dialogue-box" style="margin-top: 1rem;">
+                <h4 style="color: #1a1a2e; margin-bottom: 1rem;">🌧️ Checking Tomorrow's Weather</h4>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">明天会下雨吗？</div><div class="py-text">Míngtiān huì xiàyǔ ma?</div><div class="en-text">Will it rain tomorrow?</div></div><button class="play-sm" onclick="speak('明天会下雨吗')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">天气预报说会下雨。</div><div class="py-text">Tiānqì yùbào shuō huì xiàyǔ.</div><div class="en-text">The weather forecast says it will rain.</div></div><button class="play-sm" onclick="speak('天气预报说会下雨')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">那要带伞。</div><div class="py-text">Nà yào dài sǎn.</div><div class="en-text">Then I need to bring an umbrella.</div></div><button class="play-sm" onclick="speak('那要带伞')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            <div class="grammar-box">
+                <h4>1. 天气怎么样？(How's the weather?)</h4>
+                <p>Standard way to ask about weather.<br>
+                今天天气怎么样？= How's the weather today?<br>
+                明天天气怎么样？= How's the weather tomorrow?</p>
+            </div>
+            <div class="grammar-box">
+                <h4>2. 会 + Verb (Will...)</h4>
+                <p>Used to talk about future events.<br>
+                明天会下雨。= It will rain tomorrow.<br>
+                后天会下雪。= It will snow the day after tomorrow.</p>
+            </div>
+            <div class="grammar-box">
+                <h4>3. 要 + Verb (Need to...)</h4>
+                <p>Expresses necessity.<br>
+                要带伞。= Need to bring an umbrella.<br>
+                要穿外套。= Need to wear a jacket.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. What does "晴天" mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) Sunny</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) Rainy</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Cloudy</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. How do you say "It's cold"?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) 很热</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) 很冷</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 很暖和</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. "夏天" is which season?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) Spring</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) Summer</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Winter</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. "明天会下雨吗？" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) Is it raining now?</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) Will it rain tomorrow?</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Did it rain yesterday?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-09.html" class="nav-btn">← Lesson 9</a>
+            <a href="lesson-11.html" class="nav-btn">Lesson 11 →</a>
+        </div>
+    </div>
+
+    <script>
+        var playing = false, time = 0, duration = 600;
+        document.getElementById('playBtn').onclick = function() {
+            playing = !playing;
+            this.textContent = playing ? '⏸' : '▶';
+            if (playing) playAudio();
+        };
+        function playAudio() {
+            if (!playing) return;
+            time++;
+            if (time >= duration) { playing = false; document.getElementById('playBtn').textContent = '▶'; return; }
+            document.getElementById('progressFill').style.width = (time / duration * 100) + '%';
+            var mins = Math.floor(time / 60), secs = time % 60;
+            document.getElementById('timeDisplay').textContent = mins + ':' + (secs < 10 ? '0' : '') + secs + ' / 10:00';
+            setTimeout(playAudio, 1000);
+        }
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                var u = new SpeechSynthesisUtterance(text);
+                u.lang = 'zh-CN';
+                u.rate = 0.9;
+                speechSynthesis.speak(u);
+            }
+        }
+        function check(el, ok) { el.classList.add(ok ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>

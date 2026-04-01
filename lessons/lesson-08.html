@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8: 问路 (Asking Directions) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .direction-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .direction-card { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .direction-card:hover { background: #fff3e0; transform: translateY(-3px); }
+        .direction-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .direction-char { font-size: 1.3rem; font-family: 'Microsoft YaHei'; }
+        .direction-pinyin { color: #ff6b35; font-size: 0.9rem; }
+        .direction-meaning { color: #666; font-size: 0.85rem; }
+        .compass { display: grid; grid-template-columns: repeat(3, 80px); gap: 5px; justify-content: center; margin: 2rem 0; }
+        .compass-cell { background: #1a1a2e; color: white; padding: 1rem; text-align: center; border-radius: 5px; cursor: pointer; }
+        .compass-cell:hover { background: #ff6b35; }
+        .compass-cell.center { background: #ff6b35; }
+        .compass-cell.empty { background: transparent; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 50px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; font-size: 0.95rem; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-sm { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-py { color: #ff6b35; font-weight: bold; }
+        .vocab-mn { color: #666; }
+        .vocab-btn { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .grammar-box h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .map-demo { background: #e8f5e9; padding: 2rem; border-radius: 10px; text-align: center; margin: 1rem 0; }
+        .map-demo p { margin: 0.5rem 0; font-family: 'Microsoft YaHei'; }
+        .quiz-section { background: #e3f2fd; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .nav-btn:hover { background: #e55a2b; }
+        @media (max-width: 768px) { .direction-grid { grid-template-columns: repeat(2, 1fr); } .lesson-title { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="#">Beginner</a></div>
+            <h1 class="lesson-title">Lesson 8: 问路 (Asking Directions)</h1>
+            <p>Learn how to ask for and give directions in Chinese.</p>
+            <div class="lesson-meta"><span>⏱ 10 minutes</span><span>📚 Beginner</span><span>🏷 16 words</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 10:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🧭 Direction Words</h2>
+            <div class="direction-grid">
+                <div class="direction-card" onclick="speak('前')"><div class="direction-icon">⬆️</div><div class="direction-char">前</div><div class="direction-pinyin">qián</div><div class="direction-meaning">front</div></div>
+                <div class="direction-card" onclick="speak('后')"><div class="direction-icon">⬇️</div><div class="direction-char">后</div><div class="direction-pinyin">hòu</div><div class="direction-meaning">back</div></div>
+                <div class="direction-card" onclick="speak('左')"><div class="direction-icon">⬅️</div><div class="direction-char">左</div><div class="direction-pinyin">zuǒ</div><div class="direction-meaning">left</div></div>
+                <div class="direction-card" onclick="speak('右')"><div class="direction-icon">➡️</div><div class="direction-char">右</div><div class="direction-pinyin">yòu</div><div class="direction-meaning">right</div></div>
+            </div>
+            
+            <h3 style="margin-top: 2rem; text-align: center;">🗺️ Compass Directions</h3>
+            <div class="compass">
+                <div class="compass-cell empty"></div>
+                <div class="compass-cell" onclick="speak('北')">北<br><small>běi</small></div>
+                <div class="compass-cell empty"></div>
+                <div class="compass-cell" onclick="speak('西')">西<br><small>xī</small></div>
+                <div class="compass-cell center">中<br><small>zhōng</small></div>
+                <div class="compass-cell" onclick="speak('东')">东<br><small>dōng</small></div>
+                <div class="compass-cell empty"></div>
+                <div class="compass-cell" onclick="speak('南')">南<br><small>nán</small></div>
+                <div class="compass-cell empty"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📍 Key Phrases</h2>
+            <div class="vocab-item"><span class="vocab-char">在哪里</span><div class="vocab-info"><div class="vocab-py">zài nǎlǐ</div><div class="vocab-mn">where is</div></div><button class="vocab-btn" onclick="speak('在哪里')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">怎么走</span><div class="vocab-info"><div class="vocab-py">zěnme zǒu</div><div class="vocab-mn">how to get there</div></div><button class="vocab-btn" onclick="speak('怎么走')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">往...走</span><div class="vocab-info"><div class="vocab-py">wǎng...zǒu</div><div class="vocab-mn">go towards...</div></div><button class="vocab-btn" onclick="speak('往走')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">向...拐</span><div class="vocab-info"><div class="vocab-py">xiàng...guǎi</div><div class="vocab-mn">turn towards...</div></div><button class="vocab-btn" onclick="speak('向拐')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">一直走</span><div class="vocab-info"><div class="vocab-py">yìzhí zǒu</div><div class="vocab-mn">go straight</div></div><button class="vocab-btn" onclick="speak('一直走')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">对面</span><div class="vocab-info"><div class="vocab-py">duìmiàn</div><div class="vocab-mn">opposite</div></div><button class="vocab-btn" onclick="speak('对面')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">旁边</span><div class="vocab-info"><div class="vocab-py">pángbiān</div><div class="vocab-mn">next to / beside</div></div><button class="vocab-btn" onclick="speak('旁边')">🔊</button></div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - Asking for Directions</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">请问，厕所在哪里？</div><div class="py-text">Qǐngwèn, cèsuǒ zài nǎlǐ?</div><div class="en-text">Excuse me, where is the bathroom?</div></div><button class="play-sm" onclick="speak('请问，厕所在哪里？')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">路人:</span><div><div class="ch-text">往前走，然后向右拐。</div><div class="py-text">Wǎng qián zǒu, ránhòu xiàng yòu guǎi.</div><div class="en-text">Go forward, then turn right.</div></div><button class="play-sm" onclick="speak('往前走，然后向右拐')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">远吗？</div><div class="py-text">Yuǎn ma?</div><div class="en-text">Is it far?</div></div><button class="play-sm" onclick="speak('远吗')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">路人:</span><div><div class="ch-text">不远，就在前面。</div><div class="py-text">Bù yuǎn, jiù zài qiánmiàn.</div><div class="en-text">Not far, it's right ahead.</div></div><button class="play-sm" onclick="speak('不远，就在前面')">🔊</button></div>
+            </div>
+            
+            <div class="dialogue-box" style="margin-top: 1rem;">
+                <h4 style="color: #1a1a2e; margin-bottom: 1rem;">🗺️ Finding a Subway Station</h4>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">请问，地铁站在哪里？</div><div class="py-text">Qǐngwèn, dìtiězhàn zài nǎlǐ?</div><div class="en-text">Excuse me, where is the subway station?</div></div><button class="play-sm" onclick="speak('请问，地铁站在哪里？')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">路人:</span><div><div class="ch-text">一直往前走，过马路，地铁站就在左边。</div><div class="py-text">Yìzhí wǎng qián zǒu, guò mǎlù, dìtiězhàn jiù zài zuǒbiān.</div><div class="en-text">Go straight, cross the road, the subway station is on the left.</div></div><button class="play-sm" onclick="speak('一直往前走，过马路，地铁站就在左边')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">谢谢！</div><div class="py-text">Xièxie!</div><div class="en-text">Thank you!</div></div><button class="play-sm" onclick="speak('谢谢')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            <div class="grammar-box">
+                <h4>1. 在哪里？(Where is...?)</h4>
+                <p>Ask about location.<br>
+               厕所在哪里？= Where is the bathroom?<br>
+                车站在哪里？= Where is the station?</p>
+            </div>
+            <div class="grammar-box">
+                <h4>2. 怎么走？(How to get there?)</h4>
+                <p>Ask for directions.<br>
+                地铁站怎么走？= How do I get to the subway station?<br>
+                机场怎么走？= How do I get to the airport?</p>
+            </div>
+            <div class="grammar-box">
+                <h4>3. 往/向 + Direction + 走/拐</h4>
+                <p>Give directions.<br>
+                往前走 = go forward<br>
+                向左拐 = turn left<br>
+                往右拐 = turn right</p>
+            </div>
+            
+            <div class="map-demo">
+                <p>📍 <strong>Direction Chain:</strong></p>
+                <p>一直走 → 向左拐 → 往前走 → 到了</p>
+                <p style="color: #666; font-size: 0.9rem;">Go straight → Turn left → Go forward → You're there</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. What does "左" mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) Right</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) Left</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Front</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. How do you ask "Where is the bathroom?"</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) 厕所怎么样？</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) 厕所在哪里？</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 厕所是什么？</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. "一直走" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) Go straight</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) Turn around</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Go back</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. Which direction is "北"?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) South</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) East</div>
+                        <div class="quiz-option" onclick="check(this,true)">C) North</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-07.html" class="nav-btn">← Lesson 7</a>
+            <a href="lesson-09.html" class="nav-btn">Lesson 9 →</a>
+        </div>
+    </div>
+
+    <script>
+        var playing = false, time = 0, duration = 600;
+        document.getElementById('playBtn').onclick = function() {
+            playing = !playing;
+            this.textContent = playing ? '⏸' : '▶';
+            if (playing) playAudio();
+        };
+        function playAudio() {
+            if (!playing) return;
+            time++;
+            if (time >= duration) { playing = false; document.getElementById('playBtn').textContent = '▶'; return; }
+            document.getElementById('progressFill').style.width = (time / duration * 100) + '%';
+            var mins = Math.floor(time / 60), secs = time % 60;
+            document.getElementById('timeDisplay').textContent = mins + ':' + (secs < 10 ? '0' : '') + secs + ' / 10:00';
+            setTimeout(playAudio, 1000);
+        }
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                var u = new SpeechSynthesisUtterance(text);
+                u.lang = 'zh-CN';
+                u.rate = 0.9;
+                speechSynthesis.speak(u);
+            }
+        }
+        function check(el, ok) { el.classList.add(ok ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>

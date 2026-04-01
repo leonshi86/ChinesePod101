@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential Phrases for Travelers - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .phrases-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .phrases-header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2.5rem; border-radius: 15px; margin-bottom: 2rem; text-align: center; }
+        .phrases-header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .section { background: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .phrase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .phrase-card { background: #f8f9fa; padding: 1.5rem; border-radius: 12px; cursor: pointer; transition: all 0.3s; border-left: 4px solid transparent; }
+        .phrase-card:hover { background: #e8eaf6; border-left-color: #667eea; transform: translateX(5px); }
+        .phrase-zh { font-size: 1.4rem; font-family: 'Microsoft YaHei'; color: #1a1a2e; margin-bottom: 0.3rem; }
+        .phrase-py { color: #667eea; font-size: 1rem; margin-bottom: 0.3rem; }
+        .phrase-en { color: #666; font-size: 0.95rem; }
+        .play-icon { float: right; background: #667eea; color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-size: 1rem; }
+        .category-emoji { font-size: 1.5rem; }
+        .tip-box { background: #e3f2fd; padding: 1.5rem; border-radius: 10px; margin-top: 1rem; border-left: 4px solid #2196f3; }
+        .tip-box h4 { color: #1565c0; margin-bottom: 0.5rem; }
+        .print-btn { background: #667eea; color: white; border: none; padding: 1rem 2rem; border-radius: 10px; cursor: pointer; font-size: 1rem; margin-bottom: 1rem; }
+        .print-btn:hover { background: #5c6bc0; }
+        @media (max-width: 768px) { .phrase-grid { grid-template-columns: 1fr; } }
+        @media print { .navbar, .print-btn { display: none; } .section { break-inside: avoid; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="phrases-page">
+        <div class="phrases-header">
+            <h1>📝 Essential Phrases for Travelers</h1>
+            <p>100+ must-know Chinese phrases for your trip</p>
+        </div>
+
+        <button class="print-btn" onclick="window.print()">🖨️ Print This Page</button>
+
+        <div class="section">
+            <h2><span class="category-emoji">👋</span> Basic Greetings</h2>
+            <div class="phrase-grid">
+                <div class="phrase-card" onclick="speak('你好')"><button class="play-icon">🔊</button><div class="phrase-zh">你好</div><div class="phrase-py">nǐ hǎo</div><div class="phrase-en">Hello</div></div>
+                <div class="phrase-card" onclick="speak('你好吗')"><button class="play-icon">🔊</button><div class="phrase-zh">你好吗？</div><div class="phrase-py">nǐ hǎo ma?</div><div class="phrase-en">How are you?</div></div>
+                <div class="phrase-card" onclick="speak('很好')"><button class="play-icon">🔊</button><div class="phrase-zh">很好</div><div class="phrase-py">hěn hǎo</div><div class="phrase-en">Very good</div></div>
+                <div class="phrase-card" onclick="speak('谢谢')"><button class="play-icon">🔊</button><div class="phrase-zh">谢谢</div><div class="phrase-py">xièxie</div><div class="phrase-en">Thank you</div></div>
+                <div class="phrase-card" onclick="speak('不客气')"><button class="play-icon">🔊</button><div class="phrase-zh">不客气</div><div class="phrase-py">bú kèqi</div><div class="phrase-en">You're welcome</div></div>
+                <div class="phrase-card" onclick="speak('对不起')"><button class="play-icon">🔊</button><div class="phrase-zh">对不起</div><div class="phrase-py">duìbuqǐ</div><div class="phrase-en">Sorry</div></div>
+                <div class="phrase-card" onclick="speak('没关系')"><button class="play-icon">🔊</button><div class="phrase-zh">没关系</div><div class="phrase-py">méi guānxi</div><div class="phrase-en">It's okay / No problem</div></div>
+                <div class="phrase-card" onclick="speak('再见')"><button class="play-icon">🔊</button><div class="phrase-zh">再见</div><div class="phrase-py">zàijiàn</div><div class="phrase-en">Goodbye</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="category-emoji">🛒</span> Shopping</h2>
+            <div class="phrase-grid">
+                <div class="phrase-card" onclick="speak('这个多少钱')"><button class="play-icon">🔊</button><div class="phrase-zh">这个多少钱？</div><div class="phrase-py">zhège duōshao qián?</div><div class="phrase-en">How much is this?</div></div>
+                <div class="phrase-card" onclick="speak('太贵了')"><button class="play-icon">🔊</button><div class="phrase-zh">太贵了</div><div class="phrase-py">tài guì le</div><div class="phrase-en">Too expensive</div></div>
+                <div class="phrase-card" onclick="speak('便宜一点儿')"><button class="play-icon">🔊</button><div class="phrase-zh">便宜一点儿</div><div class="phrase-py">piányi yìdiǎnr</div><div class="phrase-en">A little cheaper</div></div>
+                <div class="phrase-card" onclick="speak('我要这个')"><button class="play-icon">🔊</button><div class="phrase-zh">我要这个</div><div class="phrase-py">wǒ yào zhège</div><div class="phrase-en">I want this one</div></div>
+                <div class="phrase-card" onclick="speak('可以刷卡吗')"><button class="play-icon">🔊</button><div class="phrase-zh">可以刷卡吗？</div><div class="phrase-py">kěyǐ shuākǎ ma?</div><div class="phrase-en">Can I pay by card?</div></div>
+                <div class="phrase-card" onclick="speak('我不需要了')"><button class="play-icon">🔊</button><div class="phrase-zh">我不需要了</div><div class="phrase-py">wǒ bù xūyào le</div><div class="phrase-en">I don't need it</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="category-emoji">🍽️</span> Restaurant</h2>
+            <div class="phrase-grid">
+                <div class="phrase-card" onclick="speak('请给我菜单')"><button class="play-icon">🔊</button><div class="phrase-zh">请给我菜单</div><div class="phrase-py">qǐng gěi wǒ càidān</div><div class="phrase-en">Please give me the menu</div></div>
+                <div class="phrase-card" onclick="speak('我要点菜')"><button class="play-icon">🔊</button><div class="phrase-zh">我要点菜</div><div class="phrase-py">wǒ yào diǎncài</div><div class="phrase-en">I want to order</div></div>
+                <div class="phrase-card" onclick="speak('这个菜辣吗')"><button class="play-icon">🔊</button><div class="phrase-zh">这个菜辣吗？</div><div class="phrase-py">zhège cài là ma?</div><div class="phrase-en">Is this dish spicy?</div></div>
+                <div class="phrase-card" onclick="speak('不要辣')"><button class="play-icon">🔊</button><div class="phrase-zh">不要辣</div><div class="phrase-py">bú yào là</div><div class="phrase-en">Not spicy, please</div></div>
+                <div class="phrase-card" onclick="speak('买单')"><button class="play-icon">🔊</button><div class="phrase-zh">买单</div><div class="phrase-py">mǎidān</div><div class="phrase-en">Check, please</div></div>
+                <div class="phrase-card" onclick="speak('很好吃')"><button class="play-icon">🔊</button><div class="phrase-zh">很好吃</div><div class="phrase-py">hěn hǎochī</div><div class="phrase-en">Very delicious</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="category-emoji">🗺️</span> Directions</h2>
+            <div class="phrase-grid">
+                <div class="phrase-card" onclick="speak('...在哪里')"><button class="play-icon">🔊</button><div class="phrase-zh">...在哪里？</div><div class="phrase-py">...zài nǎlǐ?</div><div class="phrase-en">Where is...?</div></div>
+                <div class="phrase-card" onclick="speak('厕所在哪里')"><button class="play-icon">🔊</button><div class="phrase-zh">厕所在哪里？</div><div class="phrase-py">cèsuǒ zài nǎlǐ?</div><div class="phrase-en">Where is the bathroom?</div></div>
+                <div class="phrase-card" onclick="speak('地铁站在哪里')"><button class="play-icon">🔊</button><div class="phrase-zh">地铁站在哪里？</div><div class="phrase-py">dìtiězhàn zài nǎlǐ?</div><div class="phrase-en">Where is the subway station?</div></div>
+                <div class="phrase-card" onclick="speak('怎么走')"><button class="play-icon">🔊</button><div class="phrase-zh">怎么走？</div><div class="phrase-py">zěnme zǒu?</div><div class="phrase-en">How do I get there?</div></div>
+                <div class="phrase-card" onclick="speak('左拐')"><button class="play-icon">🔊</button><div class="phrase-zh">左拐</div><div class="phrase-py">zuǒ guǎi</div><div class="phrase-en">Turn left</div></div>
+                <div class="phrase-card" onclick="speak('右拐')"><button class="play-icon">🔊</button><div class="phrase-zh">右拐</div><div class="phrase-py">yòu guǎi</div><div class="phrase-en">Turn right</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="category-emoji">🚕</span> Transportation</h2>
+            <div class="phrase-grid">
+                <div class="phrase-card" onclick="speak('去...')"><button class="play-icon">🔊</button><div class="phrase-zh">去...</div><div class="phrase-py">qù...</div><div class="phrase-en">Go to...</div></div>
+                <div class="phrase-card" onclick="speak('去机场')"><button class="play-icon">🔊</button><div class="phrase-zh">去机场</div><div class="phrase-py">qù jīchǎng</div><div class="phrase-en">To the airport</div></div>
+                <div class="phrase-card" onclick="speak('去火车站')"><button class="play-icon">🔊</button><div class="phrase-zh">去火车站</div><div class="phrase-py">qù huǒchēzhàn</div><div class="phrase-en">To the train station</div></div>
+                <div class="phrase-card" onclick="speak('多少钱')"><button class="play-icon">🔊</button><div class="phrase-zh">多少钱？</div><div class="phrase-py">duōshao qián?</div><div class="phrase-en">How much?</div></div>
+                <div class="phrase-card" onclick="speak('请开慢一点')"><button class="play-icon">🔊</button><div class="phrase-zh">请开慢一点</div><div class="phrase-py">qǐng kāi màn yìdiǎn</div><div class="phrase-en">Please drive slower</div></div>
+                <div class="phrase-card" onclick="speak('停在这里')"><button class="play-icon">🔊</button><div class="phrase-zh">停在这里</div><div class="phrase-py">tíng zài zhèlǐ</div><div class="phrase-en">Stop here</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="category-emoji">🏨</span> Hotel</h2>
+            <div class="phrase-grid">
+                <div class="phrase-card" onclick="speak('我有预订')"><button class="play-icon">🔊</button><div class="phrase-zh">我有预订</div><div class="phrase-py">wǒ yǒu yùdìng</div><div class="phrase-en">I have a reservation</div></div>
+                <div class="phrase-card" onclick="speak('我要入住')"><button class="play-icon">🔊</button><div class="phrase-zh">我要入住</div><div class="phrase-py">wǒ yào rùzhù</div><div class="phrase-en">I want to check in</div></div>
+                <div class="phrase-card" onclick="speak('我要退房')"><button class="play-icon">🔊</button><div class="phrase-zh">我要退房</div><div class="phrase-py">wǒ yào tuìfáng</div><div class="phrase-en">I want to check out</div></div>
+                <div class="phrase-card" onclick="speak('有无线网吗')"><button class="play-icon">🔊</button><div class="phrase-zh">有无线网吗？</div><div class="phrase-py">yǒu wúxiàn wǎng ma?</div><div class="phrase-en">Is there WiFi?</div></div>
+                <div class="phrase-card" onclick="speak('几点退房')"><button class="play-icon">🔊</button><div class="phrase-zh">几点退房？</div><div class="phrase-py">jǐ diǎn tuìfáng?</div><div class="phrase-en">What time is checkout?</div></div>
+                <div class="phrase-card" onclick="speak('房间有问题')"><button class="play-icon">🔊</button><div class="phrase-zh">房间有问题</div><div class="phrase-py">fángjiān yǒu wèntí</div><div class="phrase-en">There's a problem with the room</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><span class="category-emoji">🆘</span> Emergency</h2>
+            <div class="phrase-grid">
+                <div class="phrase-card" onclick="speak('救命')"><button class="play-icon">🔊</button><div class="phrase-zh">救命！</div><div class="phrase-py">jiùmìng!</div><div class="phrase-en">Help!</div></div>
+                <div class="phrase-card" onclick="speak('我迷路了')"><button class="play-icon">🔊</button><div class="phrase-zh">我迷路了</div><div class="phrase-py">wǒ mílù le</div><div class="phrase-en">I'm lost</div></div>
+                <div class="phrase-card" onclick="speak('我听不懂')"><button class="play-icon">🔊</button><div class="phrase-zh">我听不懂</div><div class="phrase-py">wǒ tīng bù dǒng</div><div class="phrase-en">I don't understand</div></div>
+                <div class="phrase-card" onclick="speak('请帮忙')"><button class="play-icon">🔊</button><div class="phrase-zh">请帮忙</div><div class="phrase-py">qǐng bāngmáng</div><div class="phrase-en">Please help</div></div>
+                <div class="phrase-card" onclick="speak('叫警察')"><button class="play-icon">🔊</button><div class="phrase-zh">叫警察</div><div class="phrase-py">jiào jǐngchá</div><div class="phrase-en">Call the police</div></div>
+                <div class="phrase-card" onclick="speak('叫救护车')"><button class="play-icon">🔊</button><div class="phrase-zh">叫救护车</div><div class="phrase-py">jiào jiùhùchē</div><div class="phrase-en">Call an ambulance</div></div>
+            </div>
+            
+            <div class="tip-box">
+                <h4>🚨 Emergency Numbers in China</h4>
+                <p><strong>110</strong> - Police | <strong>120</strong> - Ambulance | <strong>119</strong> - Fire</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            }
+        }
+    </script>
+</body>
+</html>

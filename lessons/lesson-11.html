@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 11: 日常生活 (Daily Routine) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .timeline { position: relative; padding-left: 30px; }
+        .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 3px; background: #ff6b35; }
+        .timeline-item { position: relative; padding: 1rem; margin-bottom: 1rem; background: #f8f9fa; border-radius: 10px; cursor: pointer; transition: all 0.3s; }
+        .timeline-item:hover { background: #fff3e0; transform: translateX(5px); }
+        .timeline-item::before { content: ''; position: absolute; left: -24px; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; background: #ff6b35; border-radius: 50%; }
+        .timeline-time { font-weight: bold; color: #ff6b35; }
+        .timeline-action { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .timeline-pinyin { color: #666; font-size: 0.9rem; }
+        .action-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .action-card { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .action-card:hover { background: #fff3e0; transform: translateY(-3px); }
+        .action-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .action-char { font-size: 1.3rem; font-family: 'Microsoft YaHei'; }
+        .action-pinyin { color: #ff6b35; font-size: 0.9rem; }
+        .action-meaning { color: #666; font-size: 0.85rem; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 50px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; font-size: 0.95rem; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-sm { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-py { color: #ff6b35; font-weight: bold; }
+        .vocab-mn { color: #666; }
+        .vocab-btn { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .grammar-box h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .quiz-section { background: #e8eaf6; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .nav-btn:hover { background: #e55a2b; }
+        @media (max-width: 768px) { .action-grid { grid-template-columns: repeat(2, 1fr); } .lesson-title { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="#">Beginner</a></div>
+            <h1 class="lesson-title">Lesson 11: 日常生活 (Daily Routine)</h1>
+            <p>Learn how to talk about your daily activities in Chinese.</p>
+            <div class="lesson-meta"><span>⏱ 10 minutes</span><span>📚 Beginner</span><span>🏷 16 words</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 10:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⏰ A Day in Life</h2>
+            <div class="timeline">
+                <div class="timeline-item" onclick="speak('早上七点起床')"><div class="timeline-time">7:00 AM</div><div class="timeline-action">起床</div><div class="timeline-pinyin">qǐchuáng - get up</div></div>
+                <div class="timeline-item" onclick="speak('刷牙洗脸')"><div class="timeline-time">7:15 AM</div><div class="timeline-action">刷牙洗脸</div><div class="timeline-pinyin">shuāyá xǐliǎn - brush teeth & wash face</div></div>
+                <div class="timeline-item" onclick="speak('吃早饭')"><div class="timeline-time">7:30 AM</div><div class="timeline-action">吃早饭</div><div class="timeline-pinyin">chī zǎofàn - eat breakfast</div></div>
+                <div class="timeline-item" onclick="speak('去上班')"><div class="timeline-time">8:00 AM</div><div class="timeline-action">去上班</div><div class="timeline-pinyin">qù shàngbān - go to work</div></div>
+                <div class="timeline-item" onclick="speak('吃午饭')"><div class="timeline-time">12:00 PM</div><div class="timeline-action">吃午饭</div><div class="timeline-pinyin">chī wǔfàn - eat lunch</div></div>
+                <div class="timeline-item" onclick="speak('下班')"><div class="timeline-time">6:00 PM</div><div class="timeline-action">下班</div><div class="timeline-pinyin">xiàbān - get off work</div></div>
+                <div class="timeline-item" onclick="speak('吃晚饭')"><div class="timeline-time">7:00 PM</div><div class="timeline-action">吃晚饭</div><div class="timeline-pinyin">chī wǎnfàn - eat dinner</div></div>
+                <div class="timeline-item" onclick="speak('睡觉')"><div class="timeline-time">11:00 PM</div><div class="timeline-action">睡觉</div><div class="timeline-pinyin">shuìjiào - go to sleep</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏃 Daily Activities</h2>
+            <div class="action-grid">
+                <div class="action-card" onclick="speak('起床')"><div class="action-icon">🛏️</div><div class="action-char">起床</div><div class="action-pinyin">qǐchuáng</div><div class="action-meaning">get up</div></div>
+                <div class="action-card" onclick="speak('吃饭')"><div class="action-icon">🍚</div><div class="action-char">吃饭</div><div class="action-pinyin">chīfàn</div><div class="action-meaning">eat</div></div>
+                <div class="action-card" onclick="speak('上班')"><div class="action-icon">💼</div><div class="action-char">上班</div><div class="action-pinyin">shàngbān</div><div class="action-meaning">go to work</div></div>
+                <div class="action-card" onclick="speak('下班')"><div class="action-icon">🏠</div><div class="action-char">下班</div><div class="action-pinyin">xiàbān</div><div class="action-meaning">get off work</div></div>
+                <div class="action-card" onclick="speak('睡觉')"><div class="action-icon">😴</div><div class="action-char">睡觉</div><div class="action-pinyin">shuìjiào</div><div class="action-meaning">sleep</div></div>
+                <div class="action-card" onclick="speak('休息')"><div class="action-icon">☕</div><div class="action-char">休息</div><div class="action-pinyin">xiūxi</div><div class="action-meaning">rest</div></div>
+                <div class="action-card" onclick="speak('学习')"><div class="action-icon">📚</div><div class="action-char">学习</div><div class="action-pinyin">xuéxí</div><div class="action-meaning">study</div></div>
+                <div class="action-card" onclick="speak('运动')"><div class="action-icon">🏃</div><div class="action-char">运动</div><div class="action-pinyin">yùndòng</div><div class="action-meaning">exercise</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🕐 Time Words</h2>
+            <div class="vocab-item"><span class="vocab-char">早上</span><div class="vocab-info"><div class="vocab-py">zǎoshang</div><div class="vocab-mn">morning</div></div><button class="vocab-btn" onclick="speak('早上')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">上午</span><div class="vocab-info"><div class="vocab-py">shàngwǔ</div><div class="vocab-mn">morning (formal)</div></div><button class="vocab-btn" onclick="speak('上午')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">中午</span><div class="vocab-info"><div class="vocab-py">zhōngwǔ</div><div class="vocab-mn">noon</div></div><button class="vocab-btn" onclick="speak('中午')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">下午</span><div class="vocab-info"><div class="vocab-py">xiàwǔ</div><div class="vocab-mn">afternoon</div></div><button class="vocab-btn" onclick="speak('下午')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">晚上</span><div class="vocab-info"><div class="vocab-py">wǎnshang</div><div class="vocab-mn">evening</div></div><button class="vocab-btn" onclick="speak('晚上')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">半夜</span><div class="vocab-info"><div class="vocab-py">bànyè</div><div class="vocab-mn">midnight</div></div><button class="vocab-btn" onclick="speak('半夜')">🔊</button></div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - Talking About Your Day</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">你每天几点起床？</div><div class="py-text">Nǐ měitiān jǐ diǎn qǐchuáng?</div><div class="en-text">What time do you get up every day?</div></div><button class="play-sm" onclick="speak('你每天几点起床')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">我七点起床。</div><div class="py-text">Wǒ qī diǎn qǐchuáng.</div><div class="en-text">I get up at 7 o'clock.</div></div><button class="play-sm" onclick="speak('我七点起床')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">几点上班？</div><div class="py-text">Jǐ diǎn shàngbān?</div><div class="en-text">What time do you go to work?</div></div><button class="play-sm" onclick="speak('几点上班')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">九点上班，六点下班。</div><div class="py-text">Jiǔ diǎn shàngbān, liù diǎn xiàbān.</div><div class="en-text">I start work at 9, get off at 6.</div></div><button class="play-sm" onclick="speak('九点上班，六点下班')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">晚上做什么？</div><div class="py-text">Wǎnshang zuò shénme?</div><div class="en-text">What do you do in the evening?</div></div><button class="play-sm" onclick="speak('晚上做什么')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">B:</span><div><div class="ch-text">吃饭、看电视、睡觉。</div><div class="py-text">Chīfàn, kàn diànshì, shuìjiào.</div><div class="en-text">Eat, watch TV, sleep.</div></div><button class="play-sm" onclick="speak('吃饭、看电视、睡觉')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            <div class="grammar-box">
+                <h4>1. 几点 + Verb? (What time do you...?)</h4>
+                <p>Ask about time of activities.<br>
+                几点起床？= What time do you get up?<br>
+                几点上班？= What time do you go to work?</p>
+            </div>
+            <div class="grammar-box">
+                <h4>2. Number + 点 (Time)</h4>
+                <p>Tell the time.<br>
+                七点 = 7 o'clock<br>
+                七点半 = 7:30<br>
+                七点一刻 = 7:15</p>
+            </div>
+            <div class="grammar-box">
+                <h4>3. Verb + 了 (Completed Action)</h4>
+                <p>Indicate completed actions.<br>
+                吃饭了。= I've eaten.<br>
+                下班了。= I'm off work.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. What does "起床" mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) Go to sleep</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) Get up</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Eat breakfast</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. "晚上" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) Morning</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) Afternoon</div>
+                        <div class="quiz-option" onclick="check(this,true)">C) Evening</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. How do you say "go to work"?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) 下班</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) 上班</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 吃饭</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. "七点半" is:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) 7:00</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) 7:30</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 7:15</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-10.html" class="nav-btn">← Lesson 10</a>
+            <a href="lesson-12.html" class="nav-btn">Lesson 12 →</a>
+        </div>
+    </div>
+
+    <script>
+        var playing = false, time = 0, duration = 600;
+        document.getElementById('playBtn').onclick = function() {
+            playing = !playing;
+            this.textContent = playing ? '⏸' : '▶';
+            if (playing) playAudio();
+        };
+        function playAudio() {
+            if (!playing) return;
+            time++;
+            if (time >= duration) { playing = false; document.getElementById('playBtn').textContent = '▶'; return; }
+            document.getElementById('progressFill').style.width = (time / duration * 100) + '%';
+            var mins = Math.floor(time / 60), secs = time % 60;
+            document.getElementById('timeDisplay').textContent = mins + ':' + (secs < 10 ? '0' : '') + secs + ' / 10:00';
+            setTimeout(playAudio, 1000);
+        }
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                var u = new SpeechSynthesisUtterance(text);
+                u.lang = 'zh-CN';
+                u.rate = 0.9;
+                speechSynthesis.speak(u);
+            }
+        }
+        function check(el, ok) { el.classList.add(ok ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 16: 求助 (Asking for Help) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .help-card { background: linear-gradient(135deg, #ef5350, #c62828); color: white; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .help-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .help-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .help-char { font-size: 1.3rem; }
+        .help-pinyin { font-size: 0.9rem; opacity: 0.9; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 50px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; font-size: 0.95rem; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-sm { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-py { color: #ff6b35; font-weight: bold; }
+        .vocab-mn { color: #666; }
+        .vocab-btn { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .grammar-box h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .emergency-box { background: #ffebee; padding: 2rem; border-radius: 10px; margin-top: 1rem; border: 2px solid #e53935; }
+        .emergency-box h3 { color: #c62828; margin-bottom: 1rem; }
+        .quiz-section { background: #e8f5e9; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .nav-btn:hover { background: #e55a2b; }
+        .nav-btn.disabled { background: #ccc; pointer-events: none; }
+        @media (max-width: 768px) { .help-grid { grid-template-columns: repeat(2, 1fr); } .lesson-title { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="#">Beginner</a></div>
+            <h1 class="lesson-title">Lesson 16: 求助 (Asking for Help)</h1>
+            <p>Learn how to ask for help in various situations in Chinese.</p>
+            <div class="lesson-meta"><span>⏱ 10 minutes</span><span>📚 Beginner</span><span>🏷 16 words</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 10:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🆘 Emergency Phrases</h2>
+            <div class="help-grid">
+                <div class="help-card" onclick="speak('救命')"><div class="help-icon">🆘</div><div class="help-char">救命</div><div class="help-pinyin">jiùmìng</div></div>
+                <div class="help-card" onclick="speak('帮忙')"><div class="help-icon">🤝</div><div class="help-char">帮忙</div><div class="help-pinyin">bāngmáng</div></div>
+                <div class="help-card" onclick="speak('警察')"><div class="help-icon">👮</div><div class="help-char">警察</div><div class="help-pinyin">jǐngchá</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Asking for Help</h2>
+            <div class="vocab-item"><span class="vocab-char">可以帮我吗</span><div class="vocab-info"><div class="vocab-py">kěyǐ bāng wǒ ma</div><div class="vocab-mn">Can you help me?</div></div><button class="vocab-btn" onclick="speak('可以帮我吗')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">帮我一下</span><div class="vocab-info"><div class="vocab-py">bāng wǒ yíxià</div><div class="vocab-mn">help me a bit</div></div><button class="vocab-btn" onclick="speak('帮我一下')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">找不到</span><div class="vocab-info"><div class="vocab-py">zhǎo bú dào</div><div class="vocab-mn">can't find</div></div><button class="vocab-btn" onclick="speak('找不到')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">不懂</span><div class="vocab-info"><div class="vocab-py">bù dǒng</div><div class="vocab-mn">don't understand</div></div><button class="vocab-btn" onclick="speak('不懂')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">听不懂</span><div class="vocab-info"><div class="vocab-py">tīng bù dǒng</div><div class="vocab-mn">can't understand (listening)</div></div><button class="vocab-btn" onclick="speak('听不懂')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">有问题</span><div class="vocab-info"><div class="vocab-py">yǒu wèntí</div><div class="vocab-mn">have a problem</div></div><button class="vocab-btn" onclick="speak('有问题')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">不好意思</span><div class="vocab-info"><div class="vocab-py">bùhǎoyìsi</div><div class="vocab-mn">excuse me / sorry</div></div><button class="vocab-btn" onclick="speak('不好意思')">🔊</button></div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - Lost</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">不好意思，我迷路了。</div><div class="py-text">Bùhǎoyìsi, wǒ mílù le.</div><div class="en-text">Excuse me, I'm lost.</div></div><button class="play-sm" onclick="speak('不好意思，我迷路了')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">路人:</span><div><div class="ch-text">你要去哪里？</div><div class="py-text">Nǐ yào qù nǎlǐ?</div><div class="en-text">Where do you want to go?</div></div><button class="play-sm" onclick="speak('你要去哪里')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">我要去火车站，但是找不到。</div><div class="py-text">Wǒ yào qù huǒchēzhàn, dànshì zhǎo bú dào.</div><div class="en-text">I want to go to the train station, but I can't find it.</div></div><button class="play-sm" onclick="speak('我要去火车站，但是找不到')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">路人:</span><div><div class="ch-text">不远，我带你去吧。</div><div class="py-text">Bù yuǎn, wǒ dài nǐ qù ba.</div><div class="en-text">It's not far, let me take you there.</div></div><button class="play-sm" onclick="speak('不远，我带你去吧')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">太谢谢了！</div><div class="py-text">Tài xièxie le!</div><div class="en-text">Thank you so much!</div></div><button class="play-sm" onclick="speak('太谢谢了')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - Language Problem</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">对不起，我听不懂。</div><div class="py-text">Duìbuqǐ, wǒ tīng bù dǒng.</div><div class="en-text">Sorry, I don't understand.</div></div><button class="play-sm" onclick="speak('对不起，我听不懂')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">没关系，我再说一次。</div><div class="py-text">Méi guānxi, wǒ zài shuō yí cì.</div><div class="en-text">No problem, I'll say it again.</div></div><button class="play-sm" onclick="speak('没关系，我再说一次')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">可以说慢一点吗？</div><div class="py-text">Kěyǐ shuō màn yìdiǎn ma?</div><div class="en-text">Can you speak more slowly?</div></div><button class="play-sm" onclick="speak('可以说慢一点吗')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">A:</span><div><div class="ch-text">好的。</div><div class="py-text">Hǎo de.</div><div class="en-text">OK.</div></div><button class="play-sm" onclick="speak('好的')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            <div class="grammar-box">
+                <h4>1. 可以...吗？(Can you...?)</h4>
+                <p>Make polite requests.<br>
+                可以帮我吗？= Can you help me?<br>
+                可以说慢一点吗？= Can you speak more slowly?</p>
+            </div>
+            <div class="grammar-box">
+                <h4>2. Verb + 不到 (Can't...)</h4>
+                <p>Express inability to do something.<br>
+                找不到 = can't find<br>
+                听不到 = can't hear<br>
+                看不到 = can't see</p>
+            </div>
+            <div class="grammar-box">
+                <h4>3. 再 + Verb (Again)</h4>
+                <p>Repeat an action.<br>
+                再说一次 = say it again<br>
+                再来一次 = do it again</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚨 Emergency Numbers in China</h2>
+            <div class="emergency-box">
+                <h3>Important Phone Numbers</h3>
+                <p style="font-size: 1.2rem; margin: 0.5rem 0;"><strong>110</strong> - 警察</p>
+                <p style="font-size: 1.2rem; margin: 0.5rem 0;"><strong>120</strong> - 救护车</p>
+                <p style="font-size: 1.2rem; margin: 0.5rem 0;"><strong>119</strong> - 火警</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. What does "帮忙" mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) Help</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) Thank you</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Sorry</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. How do you say "I don't understand"?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) 我不知道</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) 我不懂</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 我不想</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. "可以帮我吗？" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) Can you help me?</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) Can you go?</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Can you wait?</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. Emergency number for police in China:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) 110</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) 120</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 119</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-15.html" class="nav-btn">← Lesson 15</a>
+            <span class="nav-btn disabled">End of Beginner Course 🎉</span>
+        </div>
+    </div>
+
+    <script>
+        var playing = false, time = 0, duration = 600;
+        document.getElementById('playBtn').onclick = function() {
+            playing = !playing;
+            this.textContent = playing ? '⏸' : '▶';
+            if (playing) playAudio();
+        };
+        function playAudio() {
+            if (!playing) return;
+            time++;
+            if (time >= duration) { playing = false; document.getElementById('playBtn').textContent = '▶'; return; }
+            document.getElementById('progressFill').style.width = (time / duration * 100) + '%';
+            var mins = Math.floor(time / 60), secs = time % 60;
+            document.getElementById('timeDisplay').textContent = mins + ':' + (secs < 10 ? '0' : '') + secs + ' / 10:00';
+            setTimeout(playAudio, 1000);
+        }
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                var u = new SpeechSynthesisUtterance(text);
+                u.lang = 'zh-CN';
+                u.rate = 0.9;
+                speechSynthesis.speak(u);
+            }
+        }
+        function check(el, ok) { el.classList.add(ok ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>

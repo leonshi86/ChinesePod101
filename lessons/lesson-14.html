@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 14: 看病 (Seeing a Doctor) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .symptom-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .symptom-card { background: #ffebee; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .symptom-card:hover { background: #ffcdd2; transform: translateY(-3px); }
+        .symptom-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .symptom-char { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .symptom-pinyin { color: #e53935; font-size: 0.9rem; }
+        .symptom-meaning { color: #666; font-size: 0.85rem; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 50px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; font-size: 0.95rem; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-sm { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-py { color: #ff6b35; font-weight: bold; }
+        .vocab-mn { color: #666; }
+        .vocab-btn { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .grammar-box h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .tip-box { background: #e8f5e9; padding: 1.5rem; border-radius: 10px; margin-top: 1rem; border-left: 4px solid #4caf50; }
+        .tip-box h4 { color: #2e7d32; margin-bottom: 0.5rem; }
+        .quiz-section { background: #fce4ec; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .nav-btn:hover { background: #e55a2b; }
+        @media (max-width: 768px) { .symptom-grid { grid-template-columns: repeat(2, 1fr); } .lesson-title { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="#">Beginner</a></div>
+            <h1 class="lesson-title">Lesson 14: 看病 (Seeing a Doctor)</h1>
+            <p>Learn how to describe symptoms and talk to a doctor in Chinese.</p>
+            <div class="lesson-meta"><span>⏱ 10 minutes</span><span>📚 Beginner</span><span>🏷 16 words</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 10:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏥 Medical Vocabulary</h2>
+            <div class="vocab-item"><span class="vocab-char">医院</span><div class="vocab-info"><div class="vocab-py">yīyuàn</div><div class="vocab-mn">hospital</div></div><button class="vocab-btn" onclick="speak('医院')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">医生</span><div class="vocab-info"><div class="vocab-py">yīsheng</div><div class="vocab-mn">doctor</div></div><button class="vocab-btn" onclick="speak('医生')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">药</span><div class="vocab-info"><div class="vocab-py">yào</div><div class="vocab-mn">medicine</div></div><button class="vocab-btn" onclick="speak('药')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">吃药</span><div class="vocab-info"><div class="vocab-py">chī yào</div><div class="vocab-mn">take medicine</div></div><button class="vocab-btn" onclick="speak('吃药')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">挂号</span><div class="vocab-info"><div class="vocab-py">guàhào</div><div class="vocab-mn">register (at hospital)</div></div><button class="vocab-btn" onclick="speak('挂号')">🔊</button></div>
+        </div>
+
+        <div class="section">
+            <h2>🤒 Common Symptoms</h2>
+            <div class="symptom-grid">
+                <div class="symptom-card" onclick="speak('头疼')"><div class="symptom-icon">🤕</div><div class="symptom-char">头疼</div><div class="symptom-pinyin">tóuténg</div><div class="symptom-meaning">headache</div></div>
+                <div class="symptom-card" onclick="speak('发烧')"><div class="symptom-icon">🤒</div><div class="symptom-char">发烧</div><div class="symptom-pinyin">fāshāo</div><div class="symptom-meaning">fever</div></div>
+                <div class="symptom-card" onclick="speak('咳嗽')"><div class="symptom-icon">😷</div><div class="symptom-char">咳嗽</div><div class="symptom-pinyin">késou</div><div class="symptom-meaning">cough</div></div>
+                <div class="symptom-card" onclick="speak('肚子疼')"><div class="symptom-icon">🤢</div><div class="symptom-char">肚子疼</div><div class="symptom-pinyin">dùzi téng</div><div class="symptom-meaning">stomachache</div></div>
+                <div class="symptom-card" onclick="speak('感冒')"><div class="symptom-icon">🤧</div><div class="symptom-char">感冒</div><div class="symptom-pinyin">gǎnmào</div><div class="symptom-meaning">cold/flu</div></div>
+                <div class="symptom-card" onclick="speak('不舒服')"><div class="symptom-icon">😔</div><div class="symptom-char">不舒服</div><div class="symptom-pinyin">bù shūfu</div><div class="symptom-meaning">not feeling well</div></div>
+                <div class="symptom-card" onclick="speak('累')"><div class="symptom-icon">😴</div><div class="symptom-char">累</div><div class="symptom-pinyin">lèi</div><div class="symptom-meaning">tired</div></div>
+                <div class="symptom-card" onclick="speak('牙疼')"><div class="symptom-icon">😬</div><div class="symptom-char">牙疼</div><div class="symptom-pinyin">yáténg</div><div class="symptom-meaning">toothache</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - At the Doctor</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">医生:</span><div><div class="ch-text">你怎么了？</div><div class="py-text">Nǐ zěnme le?</div><div class="en-text">What's wrong with you?</div></div><button class="play-sm" onclick="speak('你怎么了')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">我不舒服，头疼，还发烧。</div><div class="py-text">Wǒ bù shūfu, tóuténg, hái fāshāo.</div><div class="en-text">I don't feel well, headache, and fever.</div></div><button class="play-sm" onclick="speak('我不舒服，头疼，还发烧')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">医生:</span><div><div class="ch-text">咳嗽吗？</div><div class="py-text">Késou ma?</div><div class="en-text">Do you have a cough?</div></div><button class="play-sm" onclick="speak('咳嗽吗')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">有一点儿。</div><div class="py-text">Yǒu yìdiǎnr.</div><div class="en-text">A little.</div></div><button class="play-sm" onclick="speak('有一点儿')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">医生:</span><div><div class="ch-text">你感冒了。吃这个药，多喝水，多休息。</div><div class="py-text">Nǐ gǎnmào le. Chī zhège yào, duō hēshuǐ, duō xiūxi.</div><div class="en-text">You have a cold. Take this medicine, drink more water, rest more.</div></div><button class="play-sm" onclick="speak('你感冒了。吃这个药，多喝水，多休息')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">好的，谢谢医生。</div><div class="py-text">Hǎo de, xièxie yīsheng.</div><div class="en-text">OK, thank you doctor.</div></div><button class="play-sm" onclick="speak('好的，谢谢医生')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            <div class="grammar-box">
+                <h4>1. 你怎么了？(What's wrong?)</h4>
+                <p>Ask about someone's condition.<br>
+                你怎么了？= What's wrong with you?<br>
+                他怎么了？= What's wrong with him?</p>
+            </div>
+            <div class="grammar-box">
+                <h4>2. Body Part + 疼 (Pain)</h4>
+                <p>Describe where it hurts.<br>
+                头疼 = headache<br>
+                肚子疼 = stomachache<br>
+                牙疼 = toothache</p>
+            </div>
+            <div class="grammar-box">
+                <h4>3. 多 + Verb (Do more...)</h4>
+                <p>Give advice.<br>
+                多喝水 = drink more water<br>
+                多休息 = rest more</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Doctor's Advice Phrases</h4>
+                <p>• 多喝水 = drink more water<br>
+                • 多休息 = get more rest<br>
+                • 别太累 = don't overwork<br>
+                • 按时吃药 = take medicine on time</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. What does "医院" mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) Hospital</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) School</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Store</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. How do you say "I have a headache"?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) 我发烧</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) 我头疼</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 我咳嗽</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. "吃药" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) Buy medicine</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) Take medicine</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Medicine is bitter</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. "多喝水" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) Drink more water</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) Water is good</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) I like water</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-13.html" class="nav-btn">← Lesson 13</a>
+            <a href="lesson-15.html" class="nav-btn">Lesson 15 →</a>
+        </div>
+    </div>
+
+    <script>
+        var playing = false, time = 0, duration = 600;
+        document.getElementById('playBtn').onclick = function() {
+            playing = !playing;
+            this.textContent = playing ? '⏸' : '▶';
+            if (playing) playAudio();
+        };
+        function playAudio() {
+            if (!playing) return;
+            time++;
+            if (time >= duration) { playing = false; document.getElementById('playBtn').textContent = '▶'; return; }
+            document.getElementById('progressFill').style.width = (time / duration * 100) + '%';
+            var mins = Math.floor(time / 60), secs = time % 60;
+            document.getElementById('timeDisplay').textContent = mins + ':' + (secs < 10 ? '0' : '') + secs + ' / 10:00';
+            setTimeout(playAudio, 1000);
+        }
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                var u = new SpeechSynthesisUtterance(text);
+                u.lang = 'zh-CN';
+                u.rate = 0.9;
+                speechSynthesis.speak(u);
+            }
+        }
+        function check(el, ok) { el.classList.add(ok ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9: 交通 (Transportation) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; margin-bottom: 1rem; }
+        .breadcrumb a { color: #ff6b35; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; }
+        .play-btn { width: 60px; height: 60px; background: #ff6b35; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #ff6b35; width: 0%; }
+        .time-display { color: #aaa; min-width: 80px; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #ff6b35; padding-bottom: 0.5rem; }
+        .transport-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+        .transport-card { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; text-align: center; cursor: pointer; transition: all 0.3s; }
+        .transport-card:hover { background: #fff3e0; transform: translateY(-3px); }
+        .transport-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .transport-char { font-size: 1.3rem; font-family: 'Microsoft YaHei'; }
+        .transport-pinyin { color: #ff6b35; font-size: 0.9rem; }
+        .transport-meaning { color: #666; font-size: 0.85rem; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; }
+        .dialogue-line:last-child { border: none; }
+        .speaker { font-weight: bold; color: #ff6b35; min-width: 60px; }
+        .ch-text { font-size: 1.2rem; font-family: 'Microsoft YaHei'; }
+        .py-text { color: #666; font-size: 0.95rem; }
+        .en-text { color: #888; font-size: 0.9rem; }
+        .play-sm { background: #ff6b35; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; margin-left: auto; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; margin-bottom: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei'; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-py { color: #ff6b35; font-weight: bold; }
+        .vocab-mn { color: #666; }
+        .vocab-btn { background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-box { background: #fff3e0; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #ff6b35; }
+        .grammar-box h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .tip-box { background: #e3f2fd; padding: 1.5rem; border-radius: 10px; margin-top: 1rem; border-left: 4px solid #2196f3; }
+        .tip-box h4 { color: #1565c0; margin-bottom: 0.5rem; }
+        .quiz-section { background: #fce4ec; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .quiz-option:hover { border-color: #ff6b35; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+        .nav-btn:hover { background: #e55a2b; }
+        @media (max-width: 768px) { .transport-grid { grid-template-columns: repeat(2, 1fr); } .lesson-title { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="#">Beginner</a></div>
+            <h1 class="lesson-title">Lesson 9: 交通 (Transportation)</h1>
+            <p>Learn how to talk about transportation in Chinese.</p>
+            <div class="lesson-meta"><span>⏱ 10 minutes</span><span>📚 Beginner</span><span>🏷 14 words</span></div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 10:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🚗 Transportation</h2>
+            <div class="transport-grid">
+                <div class="transport-card" onclick="speak('公交车')"><div class="transport-icon">🚌</div><div class="transport-char">公交车</div><div class="transport-pinyin">gōngjiāochē</div><div class="transport-meaning">bus</div></div>
+                <div class="transport-card" onclick="speak('地铁')"><div class="transport-icon">🚇</div><div class="transport-char">地铁</div><div class="transport-pinyin">dìtiě</div><div class="transport-meaning">subway</div></div>
+                <div class="transport-card" onclick="speak('出租车')"><div class="transport-icon">🚕</div><div class="transport-char">出租车</div><div class="transport-pinyin">chūzūchē</div><div class="transport-meaning">taxi</div></div>
+                <div class="transport-card" onclick="speak('火车')"><div class="transport-icon">🚄</div><div class="transport-char">火车</div><div class="transport-pinyin">huǒchē</div><div class="transport-meaning">train</div></div>
+                <div class="transport-card" onclick="speak('飞机')"><div class="transport-icon">✈️</div><div class="transport-char">飞机</div><div class="transport-pinyin">fēijī</div><div class="transport-meaning">airplane</div></div>
+                <div class="transport-card" onclick="speak('自行车')"><div class="transport-icon">🚲</div><div class="transport-char">自行车</div><div class="transport-pinyin">zìxíngchē</div><div class="transport-meaning">bicycle</div></div>
+                <div class="transport-card" onclick="speak('电动车')"><div class="transport-icon">🛵</div><div class="transport-char">电动车</div><div class="transport-pinyin">diàndòngchē</div><div class="transport-meaning">e-bike</div></div>
+                <div class="transport-card" onclick="speak('汽车')"><div class="transport-icon">🚗</div><div class="transport-char">汽车</div><div class="transport-pinyin">qìchē</div><div class="transport-meaning">car</div></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📍 Station & Place Words</h2>
+            <div class="vocab-item"><span class="vocab-char">站</span><div class="vocab-info"><div class="vocab-py">zhàn</div><div class="vocab-mn">station / stop</div></div><button class="vocab-btn" onclick="speak('站')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">地铁站</span><div class="vocab-info"><div class="vocab-py">dìtiězhàn</div><div class="vocab-mn">subway station</div></div><button class="vocab-btn" onclick="speak('地铁站')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">火车站</span><div class="vocab-info"><div class="vocab-py">huǒchēzhàn</div><div class="vocab-mn">train station</div></div><button class="vocab-btn" onclick="speak('火车站')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">机场</span><div class="vocab-info"><div class="vocab-py">jīchǎng</div><div class="vocab-mn">airport</div></div><button class="vocab-btn" onclick="speak('机场')">🔊</button></div>
+            <div class="vocab-item"><span class="vocab-char">票</span><div class="vocab-info"><div class="vocab-py">piào</div><div class="vocab-mn">ticket</div></div><button class="vocab-btn" onclick="speak('票')">🔊</button></div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - Taking a Taxi</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">师傅，去火车站。</div><div class="py-text">Shīfu, qù huǒchēzhàn.</div><div class="en-text">Driver, to the train station.</div></div><button class="play-sm" onclick="speak('师傅，去火车站')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">司机:</span><div><div class="ch-text">好的，请系好安全带。</div><div class="py-text">Hǎo de, qǐng xì hǎo ānquándài.</div><div class="en-text">OK, please fasten your seatbelt.</div></div><button class="play-sm" onclick="speak('好的，请系好安全带')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">大概要多久？</div><div class="py-text">Dàgài yào duōjiǔ?</div><div class="en-text">About how long will it take?</div></div><button class="play-sm" onclick="speak('大概要多久')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">司机:</span><div><div class="ch-text">二十分钟左右。</div><div class="py-text">Èrshí fēnzhōng zuǒyòu.</div><div class="en-text">About 20 minutes.</div></div><button class="play-sm" onclick="speak('二十分钟左右')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">好的，谢谢。</div><div class="py-text">Hǎo de, xièxie.</div><div class="en-text">OK, thanks.</div></div><button class="play-sm" onclick="speak('好的，谢谢')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue - Buying a Ticket</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">我要买一张去北京的票。</div><div class="py-text">Wǒ yào mǎi yì zhāng qù Běijīng de piào.</div><div class="en-text">I want to buy a ticket to Beijing.</div></div><button class="play-sm" onclick="speak('我要买一张去北京的票')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">售票员:</span><div><div class="ch-text">要几点的？</div><div class="py-text">Yào jǐ diǎn de?</div><div class="en-text">What time?</div></div><button class="play-sm" onclick="speak('要几点的')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">你:</span><div><div class="ch-text">下午两点左右的。</div><div class="py-text">Xiàwǔ liǎng diǎn zuǒyòu de.</div><div class="en-text">Around 2 PM.</div></div><button class="play-sm" onclick="speak('下午两点左右的')">🔊</button></div>
+                <div class="dialogue-line"><span class="speaker">售票员:</span><div><div class="ch-text">好的，三百五十块。</div><div class="py-text">Hǎo de, sānbǎi wǔshí kuài.</div><div class="en-text">OK, 350 Yuan.</div></div><button class="play-sm" onclick="speak('好的，三百五十块')">🔊</button></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            <div class="grammar-box">
+                <h4>1. 去 + Place (Go to...)</h4>
+                <p>去北京 = go to Beijing<br>
+                去机场 = go to the airport<br>
+                去火车站 = go to the train station</p>
+            </div>
+            <div class="grammar-box">
+                <h4>2. 坐 + Transportation (Take...)</h4>
+                <p>坐地铁 = take the subway<br>
+                坐公交车 = take the bus<br>
+                坐出租车 = take a taxi<br>
+                坐飞机 = fly / take a plane</p>
+            </div>
+            <div class="grammar-box">
+                <h4>3. 要多久？(How long does it take?)</h4>
+                <p>要去多久？= How long will it take?<br>
+                大概二十分钟。= About 20 minutes.</p>
+            </div>
+            
+            <div class="tip-box">
+                <h4>💡 Chinese Transportation Tips</h4>
+                <p>• "师傅" (shīfu) is a polite way to address taxi drivers<br>
+                • China's high-speed trains are called "高铁" (gāotiě)<br>
+                • Most cities use mobile payment for public transport</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. What is "地铁" in English?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) Train</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) Subway</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Bus</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>2. How do you say "take a taxi"?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) 开出租车</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) 坐出租车</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) 买出租车</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>3. "机场" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,true)">A) Airport</div>
+                        <div class="quiz-option" onclick="check(this,false)">B) Train station</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) Bus stop</div>
+                    </div>
+                </div>
+                <div class="quiz-question">
+                    <p>4. "去北京" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="check(this,false)">A) From Beijing</div>
+                        <div class="quiz-option" onclick="check(this,true)">B) Go to Beijing</div>
+                        <div class="quiz-option" onclick="check(this,false)">C) In Beijing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-08.html" class="nav-btn">← Lesson 8</a>
+            <a href="lesson-10.html" class="nav-btn">Lesson 10 →</a>
+        </div>
+    </div>
+
+    <script>
+        var playing = false, time = 0, duration = 600;
+        document.getElementById('playBtn').onclick = function() {
+            playing = !playing;
+            this.textContent = playing ? '⏸' : '▶';
+            if (playing) playAudio();
+        };
+        function playAudio() {
+            if (!playing) return;
+            time++;
+            if (time >= duration) { playing = false; document.getElementById('playBtn').textContent = '▶'; return; }
+            document.getElementById('progressFill').style.width = (time / duration * 100) + '%';
+            var mins = Math.floor(time / 60), secs = time % 60;
+            document.getElementById('timeDisplay').textContent = mins + ':' + (secs < 10 ? '0' : '') + secs + ' / 10:00';
+            setTimeout(playAudio, 1000);
+        }
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                var u = new SpeechSynthesisUtterance(text);
+                u.lang = 'zh-CN';
+                u.rate = 0.9;
+                speechSynthesis.speak(u);
+            }
+        }
+        function check(el, ok) { el.classList.add(ok ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>
