@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Pictures - Numbers - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #f093fb, #f5576c); color: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: white; border: 2px solid #f5576c; padding: 0.6rem 1.2rem; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s; text-decoration: none; color: #f5576c; font-weight: 600; }
+        .topic-tab.active { background: #f5576c; color: white; }
+        .topic-tab:hover { background: #f5576c; color: white; }
+        .card-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .vocab-card { background: linear-gradient(145deg, #ffffff, #fefefe); border-radius: 16px; padding: 1.5rem 1rem; box-shadow: 0 8px 25px rgba(245,87,108,0.15); transition: all 0.3s ease; cursor: pointer; text-align: center; border: 3px solid #ffeaa7; }
+        .vocab-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 40px rgba(245,87,108,0.25); border-color: #f5576c; }
+        .card-emoji { font-size: 3.5rem; margin-bottom: 0.5rem; display: block; }
+        .card-chinese { font-size: 2.2rem; font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; margin-bottom: 0.3rem; font-weight: 800; }
+        .card-pinyin { font-size: 1.1rem; color: #f5576c; margin-bottom: 0.3rem; font-weight: 600; }
+        .card-english { font-size: 0.95rem; color: #636e72; margin-bottom: 0.5rem; }
+        .card-play { background: linear-gradient(135deg, #f5576c, #f093fb); color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: 600; box-shadow: 0 4px 15px rgba(245,87,108,0.3); }
+        .card-play:hover { transform: scale(1.08); }
+        .card-example { background: linear-gradient(135deg, #fff9e6, #fff3cd); border-radius: 10px; padding: 0.6rem; margin-top: 0.5rem; text-align: center; font-size: 0.85rem; border: 1px solid #ffeaa7; }
+        .card-example-zh { font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; font-weight: 600; margin-bottom: 0.1rem; }
+        .card-example-en { color: #636e72; font-size: 0.8rem; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: linear-gradient(135deg, #f5576c, #f093fb); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 5px 20px rgba(245,87,108,0.3); }
+        @media (max-width: 1000px) { .card-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 800px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 550px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><div class="nav-container"><a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a></div></nav>
+    <div class="img-page">
+        <div class="img-header"><h1>🔢 Learn with Pictures - Numbers</h1><p>Click any card to hear the pronunciation!</p></div>
+        <div class="topic-tabs">
+            <a href="visual-body.html" class="topic-tab">👤 Body</a>
+            <a href="visual-food.html" class="topic-tab">🍎 Food</a>
+            <a href="visual-numbers.html" class="topic-tab active">🔢 Numbers</a>
+            <a href="visual-family.html" class="topic-tab">👨‍👩‍👧 Family</a>
+            <a href="visual-time.html" class="topic-tab">⏰ Time</a>
+        </div>
+        <div class="card-grid">
+            <div class="vocab-card" onclick="speak('一')"><span class="card-emoji">1️⃣</span><div class="card-chinese">一</div><div class="card-pinyin">yī</div><div class="card-english">one</div><button class="card-play" onclick="event.stopPropagation(); speak('一')">🔊 发音</button><div class="card-example"><div class="card-example-zh">一个苹果</div><div class="card-example-en">one apple</div></div></div>
+            <div class="vocab-card" onclick="speak('二')"><span class="card-emoji">2️⃣</span><div class="card-chinese">二</div><div class="card-pinyin">èr</div><div class="card-english">two</div><button class="card-play" onclick="event.stopPropagation(); speak('二')">🔊 发音</button><div class="card-example"><div class="card-example-zh">二本书</div><div class="card-example-en">two books</div></div></div>
+            <div class="vocab-card" onclick="speak('三')"><span class="card-emoji">3️⃣</span><div class="card-chinese">三</div><div class="card-pinyin">sān</div><div class="card-english">three</div><button class="card-play" onclick="event.stopPropagation(); speak('三')">🔊 发音</button><div class="card-example"><div class="card-example-zh">三个人</div><div class="card-example-en">three people</div></div></div>
+            <div class="vocab-card" onclick="speak('四')"><span class="card-emoji">4️⃣</span><div class="card-chinese">四</div><div class="card-pinyin">sì</div><div class="card-english">four</div><button class="card-play" onclick="event.stopPropagation(); speak('四')">🔊 发音</button><div class="card-example"><div class="card-example-zh">四个季节</div><div class="card-example-en">four seasons</div></div></div>
+            <div class="vocab-card" onclick="speak('五')"><span class="card-emoji">5️⃣</span><div class="card-chinese">五</div><div class="card-pinyin">wǔ</div><div class="card-english">five</div><button class="card-play" onclick="event.stopPropagation(); speak('五')">🔊 发音</button><div class="card-example"><div class="card-example-zh">五天</div><div class="card-example-en">five days</div></div></div>
+            <div class="vocab-card" onclick="speak('六')"><span class="card-emoji">6️⃣</span><div class="card-chinese">六</div><div class="card-pinyin">liù</div><div class="card-english">six</div><button class="card-play" onclick="event.stopPropagation(); speak('六')">🔊 发音</button><div class="card-example"><div class="card-example-zh">六个月</div><div class="card-example-en">six months</div></div></div>
+            <div class="vocab-card" onclick="speak('七')"><span class="card-emoji">7️⃣</span><div class="card-chinese">七</div><div class="card-pinyin">qī</div><div class="card-english">seven</div><button class="card-play" onclick="event.stopPropagation(); speak('七')">🔊 发音</button><div class="card-example"><div class="card-example-zh">七夕节</div><div class="card-example-en">Qixi Festival</div></div></div>
+            <div class="vocab-card" onclick="speak('八')"><span class="card-emoji">8️⃣</span><div class="card-chinese">八</div><div class="card-pinyin">bā</div><div class="card-english">eight</div><button class="card-play" onclick="event.stopPropagation(); speak('八')">🔊 发音</button><div class="card-example"><div class="card-example-zh">八月</div><div class="card-example-en">August</div></div></div>
+            <div class="vocab-card" onclick="speak('九')"><span class="card-emoji">9️⃣</span><div class="card-chinese">九</div><div class="card-pinyin">jiǔ</div><div class="card-english">nine</div><button class="card-play" onclick="event.stopPropagation(); speak('九')">🔊 发音</button><div class="card-example"><div class="card-example-zh">九年</div><div class="card-example-en">nine years</div></div></div>
+            <div class="vocab-card" onclick="speak('十')"><span class="card-emoji">🔟</span><div class="card-chinese">十</div><div class="card-pinyin">shí</div><div class="card-english">ten</div><button class="card-play" onclick="event.stopPropagation(); speak('十')">🔊 发音</button><div class="card-example"><div class="card-example-zh">十个人</div><div class="card-example-en">ten people</div></div></div>
+        </div>
+        <div class="nav-lessons"><a href="visual-colors.html" class="nav-btn">← Colors</a><a href="visual-family.html" class="nav-btn">Next: Family →</a></div>
+    </div>
+    <script src="../js/tts.js"></script>
+</body>
+</html>

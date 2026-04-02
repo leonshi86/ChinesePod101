@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Pictures - Places - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: white; border: 2px solid #4facfe; padding: 0.6rem 1.2rem; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s; text-decoration: none; color: #4facfe; font-weight: 600; }
+        .topic-tab.active { background: #4facfe; color: white; }
+        .topic-tab:hover { background: #4facfe; color: white; }
+        .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .vocab-card { background: linear-gradient(145deg, #ffffff, #f0f9ff); border-radius: 16px; padding: 1.5rem 1rem; box-shadow: 0 8px 25px rgba(79,172,254,0.15); transition: all 0.3s ease; cursor: pointer; text-align: center; border: 3px solid #e0f2fe; }
+        .vocab-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 40px rgba(79,172,254,0.25); border-color: #4facfe; }
+        .card-emoji { font-size: 3.5rem; margin-bottom: 0.5rem; display: block; }
+        .card-chinese { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; margin-bottom: 0.3rem; font-weight: 800; }
+        .card-pinyin { font-size: 1.1rem; color: #4facfe; margin-bottom: 0.3rem; font-weight: 600; }
+        .card-english { font-size: 0.95rem; color: #636e72; margin-bottom: 0.5rem; }
+        .card-play { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: 600; box-shadow: 0 4px 15px rgba(79,172,254,0.3); }
+        .card-play:hover { transform: scale(1.08); }
+        .card-example { background: linear-gradient(135deg, #e0f7fa, #b2ebf2); border-radius: 10px; padding: 0.6rem; margin-top: 0.5rem; text-align: center; font-size: 0.85rem; border: 1px solid #80deea; }
+        .card-example-zh { font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; font-weight: 600; margin-bottom: 0.1rem; }
+        .card-example-en { color: #636e72; font-size: 0.8rem; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 5px 20px rgba(79,172,254,0.3); }
+        @media (max-width: 900px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 650px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><div class="nav-container"><a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a></div></nav>
+    <div class="img-page">
+        <div class="img-header"><h1>🏪 Learn with Pictures - Places</h1><p>Click any card to hear the pronunciation!</p></div>
+        <div class="topic-tabs">
+            <a href="visual-feelings.html" class="topic-tab">😊 Feelings</a>
+            <a href="visual-places.html" class="topic-tab active">🏪 Places</a>
+            <a href="visual-weather.html" class="topic-tab">🌤️ Weather</a>
+            <a href="visual-sports.html" class="topic-tab">⚽ Sports</a>
+        </div>
+        <div class="card-grid">
+            <div class="vocab-card" onclick="speak('医院')"><span class="card-emoji">🏥</span><div class="card-chinese">医院</div><div class="card-pinyin">yīyuàn</div><div class="card-english">hospital</div><button class="card-play" onclick="event.stopPropagation(); speak('医院')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去医院</div><div class="card-example-en">Go to hospital</div></div></div>
+            <div class="vocab-card" onclick="speak('学校')"><span class="card-emoji">🏫</span><div class="card-chinese">学校</div><div class="card-pinyin">xuéxiào</div><div class="card-english">school</div><button class="card-play" onclick="event.stopPropagation(); speak('学校')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去学校</div><div class="card-example-en">Go to school</div></div></div>
+            <div class="vocab-card" onclick="speak('银行')"><span class="card-emoji">🏦</span><div class="card-chinese">银行</div><div class="card-pinyin">yínháng</div><div class="card-english">bank</div><button class="card-play" onclick="event.stopPropagation(); speak('银行')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去银行</div><div class="card-example-en">Go to bank</div></div></div>
+            <div class="vocab-card" onclick="speak('超市')"><span class="card-emoji">🛒</span><div class="card-chinese">超市</div><div class="card-pinyin">chāoshì</div><div class="card-english">supermarket</div><button class="card-play" onclick="event.stopPropagation(); speak('超市')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去超市</div><div class="card-example-en">Go to supermarket</div></div></div>
+            <div class="vocab-card" onclick="speak('餐厅')"><span class="card-emoji">🍽️</span><div class="card-chinese">餐厅</div><div class="card-pinyin">cāntīng</div><div class="card-english">restaurant</div><button class="card-play" onclick="event.stopPropagation(); speak('餐厅')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去餐厅吃饭</div><div class="card-example-en">Eat at restaurant</div></div></div>
+            <div class="vocab-card" onclick="speak('酒店')"><span class="card-emoji">🏨</span><div class="card-chinese">酒店</div><div class="card-pinyin">jiǔdiàn</div><div class="card-english">hotel</div><button class="card-play" onclick="event.stopPropagation(); speak('酒店')">🔊 发音</button><div class="card-example"><div class="card-example-zh">住酒店</div><div class="card-example-en">Stay at hotel</div></div></div>
+            <div class="vocab-card" onclick="speak('机场')"><span class="card-emoji">✈️</span><div class="card-chinese">机场</div><div class="card-pinyin">jīchǎng</div><div class="card-english">airport</div><button class="card-play" onclick="event.stopPropagation(); speak('机场')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去机场</div><div class="card-example-en">Go to airport</div></div></div>
+            <div class="vocab-card" onclick="speak('火车站')"><span class="card-emoji">�火车站</span><div class="card-chinese">火车站</div><div class="card-pinyin">huǒchēzhàn</div><div class="card-english">train station</div><button class="card-play" onclick="event.stopPropagation(); speak('火车站')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去火车站</div><div class="card-example-en">Go to train station</div></div></div>
+            <div class="vocab-card" onclick="speak('公园')"><span class="card-emoji">🌳</span><div class="card-chinese">公园</div><div class="card-pinyin">gōngyuán</div><div class="card-english">park</div><button class="card-play" onclick="event.stopPropagation(); speak('公园')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去公园散步</div><div class="card-example-en">Walk in the park</div></div></div>
+            <div class="vocab-card" onclick="speak('图书馆')"><span class="card-emoji">📚</span><div class="card-chinese">图书馆</div><div class="card-pinyin">túshūguǎn</div><div class="card-english">library</div><button class="card-play" onclick="event.stopPropagation(); speak('图书馆')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去图书馆看书</div><div class="card-example-en">Read at library</div></div></div>
+            <div class="vocab-card" onclick="speak('电影院')"><span class="card-emoji">🎬</span><div class="card-chinese">电影院</div><div class="card-pinyin">diànyǐngyuàn</div><div class="card-english">cinema</div><button class="card-play" onclick="event.stopPropagation(); speak('电影院')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去看电影</div><div class="card-example-en">Watch a movie</div></div></div>
+            <div class="vocab-card" onclick="speak('商场')"><span class="card-emoji">🛍️</span><div class="card-chinese">商场</div><div class="card-pinyin">shāngchǎng</div><div class="card-english">mall</div><button class="card-play" onclick="event.stopPropagation(); speak('商场')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去商场购物</div><div class="card-example-en">Go shopping at mall</div></div></div>
+        </div>
+        <div class="nav-lessons"><a href="visual-feelings.html" class="nav-btn">← Feelings</a><a href="visual-weather.html" class="nav-btn">Next: Weather →</a></div>
+    </div>
+    <script src="../js/tts.js"></script>
+</body>
+</html>

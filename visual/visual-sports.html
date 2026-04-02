@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Pictures - Sports - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #fdcb6e, #e17055); color: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: white; border: 2px solid #e17055; padding: 0.6rem 1.2rem; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s; text-decoration: none; color: #e17055; font-weight: 600; }
+        .topic-tab.active { background: #e17055; color: white; }
+        .topic-tab:hover { background: #e17055; color: white; }
+        .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .vocab-card { background: linear-gradient(145deg, #ffffff, #fff9e6); border-radius: 16px; padding: 1.5rem 1rem; box-shadow: 0 8px 25px rgba(253,203,110,0.15); transition: all 0.3s ease; cursor: pointer; text-align: center; border: 3px solid #ffeaa7; }
+        .vocab-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 40px rgba(253,203,110,0.25); border-color: #fdcb6e; }
+        .card-emoji { font-size: 3.5rem; margin-bottom: 0.5rem; display: block; }
+        .card-chinese { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; margin-bottom: 0.3rem; font-weight: 800; }
+        .card-pinyin { font-size: 1.1rem; color: #e17055; margin-bottom: 0.3rem; font-weight: 600; }
+        .card-english { font-size: 0.95rem; color: #636e72; margin-bottom: 0.5rem; }
+        .card-play { background: linear-gradient(135deg, #fdcb6e, #e17055); color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: 600; box-shadow: 0 4px 15px rgba(253,203,110,0.3); }
+        .card-play:hover { transform: scale(1.08); }
+        .card-example { background: linear-gradient(135deg, #fff9e6, #ffeaa7); border-radius: 10px; padding: 0.6rem; margin-top: 0.5rem; text-align: center; font-size: 0.85rem; border: 1px solid #fdcb6e; }
+        .card-example-zh { font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; font-weight: 600; margin-bottom: 0.1rem; }
+        .card-example-en { color: #636e72; font-size: 0.8rem; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: linear-gradient(135deg, #fdcb6e, #e17055); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 5px 20px rgba(253,203,110,0.3); }
+        @media (max-width: 900px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 650px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><div class="nav-container"><a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a></div></nav>
+    <div class="img-page">
+        <div class="img-header"><h1>⚽ Learn with Pictures - Sports</h1><p>Click any card to hear the pronunciation!</p></div>
+        <div class="topic-tabs">
+            <a href="visual-weather.html" class="topic-tab">🌤️ Weather</a>
+            <a href="visual-sports.html" class="topic-tab active">⚽ Sports</a>
+            <a href="visual-body.html" class="topic-tab">👤 Body</a>
+            <a href="visual-food.html" class="topic-tab">🍎 Food</a>
+        </div>
+        <div class="card-grid">
+            <div class="vocab-card" onclick="speak('足球')"><span class="card-emoji">⚽</span><div class="card-chinese">足球</div><div class="card-pinyin">zúqiú</div><div class="card-english">football</div><button class="card-play" onclick="event.stopPropagation(); speak('足球')">🔊 发音</button><div class="card-example"><div class="card-example-zh">踢足球</div><div class="card-example-en">Play football</div></div></div>
+            <div class="vocab-card" onclick="speak('篮球')"><span class="card-emoji">🏀</span><div class="card-chinese">篮球</div><div class="card-pinyin">lánqiú</div><div class="card-english">basketball</div><button class="card-play" onclick="event.stopPropagation(); speak('篮球')">🔊 发音</button><div class="card-example"><div class="card-example-zh">打篮球</div><div class="card-example-en">Play basketball</div></div></div>
+            <div class="vocab-card" onclick="speak('网球')"><span class="card-emoji">🎾</span><div class="card-chinese">网球</div><div class="card-pinyin">wǎngqiú</div><div class="card-english">tennis</div><button class="card-play" onclick="event.stopPropagation(); speak('网球')">🔊 发音</button><div class="card-example"><div class="card-example-zh">打网球</div><div class="card-example-en">Play tennis</div></div></div>
+            <div class="vocab-card" onclick="speak('羽毛球')"><span class="card-emoji">🏸</span><div class="card-chinese">羽毛球</div><div class="card-pinyin">yǔmáoqiú</div><div class="card-english">badminton</div><button class="card-play" onclick="event.stopPropagation(); speak('羽毛球')">🔊 发音</button><div class="card-example"><div class="card-example-zh">打羽毛球</div><div class="card-example-en">Play badminton</div></div></div>
+            <div class="vocab-card" onclick="speak('乒乓球')"><span class="card-emoji">🏓</span><div class="card-chinese">乒乓球</div><div class="card-pinyin">pīngpāngqiú</div><div class="card-english">table tennis</div><button class="card-play" onclick="event.stopPropagation(); speak('乒乓球')">🔊 发音</button><div class="card-example"><div class="card-example-zh">打乒乓球</div><div class="card-example-en">Play table tennis</div></div></div>
+            <div class="vocab-card" onclick="speak('游泳')"><span class="card-emoji">🏊</span><div class="card-chinese">游泳</div><div class="card-pinyin">yóuyǒng</div><div class="card-english">swimming</div><button class="card-play" onclick="event.stopPropagation(); speak('游泳')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去游泳</div><div class="card-example-en">Go swimming</div></div></div>
+            <div class="vocab-card" onclick="speak('跑步')"><span class="card-emoji">🏃</span><div class="card-chinese">跑步</div><div class="card-pinyin">pǎobù</div><div class="card-english">running</div><button class="card-play" onclick="event.stopPropagation(); speak('跑步')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去跑步</div><div class="card-example-en">Go running</div></div></div>
+            <div class="vocab-card" onclick="speak('骑自行车')"><span class="card-emoji">🚴</span><div class="card-chinese">骑自行车</div><div class="card-pinyin">qí zìxíngchē</div><div class="card-english">cycling</div><button class="card-play" onclick="event.stopPropagation(); speak('骑自行车')">🔊 发音</button><div class="card-example"><div class="card-example-zh">骑自行车</div><div class="card-example-en">Ride a bike</div></div></div>
+            <div class="vocab-card" onclick="speak('滑雪')"><span class="card-emoji">⛷️</span><div class="card-chinese">滑雪</div><div class="card-pinyin">huáxuě</div><div class="card-english">skiing</div><button class="card-play" onclick="event.stopPropagation(); speak('滑雪')">🔊 发音</button><div class="card-example"><div class="card-example-zh">滑雪很好玩</div><div class="card-example-en">Skiing is fun</div></div></div>
+            <div class="vocab-card" onclick="speak('爬山')"><span class="card-emoji">🧗</span><div class="card-chinese">爬山</div><div class="card-pinyin">pá shān</div><div class="card-english">hiking</div><button class="card-play" onclick="event.stopPropagation(); speak('爬山')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去爬山</div><div class="card-example-en">Go hiking</div></div></div>
+            <div class="vocab-card" onclick="speak('瑜伽')"><span class="card-emoji">🧘</span><div class="card-chinese">瑜伽</div><div class="card-pinyin">yújiā</div><div class="card-english">yoga</div><button class="card-play" onclick="event.stopPropagation(); speak('瑜伽')">🔊 发音</button><div class="card-example"><div class="card-example-zh">练瑜伽</div><div class="card-example-en">Practice yoga</div></div></div>
+            <div class="vocab-card" onclick="speak('健身')"><span class="card-emoji">💪</span><div class="card-chinese">健身</div><div class="card-pinyin">jiànshēn</div><div class="card-english">fitness</div><button class="card-play" onclick="event.stopPropagation(); speak('健身')">🔊 发音</button><div class="card-example"><div class="card-example-zh">去健身</div><div class="card-example-en">Go to the gym</div></div></div>
+        </div>
+        <div class="nav-lessons"><a href="visual-weather.html" class="nav-btn">← Weather</a><a href="visual-body.html" class="nav-btn">Next: Body →</a></div>
+    </div>
+    <script src="../js/tts.js"></script>
+</body>
+</html>

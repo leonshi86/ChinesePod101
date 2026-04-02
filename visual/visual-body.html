@@ -321,16 +321,6 @@
         </div>
     </div>
 
-    <script>
-        function speak(text) {
-            if ('speechSynthesis' in window) {
-                speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'zh-CN';
-                utterance.rate = 0.8;
-                speechSynthesis.speak(utterance);
-            }
-        }
-    </script>
+    <script src="../js/tts.js"></script>
 </body>
 </html>

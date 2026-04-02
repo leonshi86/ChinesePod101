@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Pictures - Family - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #a8edea, #fed6e3); color: #2d3436; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: white; border: 2px solid #20b2aa; padding: 0.6rem 1.2rem; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s; text-decoration: none; color: #20b2aa; font-weight: 600; }
+        .topic-tab.active { background: #20b2aa; color: white; }
+        .topic-tab:hover { background: #20b2aa; color: white; }
+        .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .vocab-card { background: linear-gradient(145deg, #ffffff, #fefefe); border-radius: 16px; padding: 1.5rem 1rem; box-shadow: 0 8px 25px rgba(32,178,170,0.15); transition: all 0.3s ease; cursor: pointer; text-align: center; border: 3px solid #dfe6e9; }
+        .vocab-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 40px rgba(32,178,170,0.25); border-color: #20b2aa; }
+        .card-emoji { font-size: 3.5rem; margin-bottom: 0.5rem; display: block; }
+        .card-chinese { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; margin-bottom: 0.3rem; font-weight: 800; }
+        .card-pinyin { font-size: 1.1rem; color: #20b2aa; margin-bottom: 0.3rem; font-weight: 600; }
+        .card-english { font-size: 0.95rem; color: #636e72; margin-bottom: 0.5rem; }
+        .card-play { background: linear-gradient(135deg, #20b2aa, #a8edea); color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: 600; box-shadow: 0 4px 15px rgba(32,178,170,0.3); }
+        .card-play:hover { transform: scale(1.08); }
+        .card-example { background: linear-gradient(135deg, #e8f8f5, #d1f2eb); border-radius: 10px; padding: 0.6rem; margin-top: 0.5rem; text-align: center; font-size: 0.85rem; border: 1px solid #a8edea; }
+        .card-example-zh { font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; font-weight: 600; margin-bottom: 0.1rem; }
+        .card-example-en { color: #636e72; font-size: 0.8rem; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: linear-gradient(135deg, #20b2aa, #a8edea); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 5px 20px rgba(32,178,170,0.3); }
+        @media (max-width: 900px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 650px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 400px) { .card-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><div class="nav-container"><a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a></div></nav>
+    <div class="img-page">
+        <div class="img-header"><h1>👨‍👩‍👧 Learn with Pictures - Family</h1><p>Click any card to hear the pronunciation!</p></div>
+        <div class="topic-tabs">
+            <a href="visual-body.html" class="topic-tab">👤 Body</a>
+            <a href="visual-numbers.html" class="topic-tab">🔢 Numbers</a>
+            <a href="visual-family.html" class="topic-tab active">👨‍👩‍👧 Family</a>
+            <a href="visual-time.html" class="topic-tab">⏰ Time</a>
+            <a href="visual-jobs.html" class="topic-tab">💼 Jobs</a>
+        </div>
+        <div class="card-grid">
+            <div class="vocab-card" onclick="speak('爸爸')"><span class="card-emoji">👨</span><div class="card-chinese">爸爸</div><div class="card-pinyin">bàba</div><div class="card-english">father</div><button class="card-play" onclick="event.stopPropagation(); speak('爸爸')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我爸爸是医生</div><div class="card-example-en">My father is a doctor</div></div></div>
+            <div class="vocab-card" onclick="speak('妈妈')"><span class="card-emoji">👩</span><div class="card-chinese">妈妈</div><div class="card-pinyin">māma</div><div class="card-english">mother</div><button class="card-play" onclick="event.stopPropagation(); speak('妈妈')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我妈妈很温柔</div><div class="card-example-en">My mother is gentle</div></div></div>
+            <div class="vocab-card" onclick="speak('爷爷')"><span class="card-emoji">👴</span><div class="card-chinese">爷爷</div><div class="card-pinyin">yéye</div><div class="card-english">grandfather</div><button class="card-play" onclick="event.stopPropagation(); speak('爷爷')">🔊 发音</button><div class="card-example"><div class="card-example-zh">爷爷退休了</div><div class="card-example-en">Grandfather retired</div></div></div>
+            <div class="vocab-card" onclick="speak('奶奶')"><span class="card-emoji">👵</span><div class="card-chinese">奶奶</div><div class="card-pinyin">nǎinai</div><div class="card-english">grandmother</div><button class="card-play" onclick="event.stopPropagation(); speak('奶奶')">🔊 发音</button><div class="card-example"><div class="card-example-zh">奶奶做饭很好吃</div><div class="card-example-en">Grandma cooks well</div></div></div>
+            <div class="vocab-card" onclick="speak('哥哥')"><span class="card-emoji">👦</span><div class="card-chinese">哥哥</div><div class="card-pinyin">gēge</div><div class="card-english">older brother</div><button class="card-play" onclick="event.stopPropagation(); speak('哥哥')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我哥哥在上大学</div><div class="card-example-en">My brother is in college</div></div></div>
+            <div class="vocab-card" onclick="speak('姐姐')"><span class="card-emoji">👧</span><div class="card-chinese">姐姐</div><div class="card-pinyin">jiějie</div><div class="card-english">older sister</div><button class="card-play" onclick="event.stopPropagation(); speak('姐姐')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我姐姐是老师</div><div class="card-example-en">My sister is a teacher</div></div></div>
+            <div class="vocab-card" onclick="speak('弟弟')"><span class="card-emoji">👶</span><div class="card-chinese">弟弟</div><div class="card-pinyin">dìdi</div><div class="card-english">younger brother</div><button class="card-play" onclick="event.stopPropagation(); speak('弟弟')">🔊 发音</button><div class="card-example"><div class="card-example-zh">弟弟上小学</div><div class="card-example-en">Little brother is in primary school</div></div></div>
+            <div class="vocab-card" onclick="speak('妹妹')"><span class="card-emoji">👶</span><div class="card-chinese">妹妹</div><div class="card-pinyin">mèimei</div><div class="card-english">younger sister</div><button class="card-play" onclick="event.stopPropagation(); speak('妹妹')">🔊 发音</button><div class="card-example"><div class="card-example-zh">妹妹喜欢画画</div><div class="card-example-en">Little sister likes drawing</div></div></div>
+            <div class="vocab-card" onclick="speak('儿子')"><span class="card-emoji">👦</span><div class="card-chinese">儿子</div><div class="card-pinyin">érzi</div><div class="card-english">son</div><button class="card-play" onclick="event.stopPropagation(); speak('儿子')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我儿子十岁了</div><div class="card-example-en">My son is 10 years old</div></div></div>
+            <div class="vocab-card" onclick="speak('女儿')"><span class="card-emoji">👧</span><div class="card-chinese">女儿</div><div class="card-pinyin">nǚ'ér</div><div class="card-english">daughter</div><button class="card-play" onclick="event.stopPropagation(); speak('女儿')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我女儿上高中</div><div class="card-example-en">My daughter is in high school</div></div></div>
+            <div class="vocab-card" onclick="speak('丈夫')"><span class="card-emoji">👨‍❤️‍👨</span><div class="card-chinese">丈夫</div><div class="card-pinyin">zhàngfu</div><div class="card-english">husband</div><button class="card-play" onclick="event.stopPropagation(); speak('丈夫')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我丈夫在公司工作</div><div class="card-example-en">My husband works at a company</div></div></div>
+            <div class="vocab-card" onclick="speak('妻子')"><span class="card-emoji">👩‍❤️‍👩</span><div class="card-chinese">妻子</div><div class="card-pinyin">qīzi</div><div class="card-english">wife</div><button class="card-play" onclick="event.stopPropagation(); speak('妻子')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我妻子是护士</div><div class="card-example-en">My wife is a nurse</div></div></div>
+        </div>
+        <div class="nav-lessons"><a href="visual-numbers.html" class="nav-btn">← Numbers</a><a href="visual-time.html" class="nav-btn">Next: Time →</a></div>
+    </div>
+    <script src="../js/tts.js"></script>
+</body>
+</html>

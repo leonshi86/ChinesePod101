@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Pictures - Time - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: white; border: 2px solid #667eea; padding: 0.6rem 1.2rem; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s; text-decoration: none; color: #667eea; font-weight: 600; }
+        .topic-tab.active { background: #667eea; color: white; }
+        .topic-tab:hover { background: #667eea; color: white; }
+        .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .vocab-card { background: linear-gradient(145deg, #ffffff, #f8f9fa); border-radius: 16px; padding: 1.5rem 1rem; box-shadow: 0 8px 25px rgba(102,126,234,0.15); transition: all 0.3s ease; cursor: pointer; text-align: center; border: 3px solid #e8eaf6; }
+        .vocab-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 40px rgba(102,126,234,0.25); border-color: #667eea; }
+        .card-emoji { font-size: 3.5rem; margin-bottom: 0.5rem; display: block; }
+        .card-chinese { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; margin-bottom: 0.3rem; font-weight: 800; }
+        .card-pinyin { font-size: 1.1rem; color: #667eea; margin-bottom: 0.3rem; font-weight: 600; }
+        .card-english { font-size: 0.95rem; color: #636e72; margin-bottom: 0.5rem; }
+        .card-play { background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: 600; box-shadow: 0 4px 15px rgba(102,126,234,0.3); }
+        .card-play:hover { transform: scale(1.08); }
+        .card-example { background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-radius: 10px; padding: 0.6rem; margin-top: 0.5rem; text-align: center; font-size: 0.85rem; border: 1px solid #c5cae9; }
+        .card-example-zh { font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; font-weight: 600; margin-bottom: 0.1rem; }
+        .card-example-en { color: #636e72; font-size: 0.8rem; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 5px 20px rgba(102,126,234,0.3); }
+        @media (max-width: 900px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 650px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><div class="nav-container"><a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a></div></nav>
+    <div class="img-page">
+        <div class="img-header"><h1>⏰ Learn with Pictures - Time</h1><p>Click any card to hear the pronunciation!</p></div>
+        <div class="topic-tabs">
+            <a href="visual-family.html" class="topic-tab">👨‍👩‍👧 Family</a>
+            <a href="visual-time.html" class="topic-tab active">⏰ Time</a>
+            <a href="visual-jobs.html" class="topic-tab">💼 Jobs</a>
+            <a href="visual-feelings.html" class="topic-tab">😊 Feelings</a>
+        </div>
+        <div class="card-grid">
+            <div class="vocab-card" onclick="speak('今天')"><span class="card-emoji">📅</span><div class="card-chinese">今天</div><div class="card-pinyin">jīntiān</div><div class="card-english">today</div><button class="card-play" onclick="event.stopPropagation(); speak('今天')">🔊 发音</button><div class="card-example"><div class="card-example-zh">今天是星期一</div><div class="card-example-en">Today is Monday</div></div></div>
+            <div class="vocab-card" onclick="speak('明天')"><span class="card-emoji">📆</span><div class="card-chinese">明天</div><div class="card-pinyin">míngtiān</div><div class="card-english">tomorrow</div><button class="card-play" onclick="event.stopPropagation(); speak('明天')">🔊 发音</button><div class="card-example"><div class="card-example-zh">明天见</div><div class="card-example-en">See you tomorrow</div></div></div>
+            <div class="vocab-card" onclick="speak('昨天')"><span class="card-emoji">🗓️</span><div class="card-chinese">昨天</div><div class="card-pinyin">zuótiān</div><div class="card-english">yesterday</div><button class="card-play" onclick="event.stopPropagation(); speak('昨天')">🔊 发音</button><div class="card-example"><div class="card-example-zh">昨天是星期天</div><div class="card-example-en">Yesterday was Sunday</div></div></div>
+            <div class="vocab-card" onclick="speak('早上')"><span class="card-emoji">🌅</span><div class="card-chinese">早上</div><div class="card-pinyin">zǎoshang</div><div class="card-english">morning</div><button class="card-play" onclick="event.stopPropagation(); speak('早上')">🔊 发音</button><div class="card-example"><div class="card-example-zh">早上好</div><div class="card-example-en">Good morning</div></div></div>
+            <div class="vocab-card" onclick="speak('中午')"><span class="card-emoji">☀️</span><div class="card-chinese">中午</div><div class="card-pinyin">zhōngwǔ</div><div class="card-english">noon</div><button class="card-play" onclick="event.stopPropagation(); speak('中午')">🔊 发音</button><div class="card-example"><div class="card-example-zh">中午吃什么</div><div class="card-example-en">What to eat at noon</div></div></div>
+            <div class="vocab-card" onclick="speak('下午')"><span class="card-emoji">🌤️</span><div class="card-chinese">下午</div><div class="card-pinyin">xiàwǔ</div><div class="card-english">afternoon</div><button class="card-play" onclick="event.stopPropagation(); speak('下午')">🔊 发音</button><div class="card-example"><div class="card-example-zh">下午好</div><div class="card-example-en">Good afternoon</div></div></div>
+            <div class="vocab-card" onclick="speak('晚上')"><span class="card-emoji">🌙</span><div class="card-chinese">晚上</div><div class="card-pinyin">wǎnshang</div><div class="card-english">evening</div><button class="card-play" onclick="event.stopPropagation(); speak('晚上')">🔊 发音</button><div class="card-example"><div class="card-example-zh">晚上好</div><div class="card-example-en">Good evening</div></div></div>
+            <div class="vocab-card" onclick="speak('小时')"><span class="card-emoji">🕐</span><div class="card-chinese">小时</div><div class="card-pinyin">xiǎoshí</div><div class="card-english">hour</div><button class="card-play" onclick="event.stopPropagation(); speak('小时')">🔊 发音</button><div class="card-example"><div class="card-example-zh">一个小时</div><div class="card-example-en">one hour</div></div></div>
+            <div class="vocab-card" onclick="speak('分钟')"><span class="card-emoji">🕑</span><div class="card-chinese">分钟</div><div class="card-pinyin">fēnzhōng</div><div class="card-english">minute</div><button class="card-play" onclick="event.stopPropagation(); speak('分钟')">🔊 发音</button><div class="card-example"><div class="card-example-zh">五分钟</div><div class="card-example-en">five minutes</div></div></div>
+            <div class="vocab-card" onclick="speak('星期')"><span class="card-emoji">📆</span><div class="card-chinese">星期</div><div class="card-pinyin">xīngqī</div><div class="card-english">week</div><button class="card-play" onclick="event.stopPropagation(); speak('星期')">🔊 发音</button><div class="card-example"><div class="card-example-zh">这个星期</div><div class="card-example-en">this week</div></div></div>
+            <div class="vocab-card" onclick="speak('月')"><span class="card-emoji">🗓️</span><div class="card-chinese">月</div><div class="card-pinyin">yuè</div><div class="card-english">month</div><button class="card-play" onclick="event.stopPropagation(); speak('月')">🔊 发音</button><div class="card-example"><div class="card-example-zh">一个月</div><div class="card-example-en">one month</div></div></div>
+            <div class="vocab-card" onclick="speak('年')"><span class="card-emoji">📆</span><div class="card-chinese">年</div><div class="card-pinyin">nián</div><div class="card-english">year</div><button class="card-play" onclick="event.stopPropagation(); speak('年')">🔊 发音</button><div class="card-example"><div class="card-example-zh">新一年</div><div class="card-example-en">New Year</div></div></div>
+        </div>
+        <div class="nav-lessons"><a href="visual-family.html" class="nav-btn">← Family</a><a href="visual-jobs.html" class="nav-btn">Next: Jobs →</a></div>
+    </div>
+    <script src="../js/tts.js"></script>
+</body>
+</html>

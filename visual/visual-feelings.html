@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Pictures - Feelings - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #ff6b6b, #ffa502); color: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: white; border: 2px solid #ff6b6b; padding: 0.6rem 1.2rem; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.3s; text-decoration: none; color: #ff6b6b; font-weight: 600; }
+        .topic-tab.active { background: #ff6b6b; color: white; }
+        .topic-tab:hover { background: #ff6b6b; color: white; }
+        .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .vocab-card { background: linear-gradient(145deg, #ffffff, #fff5f5); border-radius: 16px; padding: 1.5rem 1rem; box-shadow: 0 8px 25px rgba(255,107,107,0.15); transition: all 0.3s ease; cursor: pointer; text-align: center; border: 3px solid #ffe0e0; }
+        .vocab-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 40px rgba(255,107,107,0.25); border-color: #ff6b6b; }
+        .card-emoji { font-size: 3.5rem; margin-bottom: 0.5rem; display: block; }
+        .card-chinese { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; margin-bottom: 0.3rem; font-weight: 800; }
+        .card-pinyin { font-size: 1.1rem; color: #ff6b6b; margin-bottom: 0.3rem; font-weight: 600; }
+        .card-english { font-size: 0.95rem; color: #636e72; margin-bottom: 0.5rem; }
+        .card-play { background: linear-gradient(135deg, #ff6b6b, #ffa502); color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem; cursor: pointer; font-weight: 600; box-shadow: 0 4px 15px rgba(255,107,107,0.3); }
+        .card-play:hover { transform: scale(1.08); }
+        .card-example { background: linear-gradient(135deg, #fff5f5, #ffeaa7); border-radius: 10px; padding: 0.6rem; margin-top: 0.5rem; text-align: center; font-size: 0.85rem; border: 1px solid #ffcccc; }
+        .card-example-zh { font-family: 'Microsoft YaHei', sans-serif; color: #2d3436; font-weight: 600; margin-bottom: 0.1rem; }
+        .card-example-en { color: #636e72; font-size: 0.8rem; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: linear-gradient(135deg, #ff6b6b, #ffa502); color: white; padding: 1rem 2rem; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 5px 20px rgba(255,107,107,0.3); }
+        @media (max-width: 900px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 650px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><div class="nav-container"><a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a></div></nav>
+    <div class="img-page">
+        <div class="img-header"><h1>😊 Learn with Pictures - Feelings</h1><p>Click any card to hear the pronunciation!</p></div>
+        <div class="topic-tabs">
+            <a href="visual-jobs.html" class="topic-tab">💼 Jobs</a>
+            <a href="visual-feelings.html" class="topic-tab active">😊 Feelings</a>
+            <a href="visual-places.html" class="topic-tab">🏪 Places</a>
+            <a href="visual-weather.html" class="topic-tab">🌤️ Weather</a>
+        </div>
+        <div class="card-grid">
+            <div class="vocab-card" onclick="speak('开心')"><span class="card-emoji">😄</span><div class="card-chinese">开心</div><div class="card-pinyin">kāixīn</div><div class="card-english">happy</div><button class="card-play" onclick="event.stopPropagation(); speak('开心')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我很开心</div><div class="card-example-en">I am happy</div></div></div>
+            <div class="vocab-card" onclick="speak('难过')"><span class="card-emoji">😢</span><div class="card-chinese">难过</div><div class="card-pinyin">nánguò</div><div class="card-english">sad</div><button class="card-play" onclick="event.stopPropagation(); speak('难过')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我很难过</div><div class="card-example-en">I am sad</div></div></div>
+            <div class="vocab-card" onclick="speak('生气')"><span class="card-emoji">😠</span><div class="card-chinese">生气</div><div class="card-pinyin">shēngqì</div><div class="card-english">angry</div><button class="card-play" onclick="event.stopPropagation(); speak('生气')">🔊 发音</button><div class="card-example"><div class="card-example-zh">不要生气</div><div class="card-example-en">Don't be angry</div></div></div>
+            <div class="vocab-card" onclick="speak('害怕')"><span class="card-emoji">😨</span><div class="card-chinese">害怕</div><div class="card-pinyin">hàipà</div><div class="card-english">scared</div><button class="card-play" onclick="event.stopPropagation(); speak('害怕')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我很害怕</div><div class="card-example-en">I am scared</div></div></div>
+            <div class="vocab-card" onclick="speak('累')"><span class="card-emoji">😴</span><div class="card-chinese">累</div><div class="card-pinyin">lèi</div><div class="card-english">tired</div><button class="card-play" onclick="event.stopPropagation(); speak('累')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我很累</div><div class="card-example-en">I am tired</div></div></div>
+            <div class="vocab-card" onclick="speak('饿')"><span class="card-emoji">😋</span><div class="card-chinese">饿</div><div class="card-pinyin">è</div><div class="card-english">hungry</div><button class="card-play" onclick="event.stopPropagation(); speak('饿')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我饿了</div><div class="card-example-en">I am hungry</div></div></div>
+            <div class="vocab-card" onclick="speak('渴')"><span class="card-emoji">🥤</span><div class="card-chinese">渴</div><div class="card-pinyin">kě</div><div class="card-english">thirsty</div><button class="card-play" onclick="event.stopPropagation(); speak('渴')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我渴了</div><div class="card-example-en">I am thirsty</div></div></div>
+            <div class="vocab-card" onclick="speak('困')"><span class="card-emoji">😪</span><div class="card-chinese">困</div><div class="card-pinyin">kùn</div><div class="card-english">sleepy</div><button class="card-play" onclick="event.stopPropagation(); speak('困')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我困了</div><div class="card-example-en">I am sleepy</div></div></div>
+            <div class="vocab-card" onclick="speak('热')"><span class="card-emoji">🥵</span><div class="card-chinese">热</div><div class="card-pinyin">rè</div><div class="card-english">hot</div><button class="card-play" onclick="event.stopPropagation(); speak('热')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我很热</div><div class="card-example-en">I am hot</div></div></div>
+            <div class="vocab-card" onclick="speak('冷')"><span class="card-emoji">🥶</span><div class="card-chinese">冷</div><div class="card-pinyin">lěng</div><div class="card-english">cold</div><button class="card-play" onclick="event.stopPropagation(); speak('冷')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我很冷</div><div class="card-example-en">I am cold</div></div></div>
+            <div class="vocab-card" onclick="speak('紧张')"><span class="card-emoji">😰</span><div class="card-chinese">紧张</div><div class="card-pinyin">jǐnzhāng</div><div class="card-english">nervous</div><button class="card-play" onclick="event.stopPropagation(); speak('紧张')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我很紧张</div><div class="card-example-en">I am nervous</div></div></div>
+            <div class="vocab-card" onclick="speak('舒服')"><span class="card-emoji">😌</span><div class="card-chinese">舒服</div><div class="card-pinyin">shūfu</div><div class="card-english">comfortable</div><button class="card-play" onclick="event.stopPropagation(); speak('舒服')">🔊 发音</button><div class="card-example"><div class="card-example-zh">我很舒服</div><div class="card-example-en">I feel comfortable</div></div></div>
+        </div>
+        <div class="nav-lessons"><a href="visual-jobs.html" class="nav-btn">← Jobs</a><a href="visual-places.html" class="nav-btn">Next: Places →</a></div>
+    </div>
+    <script src="../js/tts.js"></script>
+</body>
+</html>
