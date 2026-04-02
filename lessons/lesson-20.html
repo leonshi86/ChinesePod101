@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 20: 租房 (Renting an Apartment) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; font-size: 0.9rem; margin-bottom: 1rem; }
+        .breadcrumb a { color: white; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; font-size: 0.9rem; opacity: 0.9; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .play-btn { width: 60px; height: 60px; background: #4facfe; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #4facfe; border-radius: 4px; width: 0%; }
+        .time-display { color: #aaa; font-size: 0.9rem; min-width: 80px; text-align: right; }
+        .player-options { display: flex; gap: 1rem; }
+        .speed-btn, .loop-btn { background: #333; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #4facfe; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; align-items: flex-start; }
+        .dialogue-line:last-child { border-bottom: none; }
+        .speaker { font-weight: bold; color: #4facfe; min-width: 80px; }
+        .chinese-text { font-size: 1.2rem; font-family: 'Microsoft YaHei', sans-serif; }
+        .pinyin-text { color: #666; font-size: 0.95rem; }
+        .english-text { color: #888; font-size: 0.9rem; }
+        .play-line { background: #4facfe; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; font-size: 0.8rem; margin-left: auto; }
+        .vocab-list { display: grid; gap: 1rem; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei', sans-serif; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-pinyin { color: #4facfe; font-weight: bold; }
+        .vocab-meaning { color: #666; }
+        .vocab-audio { background: #4facfe; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-point { background: #e3f2fd; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #4facfe; }
+        .grammar-point h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .example-sentence { background: white; padding: 1rem; border-radius: 5px; margin-top: 0.5rem; }
+        .quiz-section { background: #e8f5e9; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; margin-bottom: 0.5rem; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; }
+        .quiz-option:hover { border-color: #4facfe; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #4facfe; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .downloads { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #1a1a2e; color: white; padding: 0.8rem 1.5rem; border-radius: 5px; text-decoration: none; }
+        .level-badge { background: #ff6b35; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; margin-left: 0.5rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+            <div class="nav-menu">
+                <a href="../index.html#lessons">Lessons</a>
+                <a href="../index.html#pathways">Pathways</a>
+                <a href="../index.html#resources">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> › <a href="#">Intermediate</a> › <a href="#">Daily Life</a>
+            </div>
+            <h1 class="lesson-title">Lesson 20: 租房 <span class="level-badge">Intermediate</span></h1>
+            <p>Learn how to rent an apartment, discuss lease terms, and communicate with landlords in Chinese.</p>
+            <div class="lesson-meta">
+                <span>⏱ 9 minutes</span>
+                <span>📚 Intermediate</span>
+                <span>🎯 Housing</span>
+            </div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 9:00</div>
+            </div>
+            <div class="player-options">
+                <button class="speed-btn" id="speedBtn">1x Speed</button>
+                <button class="loop-btn" id="loopBtn">🔁 Loop</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line">
+                    <span class="speaker">租客:</span>
+                    <div>
+                        <div class="chinese-text">您好，我看到网上有房子出租的信息，请问还能看房吗？</div>
+                        <div class="pinyin-text">Nín hǎo, wǒ kàndào wǎngshàng yǒu fángzi chūzū de xìnxī, qǐngwèn hái néng kànfáng ma?</div>
+                        <div class="english-text">Hello, I saw your rental listing online. Can I still view the apartment?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('您好，我看到网上有房子出租的信息，请问还能看房吗？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">房东:</span>
+                    <div>
+                        <div class="chinese-text">可以的。您什么时候方便？房子是两室一厅，家具家电都有。</div>
+                        <div class="pinyin-text">Kěyǐ de. Nín shénme shíhou fāngbiàn? Fángzi shì liǎng shì yī tīng, jiājù jiādiàn dōu yǒu.</div>
+                        <div class="english-text">Sure. When is convenient for you? It's a two-bedroom apartment with furniture and appliances included.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('可以的。您什么时候方便？房子是两室一厅，家具家电都有')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">租客:</span>
+                    <div>
+                        <div class="chinese-text">请问房租多少钱一个月？押金是多少？</div>
+                        <div class="pinyin-text">Qǐngwèn fángzū duōshao qián yī gè yuè? Yājīn shì duōshao?</div>
+                        <div class="english-text">How much is the rent per month? What about the deposit?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('请问房租多少钱一个月？押金是多少？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">房东:</span>
+                    <div>
+                        <div class="chinese-text">月租3500元，押一付三。水电网费自理。</div>
+                        <div class="pinyin-text">Yuèzū 3500 yuán, yā yī fù sān. Shuǐdiànwǎng fèi zìlǐ.</div>
+                        <div class="english-text">Monthly rent is 3500 yuan, one month deposit and three months rent in advance. Utilities are not included.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('月租3500元，押一付三。水电网费自理')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">租客:</span>
+                    <div>
+                        <div class="chinese-text">可以签一年的合同吗？如果提前退租怎么办？</div>
+                        <div class="pinyin-text">Kěyǐ qiān yī nián de hétong ma? Rúguǒ tíqián tuìzū zěnme bàn?</div>
+                        <div class="english-text">Can I sign a one-year lease? What if I need to terminate early?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('可以签一年的合同吗？如果提前退租怎么办？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">房东:</span>
+                    <div>
+                        <div class="chinese-text">可以签一年。提前退租需要提前一个月通知，押金可以退还。</div>
+                        <div class="pinyin-text">Kěyǐ qiān yī nián. Tíqián tuìzū xūyào tíqián yī gè yuè tōngzhī, yājīn kěyǐ tuìhuán.</div>
+                        <div class="english-text">Yes, one year is fine. Early termination requires one month notice, and the deposit can be refunded.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('可以签一年。提前退租需要提前一个月通知，押金可以退还')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Vocabulary</h2>
+            <div class="vocab-list">
+                <div class="vocab-item">
+                    <span class="vocab-char">租房</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">zū fáng</div>
+                        <div class="vocab-meaning">to rent a house/apartment</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('租房')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">房租</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">fángzū</div>
+                        <div class="vocab-meaning">rent</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('房租')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">押金</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">yājīn</div>
+                        <div class="vocab-meaning">deposit</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('押金')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">合同</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">hétong</div>
+                        <div class="vocab-meaning">contract; lease</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('合同')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">两室一厅</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">liǎng shì yī tīng</div>
+                        <div class="vocab-meaning">two bedrooms, one living room</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('两室一厅')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">家具</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">jiājù</div>
+                        <div class="vocab-meaning">furniture</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('家具')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">家电</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">jiādiàn</div>
+                        <div class="vocab-meaning">appliances</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('家电')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">看房</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">kànfáng</div>
+                        <div class="vocab-meaning">to view a property</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('看房')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">退租</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">tuìzū</div>
+                        <div class="vocab-meaning">to terminate a lease</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('退租')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">房东</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">fángdōng</div>
+                        <div class="vocab-meaning">landlord</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('房东')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">水电网费</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">shuǐdiànwǎng fèi</div>
+                        <div class="vocab-meaning">utilities (water, electricity, internet)</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('水电网费')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">押一付三</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">yā yī fù sān</div>
+                        <div class="vocab-meaning">one month deposit, three months rent in advance</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('押一付三')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            
+            <div class="grammar-point">
+                <h4>1. 房子的结构表达 - Describing apartment layout</h4>
+                <p>Chinese apartments are described by the number of rooms: X室X厅 (X bedrooms, X living rooms).</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    一室一厅 → one bedroom, one living room<br>
+                    三室两厅 → three bedrooms, two living rooms
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>2. 自理 (zìlǐ) - To handle oneself; at one's own expense</h4>
+                <p>Indicates that something is not included and must be managed by oneself.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    水电网费自理 → Utilities are at your own expense<br>
+                    交通费自理 → Transportation costs are at your own expense
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>3. 如果...怎么办？ (rúguǒ...zěnme bàn?) - What if...?</h4>
+                <p>Used to ask about hypothetical situations and solutions.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    如果提前退租怎么办？ → What if I need to terminate early?<br>
+                    如果迟到了怎么办？ → What if I'm late?
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. What does "押金" mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) Rent</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) Deposit</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) Fee</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) Tax</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>2. "两室一厅" describes:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) Two living rooms, one bedroom</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) Two bedrooms, one living room</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) Two bathrooms, one kitchen</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) Two floors, one room</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>3. "押一付三" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) Pay one month, get three free</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) One month deposit, three months rent in advance</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) One year lease, three years option</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) Three deposits, one payment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📥 Downloads</h2>
+            <div class="downloads">
+                <a href="#" class="download-btn">📄 PDF Transcript</a>
+                <a href="#" class="download-btn">🎵 MP3 Audio</a>
+                <a href="#" class="download-btn">📝 Vocabulary List</a>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-19.html" class="nav-btn">← Previous: Banking</a>
+            <a href="lesson-21.html" class="nav-btn">Next: Job Interview →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col"><h4>ChinesePod101</h4><p>Free Chinese learning for everyone.</p></div>
+            <div class="footer-col"><h4>Lessons</h4><ul><li><a href="#">Audio Lessons</a></li></ul></div>
+            <div class="footer-col"><h4>Resources</h4><ul><li><a href="../resources/pinyin-chart.html">Pinyin Chart</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 ChinesePod101</p></div>
+    </footer>
+
+    <script>
+        let isPlaying = false, currentTime = 0, duration = 540, speed = 1, loop = false;
+        document.getElementById('playBtn').addEventListener('click', function() {
+            isPlaying = !isPlaying;
+            this.textContent = isPlaying ? '⏸' : '▶';
+            if (isPlaying) simulatePlayback();
+        });
+        function simulatePlayback() {
+            if (!isPlaying) return;
+            currentTime += speed;
+            if (currentTime >= duration) { if (loop) currentTime = 0; else { isPlaying = false; document.getElementById('playBtn').textContent = '▶'; return; } }
+            document.getElementById('progressFill').style.width = (currentTime / duration * 100) + '%';
+            document.getElementById('timeDisplay').textContent = Math.floor(currentTime / 60) + ':' + Math.floor(currentTime % 60).toString().padStart(2, '0') + ' / 9:00';
+            setTimeout(simulatePlayback, 1000);
+        }
+        document.getElementById('speedBtn').addEventListener('click', function() { speed = [0.5, 0.75, 1, 1.25, 1.5][([0.5, 0.75, 1, 1.25, 1.5].indexOf(speed) + 1) % 5]; this.textContent = speed + 'x Speed'; });
+        document.getElementById('loopBtn').addEventListener('click', function() { loop = !loop; this.style.background = loop ? '#4facfe' : '#333'; });
+        function speak(text) { if ('speechSynthesis' in window) { const u = new SpeechSynthesisUtterance(text); u.lang = 'zh-CN'; u.rate = 0.8; speechSynthesis.speak(u); } else alert('🔊 ' + text); }
+        function checkAnswer(el, correct) { el.classList.add(correct ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>

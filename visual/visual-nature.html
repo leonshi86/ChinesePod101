@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Pictures - Nature - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #11998e, #38ef7d); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: #f0f0f0; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: all 0.3s; text-decoration: none; color: #333; }
+        .topic-tab.active { background: #11998e; color: white; }
+        .topic-tab:hover { background: #ddd; }
+        .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+        .vocab-card { background: white; border-radius: 16px; padding: 1.2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; text-align: center; border: 3px solid transparent; }
+        .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(17, 153, 142, 0.2); border-color: #11998e; }
+        .card-emoji { font-size: 3rem; margin-bottom: 0.5rem; display: block; }
+        .card-chinese { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; margin-bottom: 0.2rem; font-weight: bold; }
+        .card-pinyin { font-size: 1rem; color: #11998e; margin-bottom: 0.2rem; font-weight: 600; }
+        .card-english { font-size: 0.95rem; color: #666; margin-bottom: 0.6rem; }
+        .card-play { background: linear-gradient(135deg, #11998e, #38ef7d); color: white; border: none; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; margin-bottom: 0.6rem; }
+        .card-play:hover { transform: scale(1.05); }
+        .card-example { background: #f8f9fa; border-radius: 8px; padding: 0.6rem; margin-top: 0.3rem; text-align: left; font-size: 0.85rem; }
+        .card-example-zh { font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; margin-bottom: 0.15rem; line-height: 1.3; }
+        .card-example-py { color: #11998e; font-size: 0.75rem; margin-bottom: 0.1rem; }
+        .card-example-en { color: #888; font-size: 0.75rem; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #11998e; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        @media (max-width: 1100px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .card-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><div class="nav-container"><a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a></div></nav>
+    <div class="img-page">
+        <div class="img-header"><h1>🌳 Learn with Pictures - Nature</h1><p>Click any card to hear the pronunciation!</p></div>
+        <div class="topic-tabs">
+            <a href="visual-body.html" class="topic-tab">👤 Body</a>
+            <a href="visual-animals.html" class="topic-tab">🐱 Animals</a>
+            <a href="visual-clothes.html" class="topic-tab">👔 Clothes</a>
+            <a href="visual-nature.html" class="topic-tab active">🌳 Nature</a>
+        </div>
+        <div class="card-grid">
+            <div class="vocab-card" onclick="speak('树')"><span class="card-emoji">🌳</span><div class="card-chinese">树</div><div class="card-pinyin">shù</div><div class="card-english">tree</div><button class="card-play" onclick="event.stopPropagation(); speak('树')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('大树')"><div class="card-example-zh">大树。</div><div class="card-example-py">Dà shù.</div><div class="card-example-en">Big tree.</div></div></div>
+            <div class="vocab-card" onclick="speak('花')"><span class="card-emoji">🌸</span><div class="card-chinese">花</div><div class="card-pinyin">huā</div><div class="card-english">flower</div><button class="card-play" onclick="event.stopPropagation(); speak('花')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('花很香')"><div class="card-example-zh">花很香。</div><div class="card-example-py">Huā hěn xiāng.</div><div class="card-example-en">Flowers are fragrant.</div></div></div>
+            <div class="vocab-card" onclick="speak('草')"><span class="card-emoji">🌿</span><div class="card-chinese">草</div><div class="card-pinyin">cǎo</div><div class="card-english">grass</div><button class="card-play" onclick="event.stopPropagation(); speak('草')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('草地')"><div class="card-example-zh">草地。</div><div class="card-example-py">Cǎodì.</div><div class="card-example-en">Grassland.</div></div></div>
+            <div class="vocab-card" onclick="speak('山')"><span class="card-emoji">⛰️</span><div class="card-chinese">山</div><div class="card-pinyin">shān</div><div class="card-english">mountain</div><button class="card-play" onclick="event.stopPropagation(); speak('山')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('爬多山')"><div class="card-example-zh">爬山。</div><div class="card-example-py">Pá shān.</div><div class="card-example-en">Climb a mountain.</div></div></div>
+            <div class="vocab-card" onclick="speak('河')"><span class="card-emoji">🏞️</span><div class="card-chinese">河</div><div class="card-pinyin">hé</div><div class="card-english">river</div><button class="card-play" onclick="event.stopPropagation(); speak('河')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('河很长')"><div class="card-example-zh">河很长。</div><div class="card-example-py">Hé hěn cháng.</div><div class="card-example-en">The river is long.</div></div></div>
+            <div class="vocab-card" onclick="speak('海')"><span class="card-emoji">🌊</span><div class="card-chinese">海</div><div class="card-pinyin">hǎi</div><div class="card-english">sea</div><button class="card-play" onclick="event.stopPropagation(); speak('海')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('大海')"><div class="card-example-zh">大海。</div><div class="card-example-py">Dà hǎi.</div><div class="card-example-en">The sea.</div></div></div>
+            <div class="vocab-card" onclick="speak('太阳')"><span class="card-emoji">☀️</span><div class="card-chinese">太阳</div><div class="card-pinyin">tàiyáng</div><div class="card-english">sun</div><button class="card-play" onclick="event.stopPropagation(); speak('太阳')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('太阳很大')"><div class="card-example-zh">太阳很大。</div><div class="card-example-py">Tàiyáng hěn dà.</div><div class="card-example-en">The sun is big.</div></div></div>
+            <div class="vocab-card" onclick="speak('月亮')"><span class="card-emoji">🌙</span><div class="card-chinese">月亮</div><div class="card-pinyin">yuèliàng</div><div class="card-english">moon</div><button class="card-play" onclick="event.stopPropagation(); speak('月亮')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('月亮很圆')"><div class="card-example-zh">月亮很圆。</div><div class="card-example-py">Yuèliàng hěn yuán.</div><div class="card-example-en">The moon is round.</div></div></div>
+            <div class="vocab-card" onclick="speak('星星')"><span class="card-emoji">⭐</span><div class="card-chinese">星星</div><div class="card-pinyin">xīngxing</div><div class="card-english">star</div><button class="card-play" onclick="event.stopPropagation(); speak('星星')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('看星星')"><div class="card-example-zh">看星星。</div><div class="card-example-py">Kàn xīngxing.</div><div class="card-example-en">Look at the stars.</div></div></div>
+            <div class="vocab-card" onclick="speak('云')"><span class="card-emoji">☁️</span><div class="card-chinese">云</div><div class="card-pinyin">yún</div><div class="card-english">cloud</div><button class="card-play" onclick="event.stopPropagation(); speak('云')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('天上有云')"><div class="card-example-zh">天上有云。</div><div class="card-example-py">Tiānshàng yǒu yún.</div><div class="card-example-en">There are clouds in the sky.</div></div></div>
+            <div class="vocab-card" onclick="speak('雨')"><span class="card-emoji">🌧️</span><div class="card-chinese">雨</div><div class="card-pinyin">yǔ</div><div class="card-english">rain</div><button class="card-play" onclick="event.stopPropagation(); speak('雨')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('下雨了')"><div class="card-example-zh">下雨了。</div><div class="card-example-py">Xià yǔ le.</div><div class="card-example-en">It's raining.</div></div></div>
+            <div class="vocab-card" onclick="speak('雪')"><span class="card-emoji">❄️</span><div class="card-chinese">雪</div><div class="card-pinyin">xuě</div><div class="card-english">snow</div><button class="card-play" onclick="event.stopPropagation(); speak('雪')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('下雪了')"><div class="card-example-zh">下雪了。</div><div class="card-example-py">Xià xuě le.</div><div class="card-example-en">It's snowing.</div></div></div>
+        </div>
+        <div class="nav-lessons"><a href="visual-clothes.html" class="nav-btn">← Clothes</a><a href="../index.html" class="nav-btn">Home →</a></div>
+    </div>
+    <script>function speak(t){if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='zh-CN';u.rate=0.8;speechSynthesis.speak(u);}}</script>
+</body>
+</html>

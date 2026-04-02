@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Pictures - Clothes - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #a8edea, #fed6e3); color: #1a1a2e; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: #f0f0f0; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: all 0.3s; text-decoration: none; color: #333; }
+        .topic-tab.active { background: #a8edea; color: #1a1a2e; }
+        .topic-tab:hover { background: #ddd; }
+        .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+        .vocab-card { background: white; border-radius: 16px; padding: 1.2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; text-align: center; border: 3px solid transparent; }
+        .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(168, 237, 234, 0.3); border-color: #a8edea; }
+        .card-emoji { font-size: 3rem; margin-bottom: 0.5rem; display: block; }
+        .card-chinese { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; margin-bottom: 0.2rem; font-weight: bold; }
+        .card-pinyin { font-size: 1rem; color: #20b2aa; margin-bottom: 0.2rem; font-weight: 600; }
+        .card-english { font-size: 0.95rem; color: #666; margin-bottom: 0.6rem; }
+        .card-play { background: linear-gradient(135deg, #a8edea, #fed6e3); color: #1a1a2e; border: none; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; margin-bottom: 0.6rem; }
+        .card-play:hover { transform: scale(1.05); }
+        .card-example { background: #f8f9fa; border-radius: 8px; padding: 0.6rem; margin-top: 0.3rem; text-align: left; font-size: 0.85rem; }
+        .card-example-zh { font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; margin-bottom: 0.15rem; line-height: 1.3; }
+        .card-example-py { color: #20b2aa; font-size: 0.75rem; margin-bottom: 0.1rem; }
+        .card-example-en { color: #888; font-size: 0.75rem; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #20b2aa; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        @media (max-width: 1100px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .card-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><div class="nav-container"><a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a></div></nav>
+    <div class="img-page">
+        <div class="img-header"><h1>👔 Learn with Pictures - Clothes</h1><p>Click any card to hear the pronunciation!</p></div>
+        <div class="topic-tabs">
+            <a href="visual-body.html" class="topic-tab">👤 Body</a>
+            <a href="visual-food.html" class="topic-tab">🍎 Food</a>
+            <a href="visual-transport.html" class="topic-tab">🚗 Transport</a>
+            <a href="visual-clothes.html" class="topic-tab active">👔 Clothes</a>
+        </div>
+        <div class="card-grid">
+            <div class="vocab-card" onclick="speak('衣服')"><span class="card-emoji">👕</span><div class="card-chinese">衣服</div><div class="card-pinyin">yīfu</div><div class="card-english">clothes</div><button class="card-play" onclick="event.stopPropagation(); speak('衣服')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('买衣服')"><div class="card-example-zh">买衣服。</div><div class="card-example-py">Mǎi yīfu.</div><div class="card-example-en">Buy clothes.</div></div></div>
+            <div class="vocab-card" onclick="speak('衬衫')"><span class="card-emoji">👔</span><div class="card-chinese">衬衫</div><div class="card-pinyin">chènshān</div><div class="card-english">shirt</div><button class="card-play" onclick="event.stopPropagation(); speak('衬衫')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('穿衬衫')"><div class="card-example-zh">穿衬衫。</div><div class="card-example-py">Chuān chènshān.</div><div class="card-example-en">Wear a shirt.</div></div></div>
+            <div class="vocab-card" onclick="speak('裤子')"><span class="card-emoji">👖</span><div class="card-chinese">裤子</div><div class="card-pinyin">kùzi</div><div class="card-english">pants</div><button class="card-play" onclick="event.stopPropagation(); speak('裤子')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('这条裤子很长')"><div class="card-example-zh">这条裤子很长。</div><div class="card-example-py">Zhè tiáo kùzi hěn cháng.</div><div class="card-example-en">These pants are long.</div></div></div>
+            <div class="vocab-card" onclick="speak('裙子')"><span class="card-emoji">👗</span><div class="card-chinese">裙子</div><div class="card-pinyin">qúnzi</div><div class="card-english">skirt</div><button class="card-play" onclick="event.stopPropagation(); speak('裙子')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('她穿裙子')"><div class="card-example-zh">她穿裙子。</div><div class="card-example-py">Tā chuān qúnzi.</div><div class="card-example-en">She wears a skirt.</div></div></div>
+            <div class="vocab-card" onclick="speak('外套')"><span class="card-emoji">🧥</span><div class="card-chinese">外套</div><div class="card-pinyin">wàitào</div><div class="card-english">coat</div><button class="card-play" onclick="event.stopPropagation(); speak('外套')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('外面冷，穿外套')"><div class="card-example-zh">外面冷，穿外套。</div><div class="card-example-py">Wàimiàn lěng, chuān wàitào.</div><div class="card-example-en">It's cold outside, wear a coat.</div></div></div>
+            <div class="vocab-card" onclick="speak('鞋子')"><span class="card-emoji">👟</span><div class="card-chinese">鞋子</div><div class="card-pinyin">xiézi</div><div class="card-english">shoes</div><button class="card-play" onclick="event.stopPropagation(); speak('鞋子')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('穿鞋子')"><div class="card-example-zh">穿鞋子。</div><div class="card-example-py">Chuān xiézi.</div><div class="card-example-en">Put on shoes.</div></div></div>
+            <div class="vocab-card" onclick="speak('袜子')"><span class="card-emoji">🧦</span><div class="card-chinese">袜子</div><div class="card-pinyin">wàzi</div><div class="card-english">socks</div><button class="card-play" onclick="event.stopPropagation(); speak('袜子')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('一双袜子')"><div class="card-example-zh">一双袜子。</div><div class="card-example-py">Yī shuāng wàzi.</div><div class="card-example-en">A pair of socks.</div></div></div>
+            <div class="vocab-card" onclick="speak('帽子')"><span class="card-emoji">🎩</span><div class="card-chinese">帽子</div><div class="card-pinyin">màozi</div><div class="card-english">hat</div><button class="card-play" onclick="event.stopPropagation(); speak('帽子')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('戴帽子')"><div class="card-example-zh">戴帽子。</div><div class="card-example-py">Dài màozi.</div><div class="card-example-en">Wear a hat.</div></div></div>
+            <div class="vocab-card" onclick="speak('手套')"><span class="card-emoji">🧤</span><div class="card-chinese">手套</div><div class="card-pinyin">shǒutào</div><div class="card-english">gloves</div><button class="card-play" onclick="event.stopPropagation(); speak('手套')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('冬天戴手套')"><div class="card-example-zh">冬天戴手套。</div><div class="card-example-py">Dōngtiān dài shǒutào.</div><div class="card-example-en">Wear gloves in winter.</div></div></div>
+            <div class="vocab-card" onclick="speak('围巾')"><span class="card-emoji">🧣</span><div class="card-chinese">围巾</div><div class="card-pinyin">wéijīn</div><div class="card-english">scarf</div><button class="card-play" onclick="event.stopPropagation(); speak('围巾')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('围巾很暖和')"><div class="card-example-zh">围巾很暖和。</div><div class="card-example-py">Wéijīn hěn nuǎnhuo.</div><div class="card-example-en">The scarf is warm.</div></div></div>
+            <div class="vocab-card" onclick="speak('T恤')"><span class="card-emoji">👕</span><div class="card-chinese">T恤</div><div class="card-pinyin">T-xù</div><div class="card-english">T-shirt</div><button class="card-play" onclick="event.stopPropagation(); speak('T恤')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('夏天穿T恤')"><div class="card-example-zh">夏天穿T恤。</div><div class="card-example-py">Xiàtiān chuān T-xù.</div><div class="card-example-en">Wear T-shirts in summer.</div></div></div>
+            <div class="vocab-card" onclick="speak('连衣裙')"><span class="card-emoji">👗</span><div class="card-chinese">连衣裙</div><div class="card-pinyin">liányīqún</div><div class="card-english">dress</div><button class="card-play" onclick="event.stopPropagation(); speak('连衣裙')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('这件连衣裙很漂亮')"><div class="card-example-zh">这件连衣裙很漂亮。</div><div class="card-example-py">Zhè jiàn liányīqún hěn piàoliang.</div><div class="card-example-en">This dress is beautiful.</div></div></div>
+        </div>
+        <div class="nav-lessons"><a href="visual-transport.html" class="nav-btn">← Transport</a><a href="visual-nature.html" class="nav-btn">Next: Nature →</a></div>
+    </div>
+    <script>function speak(t){if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='zh-CN';u.rate=0.8;speechSynthesis.speak(u);}}</script>
+</body>
+</html>

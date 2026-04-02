@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 22: 办公室日常 (Office Daily) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #a8edea, #fed6e3); color: #1a1a2e; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .play-btn { width: 60px; height: 60px; background: #667eea; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #667eea; border-radius: 4px; width: 0%; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; align-items: flex-start; }
+        .dialogue-line:last-child { border-bottom: none; }
+        .speaker { font-weight: bold; color: #667eea; min-width: 80px; }
+        .chinese-text { font-size: 1.2rem; font-family: 'Microsoft YaHei', sans-serif; }
+        .pinyin-text { color: #666; font-size: 0.95rem; }
+        .english-text { color: #888; font-size: 0.9rem; }
+        .play-line { background: #667eea; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; font-size: 0.8rem; margin-left: auto; }
+        .vocab-list { display: grid; gap: 1rem; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei', sans-serif; min-width: 100px; }
+        .vocab-pinyin { color: #667eea; font-weight: bold; }
+        .vocab-meaning { color: #666; }
+        .vocab-audio { background: #667eea; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-point { background: #e8eaf6; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #667eea; }
+        .quiz-section { background: #e3f2fd; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; }
+        .quiz-option:hover { border-color: #667eea; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #667eea; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .level-badge { background: #ff6b35; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; margin-left: 0.5rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <h1 class="lesson-title">Lesson 22: 办公室日常 <span class="level-badge">Intermediate</span></h1>
+            <p>Learn everyday Chinese phrases for office communication and workplace interactions.</p>
+            <div style="display: flex; gap: 1.5rem; margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                <span>⏱ 8 minutes</span>
+                <span>📚 Intermediate</span>
+                <span>🎯 Business</span>
+            </div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div style="color: #aaa; font-size: 0.9rem;">0:00 / 8:00</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line">
+                    <span class="speaker">同事A:</span>
+                    <div>
+                        <div class="chinese-text">早上好！今天的会议几点开始？</div>
+                        <div class="pinyin-text">Zǎoshang hǎo! Jīntiān de huìyì jǐ diǎn kāishǐ?</div>
+                        <div class="english-text">Good morning! What time does today's meeting start?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('早上好！今天的会议几点开始？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">同事B:</span>
+                    <div>
+                        <div class="chinese-text">早上好！上午十点，在会议室A。记得带你的报告。</div>
+                        <div class="pinyin-text">Zǎoshang hǎo! Shàngwǔ shí diǎn, zài huìyìshì A. Jìde dài nǐ de bàogào.</div>
+                        <div class="english-text">Good morning! 10 AM, in Meeting Room A. Remember to bring your report.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('上午十点，在会议室A')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">同事A:</span>
+                    <div>
+                        <div class="chinese-text">你能帮我打印一份吗？打印机好像坏了。</div>
+                        <div class="pinyin-text">Nǐ néng bāng wǒ dǎyìn yī fèn ma? Dǎyìnjī hǎoxiàng huài le.</div>
+                        <div class="english-text">Can you help me print a copy? The printer seems broken.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('你能帮我打印一份吗？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">同事B:</span>
+                    <div>
+                        <div class="chinese-text">好的。对了，老板让你下午去他办公室一趟。</div>
+                        <div class="pinyin-text">Hǎo de. Duìle, lǎobǎn ràng nǐ xiàwǔ qù tā bàngōngshì yī tàng.</div>
+                        <div class="english-text">Okay. By the way, the boss wants you to go to his office this afternoon.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('老板让你下午去他办公室一趟')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">同事A:</span>
+                    <div>
+                        <div class="chinese-text">谢谢提醒。下班后要不要一起吃饭？</div>
+                        <div class="pinyin-text">Xièxie tíxǐng. Xiàbān hòu yào bu yào yīqǐ chīfàn?</div>
+                        <div class="english-text">Thanks for the reminder. Want to have dinner together after work?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('下班后要不要一起吃饭？')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Vocabulary</h2>
+            <div class="vocab-list">
+                <div class="vocab-item">
+                    <span class="vocab-char">会议</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">huìyì</div>
+                        <div class="vocab-meaning">meeting</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('会议')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">办公室</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">bàngōngshì</div>
+                        <div class="vocab-meaning">office</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('办公室')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">同事</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">tóngshì</div>
+                        <div class="vocab-meaning">colleague</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('同事')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">老板</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">lǎobǎn</div>
+                        <div class="vocab-meaning">boss</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('老板')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">报告</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">bàogào</div>
+                        <div class="vocab-meaning">report</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('报告')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">打印</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">dǎyìn</div>
+                        <div class="vocab-meaning">to print</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('打印')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">下班</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">xiàbān</div>
+                        <div class="vocab-meaning">to get off work</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('下班')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">提醒</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">tíxǐng</div>
+                        <div class="vocab-meaning">to remind</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('提醒')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            
+            <div class="grammar-point">
+                <h4>1. 记得 (jìde) - Remember to</h4>
+                <p>Used to remind someone to do something.</p>
+                <div style="background: white; padding: 1rem; border-radius: 5px; margin-top: 0.5rem;">
+                    记得带报告。 → Remember to bring the report.<br>
+                    记得开会。 → Remember to attend the meeting.
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>2. 好像 (hǎoxiàng) - Seems like; appears to</h4>
+                <p>Used to express uncertainty or observation.</p>
+                <div style="background: white; padding: 1rem; border-radius: 5px; margin-top: 0.5rem;">
+                    打印机好像坏了。 → The printer seems broken.<br>
+                    他好像不太舒服。 → He seems not feeling well.
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>3. 去...一趟 (qù...yī tàng) - Go there once</h4>
+                <p>Indicates a short trip or visit.</p>
+                <div style="background: white; padding: 1rem; border-radius: 5px; margin-top: 0.5rem;">
+                    去办公室一趟。 → Go to the office once.<br>
+                    去超市一趟。 → Go to the supermarket once.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. "同事" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">A) Colleague</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">B) Boss</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) Friend</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) Customer</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>2. How do you say "get off work"?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) 上班</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) 下班</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) 加班</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) 请假</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>3. "打印" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) Copy</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) Print</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) Scan</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) Fax</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-21.html" class="nav-btn">← Previous: Job Interview</a>
+            <a href="lesson-23.html" class="nav-btn">Next: Business Meetings →</a>
+        </div>
+    </div>
+
+    <script>
+        let playing = false, time = 0;
+        document.getElementById('playBtn').onclick = function() {
+            playing = !playing;
+            this.textContent = playing ? '⏸' : '▶';
+            if (playing) setInterval(() => { if (playing) { time++; document.getElementById('progressFill').style.width = (time / 480 * 100) + '%'; } }, 1000);
+        };
+        function speak(t) { const u = new SpeechSynthesisUtterance(t); u.lang = 'zh-CN'; u.rate = 0.8; speechSynthesis.speak(u); }
+        function checkAnswer(e, c) { e.classList.add(c ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>
