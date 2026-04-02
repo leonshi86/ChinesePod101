@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 19: 银行业务 (Banking) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #f093fb, #f5576c); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; font-size: 0.9rem; margin-bottom: 1rem; }
+        .breadcrumb a { color: white; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; font-size: 0.9rem; opacity: 0.9; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .play-btn { width: 60px; height: 60px; background: #f5576c; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #f5576c; border-radius: 4px; width: 0%; }
+        .time-display { color: #aaa; font-size: 0.9rem; min-width: 80px; text-align: right; }
+        .player-options { display: flex; gap: 1rem; }
+        .speed-btn, .loop-btn { background: #333; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #f5576c; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; align-items: flex-start; }
+        .dialogue-line:last-child { border-bottom: none; }
+        .speaker { font-weight: bold; color: #f5576c; min-width: 80px; }
+        .chinese-text { font-size: 1.2rem; font-family: 'Microsoft YaHei', sans-serif; }
+        .pinyin-text { color: #666; font-size: 0.95rem; }
+        .english-text { color: #888; font-size: 0.9rem; }
+        .play-line { background: #f5576c; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; font-size: 0.8rem; margin-left: auto; }
+        .vocab-list { display: grid; gap: 1rem; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei', sans-serif; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-pinyin { color: #f5576c; font-weight: bold; }
+        .vocab-meaning { color: #666; }
+        .vocab-audio { background: #f5576c; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-point { background: #fce4ec; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #f5576c; }
+        .grammar-point h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .example-sentence { background: white; padding: 1rem; border-radius: 5px; margin-top: 0.5rem; }
+        .quiz-section { background: #fff3e0; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; margin-bottom: 0.5rem; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; }
+        .quiz-option:hover { border-color: #f5576c; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #f5576c; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .downloads { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #1a1a2e; color: white; padding: 0.8rem 1.5rem; border-radius: 5px; text-decoration: none; }
+        .level-badge { background: #764ba2; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; margin-left: 0.5rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+            <div class="nav-menu">
+                <a href="../index.html#lessons">Lessons</a>
+                <a href="../index.html#pathways">Pathways</a>
+                <a href="../index.html#resources">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> › <a href="#">Intermediate</a> › <a href="#">Daily Life</a>
+            </div>
+            <h1 class="lesson-title">Lesson 19: 银行业务 <span class="level-badge">Intermediate</span></h1>
+            <p>Learn how to handle banking transactions, open accounts, and manage money in Chinese.</p>
+            <div class="lesson-meta">
+                <span>⏱ 9 minutes</span>
+                <span>📚 Intermediate</span>
+                <span>🎯 Banking & Finance</span>
+            </div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 9:00</div>
+            </div>
+            <div class="player-options">
+                <button class="speed-btn" id="speedBtn">1x Speed</button>
+                <button class="loop-btn" id="loopBtn">🔁 Loop</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line">
+                    <span class="speaker">顾客:</span>
+                    <div>
+                        <div class="chinese-text">您好，我想开一个银行账户。</div>
+                        <div class="pinyin-text">Nín hǎo, wǒ xiǎng kāi yī gè yínháng zhànghù.</div>
+                        <div class="english-text">Hello, I'd like to open a bank account.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('您好，我想开一个银行账户')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">柜员:</span>
+                    <div>
+                        <div class="chinese-text">好的。请问您需要储蓄账户还是支票账户？</div>
+                        <div class="pinyin-text">Hǎo de. Qǐngwèn nín xūyào chǔxù zhànghù háishì zhīpiào zhànghù?</div>
+                        <div class="english-text">Sure. Do you need a savings account or a checking account?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('好的。请问您需要储蓄账户还是支票账户？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">顾客:</span>
+                    <div>
+                        <div class="chinese-text">储蓄账户。请问有什么要求吗？</div>
+                        <div class="pinyin-text">Chǔxù zhànghù. Qǐngwèn yǒu shénme yāoqiú ma?</div>
+                        <div class="english-text">A savings account. What are the requirements?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('储蓄账户。请问有什么要求吗？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">柜员:</span>
+                    <div>
+                        <div class="chinese-text">请出示您的身份证或护照，还有手机号码。最低存款是10元。</div>
+                        <div class="pinyin-text">Qǐng chūshì nín de shēnfènzhèng huò hùzhào, háiyǒu shǒujī hàomǎ. Zuìdī cúnkuǎn shì 10 yuán.</div>
+                        <div class="english-text">Please show your ID card or passport, and your phone number. Minimum deposit is 10 yuan.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('请出示您的身份证或护照，还有手机号码。最低存款是10元')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">顾客:</span>
+                    <div>
+                        <div class="chinese-text">好的，这是我的护照。我还可以办理网上银行吗？</div>
+                        <div class="pinyin-text">Hǎo de, zhè shì wǒ de hùzhào. Wǒ hái kěyǐ bànlǐ wǎngshàng yínháng ma?</div>
+                        <div class="english-text">Okay, here's my passport. Can I also set up online banking?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('好的，这是我的护照。我还可以办理网上银行吗？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">柜员:</span>
+                    <div>
+                        <div class="chinese-text">当然可以。这是您的银行卡和网银密码器。请在这里签字确认。</div>
+                        <div class="pinyin-text">Dāngrán kěyǐ. Zhè shì nín de yínhángkǎ hé wǎngyín mìmǎqì. Qǐng zài zhèlǐ qiānzì quèrèn.</div>
+                        <div class="english-text">Of course. Here's your bank card and online banking token. Please sign here to confirm.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('当然可以。这是您的银行卡和网银密码器。请在这里签字确认')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Vocabulary</h2>
+            <div class="vocab-list">
+                <div class="vocab-item">
+                    <span class="vocab-char">银行</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">yínháng</div>
+                        <div class="vocab-meaning">bank</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('银行')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">账户</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">zhànghù</div>
+                        <div class="vocab-meaning">account</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('账户')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">储蓄账户</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">chǔxù zhànghù</div>
+                        <div class="vocab-meaning">savings account</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('储蓄账户')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">存款</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">cúnkuǎn</div>
+                        <div class="vocab-meaning">deposit</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('存款')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">取款</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">qǔkuǎn</div>
+                        <div class="vocab-meaning">withdrawal</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('取款')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">转账</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">zhuǎnzhàng</div>
+                        <div class="vocab-meaning">transfer</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('转账')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">银行卡</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">yínhángkǎ</div>
+                        <div class="vocab-meaning">bank card</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('银行卡')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">网上银行</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">wǎngshàng yínháng</div>
+                        <div class="vocab-meaning">online banking</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('网上银行')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">汇率</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">huìlǜ</div>
+                        <div class="vocab-meaning">exchange rate</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('汇率')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">身份证</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">shēnfènzhèng</div>
+                        <div class="vocab-meaning">ID card</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('身份证')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">密码</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">mìmǎ</div>
+                        <div class="vocab-meaning">password; PIN</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('密码')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">签字</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">qiānzì</div>
+                        <div class="vocab-meaning">to sign</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('签字')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            
+            <div class="grammar-point">
+                <h4>1. 开账户 (kāi zhànghù) - To open an account</h4>
+                <p>Common banking phrase. 开 (kāi) means "to open" in the sense of starting something.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    我想开一个银行账户。 → I want to open a bank account.<br>
+                    开信用卡 → to open a credit card
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>2. 还是 (háishì) - Or</h4>
+                <p>Used in questions to present alternatives.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    储蓄账户还是支票账户？ → Savings account or checking account?<br>
+                    您要喝茶还是咖啡？ → Would you like tea or coffee?
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>3. 可以...吗？ (kěyǐ...ma?) - Can I...?</h4>
+                <p>Used to ask for permission or ability.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    我可以办理网上银行吗？ → Can I set up online banking?<br>
+                    可以用信用卡吗？ → Can I use a credit card?
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. What does "取款" mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) Deposit</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) Withdrawal</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) Transfer</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) Balance</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>2. How do you say "exchange rate" in Chinese?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">A) 汇率</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">B) 利率</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) 税率</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) 费率</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>3. "我想开一个银行账户" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">A) I want to open a bank account</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">B) I want to close a bank account</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) I want to check my account</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) I want to transfer money</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📥 Downloads</h2>
+            <div class="downloads">
+                <a href="#" class="download-btn">📄 PDF Transcript</a>
+                <a href="#" class="download-btn">🎵 MP3 Audio</a>
+                <a href="#" class="download-btn">📝 Vocabulary List</a>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-18.html" class="nav-btn">← Previous: At the Airport</a>
+            <a href="lesson-20.html" class="nav-btn">Next: Renting →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col"><h4>ChinesePod101</h4><p>Free Chinese learning for everyone.</p></div>
+            <div class="footer-col"><h4>Lessons</h4><ul><li><a href="#">Audio Lessons</a></li></ul></div>
+            <div class="footer-col"><h4>Resources</h4><ul><li><a href="../resources/pinyin-chart.html">Pinyin Chart</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 ChinesePod101</p></div>
+    </footer>
+
+    <script>
+        let isPlaying = false, currentTime = 0, duration = 540, speed = 1, loop = false;
+        document.getElementById('playBtn').addEventListener('click', function() {
+            isPlaying = !isPlaying;
+            this.textContent = isPlaying ? '⏸' : '▶';
+            if (isPlaying) simulatePlayback();
+        });
+        function simulatePlayback() {
+            if (!isPlaying) return;
+            currentTime += speed;
+            if (currentTime >= duration) { if (loop) currentTime = 0; else { isPlaying = false; document.getElementById('playBtn').textContent = '▶'; return; } }
+            document.getElementById('progressFill').style.width = (currentTime / duration * 100) + '%';
+            document.getElementById('timeDisplay').textContent = Math.floor(currentTime / 60) + ':' + Math.floor(currentTime % 60).toString().padStart(2, '0') + ' / 9:00';
+            setTimeout(simulatePlayback, 1000);
+        }
+        document.getElementById('speedBtn').addEventListener('click', function() { speed = [0.5, 0.75, 1, 1.25, 1.5][([0.5, 0.75, 1, 1.25, 1.5].indexOf(speed) + 1) % 5]; this.textContent = speed + 'x Speed'; });
+        document.getElementById('loopBtn').addEventListener('click', function() { loop = !loop; this.style.background = loop ? '#f5576c' : '#333'; });
+        function speak(text) { if ('speechSynthesis' in window) { const u = new SpeechSynthesisUtterance(text); u.lang = 'zh-CN'; u.rate = 0.8; speechSynthesis.speak(u); } else alert('🔊 ' + text); }
+        function checkAnswer(el, correct) { el.classList.add(correct ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>

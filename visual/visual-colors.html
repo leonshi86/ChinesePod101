@@ -6,229 +6,60 @@
     <title>Learn with Pictures - Colors - ChinesePod101</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        .img-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-        .img-header { background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; text-align: center; }
+        .img-page { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #fa709a, #fee140); color: #1a1a2e; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; text-align: center; }
         .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
         .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
         .topic-tab { background: #f0f0f0; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: all 0.3s; text-decoration: none; color: #333; }
-        .topic-tab.active { background: #ff6b35; color: white; }
+        .topic-tab.active { background: #fa709a; color: white; }
         .topic-tab:hover { background: #ddd; }
-        .learn-area { display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: start; }
-        .diagram-container { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .colors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-        .color-card { padding: 1.5rem; border-radius: 15px; text-align: center; cursor: pointer; transition: all 0.3s; border: 4px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .color-card:hover { transform: translateY(-5px) scale(1.05); }
-        .color-card.active { border-color: #333; }
-        .color-name { font-size: 1.5rem; font-family: 'Microsoft YaHei'; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); margin-bottom: 0.3rem; }
-        .color-pinyin { color: rgba(255,255,255,0.9); font-size: 1rem; }
-        .info-panel { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: sticky; top: 2rem; }
-        .info-header { text-align: center; margin-bottom: 1.5rem; }
-        .info-color-box { width: 150px; height: 150px; border-radius: 20px; margin: 0 auto 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .info-char { font-size: 4rem; font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; }
-        .info-pinyin { font-size: 2rem; color: #ff6b35; margin: 0.5rem 0; }
-        .info-english { font-size: 1.5rem; color: #666; }
-        .play-btn-large { width: 100%; background: #ff6b35; color: white; border: none; padding: 1rem; border-radius: 10px; font-size: 1.2rem; cursor: pointer; margin: 1rem 0; }
-        .play-btn-large:hover { background: #e55a2b; }
-        .example-sentences { margin-top: 1.5rem; }
-        .example-sentences h4 { color: #1a1a2e; margin-bottom: 1rem; }
-        .example-item { background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem; cursor: pointer; }
-        .example-item:hover { background: #fff3e0; }
-        .example-zh { font-family: 'Microsoft YaHei', sans-serif; font-size: 1.1rem; }
-        .example-py { color: #ff6b35; font-size: 0.9rem; }
-        .example-en { color: #888; font-size: 0.9rem; }
-        .objects-section { margin-top: 1.5rem; }
-        .objects-section h4 { color: #1a1a2e; margin-bottom: 1rem; }
-        .object-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #f8f9fa; border-radius: 8px; margin-bottom: 0.5rem; cursor: pointer; }
-        .object-item:hover { background: #fff3e0; }
-        .object-emoji { font-size: 1.5rem; }
+        .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+        .vocab-card { background: white; border-radius: 16px; padding: 1.2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; text-align: center; border: 3px solid transparent; }
+        .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(250, 112, 154, 0.2); border-color: #fa709a; }
+        .card-emoji { font-size: 3rem; margin-bottom: 0.5rem; display: block; }
+        .card-chinese { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; margin-bottom: 0.2rem; font-weight: bold; }
+        .card-pinyin { font-size: 1rem; color: #fa709a; margin-bottom: 0.2rem; font-weight: 600; }
+        .card-english { font-size: 0.95rem; color: #666; margin-bottom: 0.6rem; }
+        .card-play { background: linear-gradient(135deg, #fa709a, #fee140); color: #1a1a2e; border: none; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; margin-bottom: 0.6rem; }
+        .card-play:hover { transform: scale(1.05); }
+        .card-example { background: #f8f9fa; border-radius: 8px; padding: 0.6rem; margin-top: 0.3rem; text-align: left; font-size: 0.85rem; }
+        .card-example-zh { font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; margin-bottom: 0.15rem; line-height: 1.3; }
+        .card-example-py { color: #fa709a; font-size: 0.75rem; margin-bottom: 0.1rem; }
+        .card-example-en { color: #888; font-size: 0.75rem; }
         .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
-        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
-        @media (max-width: 900px) { .learn-area { grid-template-columns: 1fr; } .colors-grid { grid-template-columns: repeat(2, 1fr); } .info-panel { position: static; } }
+        .nav-btn { background: #fa709a; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        @media (max-width: 1100px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .card-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
-        </div>
-    </nav>
-
+    <nav class="navbar"><div class="nav-container"><a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a></div></nav>
     <div class="img-page">
-        <div class="img-header">
-            <h1>🎨 Learn with Pictures - Colors</h1>
-            <p>Interactive Visual Learning - Click any color to learn!</p>
-        </div>
-
+        <div class="img-header"><h1>🌈 Learn with Pictures - Colors</h1><p>Click any card to hear the pronunciation!</p></div>
         <div class="topic-tabs">
             <a href="visual-body.html" class="topic-tab">👤 My Body</a>
             <a href="visual-room.html" class="topic-tab">🏠 My Room</a>
             <a href="visual-animals.html" class="topic-tab">🐱 Animals</a>
             <a href="visual-food.html" class="topic-tab">🍎 Food</a>
-            <button class="topic-tab active">🌈 Colors</button>
+            <a href="visual-colors.html" class="topic-tab active">🌈 Colors</a>
         </div>
-
-        <div class="learn-area">
-            <div class="diagram-container">
-                <div class="colors-grid">
-                    <div class="color-card active" style="background: #E53935;" onclick="selectColor('red')"><div class="color-name">红色</div><div class="color-pinyin">hóngsè</div></div>
-                    <div class="color-card" style="background: #FF9800;" onclick="selectColor('orange')"><div class="color-name">橙色</div><div class="color-pinyin">chéngsè</div></div>
-                    <div class="color-card" style="background: #FFEB3B; color: #333;"><div class="color-name" style="color: #333;">黄色</div><div class="color-pinyin" style="color: #666;">huángsè</div></div>
-                    <div class="color-card" style="background: #4CAF50;" onclick="selectColor('green')"><div class="color-name">绿色</div><div class="color-pinyin">lǜsè</div></div>
-                    <div class="color-card" style="background: #2196F3;" onclick="selectColor('blue')"><div class="color-name">蓝色</div><div class="color-pinyin">lánsè</div></div>
-                    <div class="color-card" style="background: #9C27B0;" onclick="selectColor('purple')"><div class="color-name">紫色</div><div class="color-pinyin">zǐsè</div></div>
-                    <div class="color-card" style="background: #E91E63;" onclick="selectColor('pink')"><div class="color-name">粉色</div><div class="color-pinyin">fěnsè</div></div>
-                    <div class="color-card" style="background: #795548;" onclick="selectColor('brown')"><div class="color-name">棕色</div><div class="color-pinyin">zōngsè</div></div>
-                    <div class="color-card" style="background: #333;" onclick="selectColor('black')"><div class="color-name">黑色</div><div class="color-pinyin">hēisè</div></div>
-                    <div class="color-card" style="background: #FFF; border: 2px solid #ddd;" onclick="selectColor('white')"><div class="color-name" style="color: #333;">白色</div><div class="color-pinyin" style="color: #666;">báisè</div></div>
-                    <div class="color-card" style="background: #9E9E9E;" onclick="selectColor('gray')"><div class="color-name">灰色</div><div class="color-pinyin">huīsè</div></div>
-                    <div class="color-card" style="background: linear-gradient(135deg, #E53935, #FF9800, #FFEB3B, #4CAF50, #2196F3, #9C27B0);" onclick="selectColor('rainbow')"><div class="color-name">彩虹</div><div class="color-pinyin">cǎihóng</div></div>
-                </div>
-            </div>
-
-            <div class="info-panel">
-                <div class="info-header">
-                    <div class="info-color-box" id="infoColorBox" style="background: #E53935;"></div>
-                    <div class="info-char" id="infoChar">红色</div>
-                    <div class="info-pinyin" id="infoPinyin">hóngsè</div>
-                    <div class="info-english" id="infoEnglish">red</div>
-                </div>
-                
-                <button class="play-btn-large" onclick="playCurrent()">🔊 听发音</button>
-                
-                <div class="example-sentences">
-                    <h4>📝 例句 Examples</h4>
-                    <div class="example-item" onclick="speak('苹果是红色的')">
-                        <div class="example-zh">苹果是红色的。</div>
-                        <div class="example-py">Píngguǒ shì hóngsè de.</div>
-                        <div class="example-en">Apples are red.</div>
-                    </div>
-                    <div class="example-item" onclick="speak('我喜欢红色')">
-                        <div class="example-zh">我喜欢红色。</div>
-                        <div class="example-py">Wǒ xǐhuan hóngsè.</div>
-                        <div class="example-en">I like red.</div>
-                    </div>
-                </div>
-                
-                <div class="objects-section">
-                    <h4>🎯 这个颜色的事物</h4>
-                    <div id="objectsList">
-                        <div class="object-item" onclick="speak('红苹果')"><span class="object-emoji">🍎</span><span>红苹果</span></div>
-                        <div class="object-item" onclick="speak('红旗')"><span class="object-emoji">🚩</span><span>红旗</span></div>
-                        <div class="object-item" onclick="speak('红玫瑰')"><span class="object-emoji">🌹</span><span>红玫瑰</span></div>
-                    </div>
-                </div>
-            </div>
+        <div class="card-grid">
+            <div class="vocab-card" onclick="speak('红色')"><span class="card-emoji">🔴</span><div class="card-chinese">红色</div><div class="card-pinyin">hóngsè</div><div class="card-english">red</div><button class="card-play" onclick="event.stopPropagation(); speak('红色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('苹果是红色的')"><div class="card-example-zh">苹果是红色的。</div><div class="card-example-py">Píngguǒ shì hóngsè de.</div><div class="card-example-en">Apples are red.</div></div></div>
+            <div class="vocab-card" onclick="speak('蓝色')"><span class="card-emoji">🔵</span><div class="card-chinese">蓝色</div><div class="card-pinyin">lánsè</div><div class="card-english">blue</div><button class="card-play" onclick="event.stopPropagation(); speak('蓝色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('天空是蓝色的')"><div class="card-example-zh">天空是蓝色的。</div><div class="card-example-py">Tiānkōng shì lánsè de.</div><div class="card-example-en">The sky is blue.</div></div></div>
+            <div class="vocab-card" onclick="speak('黄色')"><span class="card-emoji">🟡</span><div class="card-chinese">黄色</div><div class="card-pinyin">huángsè</div><div class="card-english">yellow</div><button class="card-play" onclick="event.stopPropagation(); speak('黄色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('香蕉是黄色的')"><div class="card-example-zh">香蕉是黄色的。</div><div class="card-example-py">Xiāngjiāo shì huángsè de.</div><div class="card-example-en">Bananas are yellow.</div></div></div>
+            <div class="vocab-card" onclick="speak('绿色')"><span class="card-emoji">🟢</span><div class="card-chinese">绿色</div><div class="card-pinyin">lǜsè</div><div class="card-english">green</div><button class="card-play" onclick="event.stopPropagation(); speak('绿色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('草地是绿色的')"><div class="card-example-zh">草地是绿色的。</div><div class="card-example-py">Cǎodì shì lǜsè de.</div><div class="card-example-en">The grass is green.</div></div></div>
+            <div class="vocab-card" onclick="speak('白色')"><span class="card-emoji">⚪</span><div class="card-chinese">白色</div><div class="card-pinyin">báisè</div><div class="card-english">white</div><button class="card-play" onclick="event.stopPropagation(); speak('白色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('雪是白色的')"><div class="card-example-zh">雪是白色的。</div><div class="card-example-py">Xuě shì báisè de.</div><div class="card-example-en">Snow is white.</div></div></div>
+            <div class="vocab-card" onclick="speak('黑色')"><span class="card-emoji">⚫</span><div class="card-chinese">黑色</div><div class="card-pinyin">hēisè</div><div class="card-english">black</div><button class="card-play" onclick="event.stopPropagation(); speak('黑色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('头发是黑色的')"><div class="card-example-zh">头发是黑色的。</div><div class="card-example-py">Tóufa shì hēisè de.</div><div class="card-example-en">Hair is black.</div></div></div>
+            <div class="vocab-card" onclick="speak('橙色')"><span class="card-emoji">🟠</span><div class="card-chinese">橙色</div><div class="card-pinyin">chéngsè</div><div class="card-english">orange</div><button class="card-play" onclick="event.stopPropagation(); speak('橙色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('橙子是橙色的')"><div class="card-example-zh">橙子是橙色的。</div><div class="card-example-py">Chéngzi shì chéngsè de.</div><div class="card-example-en">Oranges are orange.</div></div></div>
+            <div class="vocab-card" onclick="speak('紫色')"><span class="card-emoji">🟣</span><div class="card-chinese">紫色</div><div class="card-pinyin">zǐsè</div><div class="card-english">purple</div><button class="card-play" onclick="event.stopPropagation(); speak('紫色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('我喜欢紫色')"><div class="card-example-zh">我喜欢紫色。</div><div class="card-example-py">Wǒ xǐhuān zǐsè.</div><div class="card-example-en">I like purple.</div></div></div>
+            <div class="vocab-card" onclick="speak('粉色')"><span class="card-emoji">💗</span><div class="card-chinese">粉色</div><div class="card-pinyin">fěnsè</div><div class="card-english">pink</div><button class="card-play" onclick="event.stopPropagation(); speak('粉色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('花是粉色的')"><div class="card-example-zh">花是粉色的。</div><div class="card-example-py">Huā shì fěnsè de.</div><div class="card-example-en">The flower is pink.</div></div></div>
+            <div class="vocab-card" onclick="speak('灰色')"><span class="card-emoji">🩶</span><div class="card-chinese">灰色</div><div class="card-pinyin">huīsè</div><div class="card-english">gray</div><button class="card-play" onclick="event.stopPropagation(); speak('灰色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('云是灰色的')"><div class="card-example-zh">云是灰色的。</div><div class="card-example-py">Yún shì huīsè de.</div><div class="card-example-en">Clouds are gray.</div></div></div>
+            <div class="vocab-card" onclick="speak('棕色')"><span class="card-emoji">🟤</span><div class="card-chinese">棕色</div><div class="card-pinyin">zōngsè</div><div class="card-english">brown</div><button class="card-play" onclick="event.stopPropagation(); speak('棕色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('狗是棕色的')"><div class="card-example-zh">狗是棕色的。</div><div class="card-example-py">Gǒu shì zōngsè de.</div><div class="card-example-en">The dog is brown.</div></div></div>
+            <div class="vocab-card" onclick="speak('金色')"><span class="card-emoji">🟡</span><div class="card-chinese">金色</div><div class="card-pinyin">jīnsè</div><div class="card-english">gold</div><button class="card-play" onclick="event.stopPropagation(); speak('金色')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('金子是金色的')"><div class="card-example-zh">金子是金色的。</div><div class="card-example-py">Jīnzi shì jīnsè de.</div><div class="card-example-en">Gold is golden.</div></div></div>
         </div>
-
-        <div class="nav-lessons">
-            <a href="visual-food.html" class="nav-btn">← Food</a>
-            <a href="../index.html" class="nav-btn">Home 🏠</a>
-        </div>
+        <div class="nav-lessons"><a href="visual-food.html" class="nav-btn">← Food</a><a href="../index.html" class="nav-btn">Home →</a></div>
     </div>
-
-    <script>
-        const colors = {
-            red: { 
-                hex: '#E53935', char: '红色', pinyin: 'hóngsè', english: 'red',
-                examples: ['苹果是红色的', '我喜欢红色'],
-                objects: [{emoji: '🍎', name: '红苹果'}, {emoji: '🚩', name: '红旗'}, {emoji: '🌹', name: '红玫瑰'}, {emoji: '❤️', name: '红心'}]
-            },
-            orange: { 
-                hex: '#FF9800', char: '橙色', pinyin: 'chéngsè', english: 'orange',
-                examples: ['橘子是橙色的', '橙色很温暖'],
-                objects: [{emoji: '🍊', name: '橙子'}, {emoji: '🥕', name: '胡萝卜'}, {emoji: '🌅', name: '夕阳'}]
-            },
-            yellow: { 
-                hex: '#FFEB3B', char: '黄色', pinyin: 'huángsè', english: 'yellow',
-                examples: ['香蕉是黄色的', '黄色很明亮'],
-                objects: [{emoji: '🍌', name: '香蕉'}, {emoji: '⭐', name: '星星'}, {emoji: '🌻', name: '向日葵'}, {emoji: '🍋', name: '柠檬'}]
-            },
-            green: { 
-                hex: '#4CAF50', char: '绿色', pinyin: 'lǜsè', english: 'green',
-                examples: ['草是绿色的', '绿色代表自然'],
-                objects: [{emoji: '🌿', name: '绿叶'}, {emoji: '🌲', name: '树'}, {emoji: '🥒', name: '黄瓜'}, {emoji: '🐸', name: '青蛙'}]
-            },
-            blue: { 
-                hex: '#2196F3', char: '蓝色', pinyin: 'lánsè', english: 'blue',
-                examples: ['天空是蓝色的', '大海是蓝色的'],
-                objects: [{emoji: '🌊', name: '大海'}, {emoji: '☁️', name: '蓝天'}, {emoji: '👖', name: '牛仔裤'}, {emoji: '🐋', name: '蓝鲸'}]
-            },
-            purple: { 
-                hex: '#9C27B0', char: '紫色', pinyin: 'zǐsè', english: 'purple',
-                examples: ['葡萄是紫色的', '紫色很高贵'],
-                objects: [{emoji: '🍇', name: '葡萄'}, {emoji: '🍆', name: '茄子'}, {emoji: '💎', name: '紫水晶'}]
-            },
-            pink: { 
-                hex: '#E91E63', char: '粉色', pinyin: 'fěnsè', english: 'pink',
-                examples: ['桃花是粉色的', '粉色很可爱'],
-                objects: [{emoji: '🌸', name: '樱花'}, {emoji: '🐷', name: '小猪'}, {emoji: '🎀', name: '蝴蝶结'}]
-            },
-            brown: { 
-                hex: '#795548', char: '棕色', pinyin: 'zōngsè', english: 'brown',
-                examples: ['树干是棕色的', '棕色很温暖'],
-                objects: [{emoji: '🐻', name: '熊'}, {emoji: '🍫', name: '巧克力'}, {emoji: '🥔', name: '土豆'}]
-            },
-            black: { 
-                hex: '#333333', char: '黑色', pinyin: 'hēisè', english: 'black',
-                examples: ['头发是黑色的', '黑色很酷'],
-                objects: [{emoji: '🐱', name: '黑猫'}, {emoji: '🕶️', name: '墨镜'}, {emoji: '🎩', name: '礼帽'}, {emoji: '♟️', name: '黑棋'}]
-            },
-            white: { 
-                hex: '#FFFFFF', char: '白色', pinyin: 'báisè', english: 'white',
-                examples: ['雪是白色的', '白色很干净'],
-                objects: [{emoji: '☁️', name: '白云'}, {emoji: '🐰', name: '白兔'}, {emoji: '🕊️', name: '白鸽'}, {emoji: '❄️', name: '雪花'}]
-            },
-            gray: { 
-                hex: '#9E9E9E', char: '灰色', pinyin: 'huīsè', english: 'gray',
-                examples: ['石头是灰色的', '大象是灰色的'],
-                objects: [{emoji: '🐘', name: '大象'}, {emoji: '🪨', name: '石头'}, {emoji: '🐭', name: '老鼠'}]
-            },
-            rainbow: { 
-                hex: 'linear-gradient(135deg, #E53935, #FF9800, #FFEB3B, #4CAF50, #2196F3, #9C27B0)', 
-                char: '彩虹', pinyin: 'cǎihóng', english: 'rainbow',
-                examples: ['雨后有彩虹', '彩虹很美丽'],
-                objects: [{emoji: '🌈', name: '彩虹'}, {emoji: '🦋', name: '蝴蝶'}]
-            }
-        };
-
-        let currentColor = 'red';
-
-        function selectColor(colorId) {
-            currentColor = colorId;
-            const color = colors[colorId];
-            if (!color) return;
-            
-            document.getElementById('infoColorBox').style.background = color.hex;
-            document.getElementById('infoChar').textContent = color.char;
-            document.getElementById('infoPinyin').textContent = color.pinyin;
-            document.getElementById('infoEnglish').textContent = color.english;
-            
-            document.querySelectorAll('.color-card').forEach(card => card.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            
-            let objectsHtml = '';
-            color.objects.forEach(obj => {
-                objectsHtml += `<div class="object-item" onclick="speak('${obj.name}')"><span class="object-emoji">${obj.emoji}</span><span>${obj.name}</span></div>`;
-            });
-            document.getElementById('objectsList').innerHTML = objectsHtml;
-            
-            speak(color.char);
-        }
-
-        function playCurrent() {
-            const color = colors[currentColor];
-            if (color) speak(color.char);
-        }
-
-        function speak(text) {
-            if ('speechSynthesis' in window) {
-                speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'zh-CN';
-                utterance.rate = 0.8;
-                speechSynthesis.speak(utterance);
-            }
-        }
-    </script>
+    <script>function speak(t){if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='zh-CN';u.rate=0.8;speechSynthesis.speak(u);}}</script>
 </body>
 </html>

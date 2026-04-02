@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn with Pictures - Transportation - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .img-page { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .img-header { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; text-align: center; }
+        .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .topic-tab { background: #f0f0f0; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: all 0.3s; text-decoration: none; color: #333; }
+        .topic-tab.active { background: #4facfe; color: white; }
+        .topic-tab:hover { background: #ddd; }
+        .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+        .vocab-card { background: white; border-radius: 16px; padding: 1.2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; text-align: center; border: 3px solid transparent; }
+        .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(79, 172, 254, 0.2); border-color: #4facfe; }
+        .card-emoji { font-size: 3rem; margin-bottom: 0.5rem; display: block; }
+        .card-chinese { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; margin-bottom: 0.2rem; font-weight: bold; }
+        .card-pinyin { font-size: 1rem; color: #4facfe; margin-bottom: 0.2rem; font-weight: 600; }
+        .card-english { font-size: 0.95rem; color: #666; margin-bottom: 0.6rem; }
+        .card-play { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; border: none; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; margin-bottom: 0.6rem; }
+        .card-play:hover { transform: scale(1.05); }
+        .card-example { background: #f8f9fa; border-radius: 8px; padding: 0.6rem; margin-top: 0.3rem; text-align: left; font-size: 0.85rem; }
+        .card-example-zh { font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; margin-bottom: 0.15rem; line-height: 1.3; }
+        .card-example-py { color: #4facfe; font-size: 0.75rem; margin-bottom: 0.1rem; }
+        .card-example-en { color: #888; font-size: 0.75rem; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #4facfe; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        @media (max-width: 1100px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .card-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav class="navbar"><div class="nav-container"><a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a></div></nav>
+    <div class="img-page">
+        <div class="img-header"><h1>🚗 Learn with Pictures - Transportation</h1><p>Click any card to hear the pronunciation!</p></div>
+        <div class="topic-tabs">
+            <a href="visual-body.html" class="topic-tab">👤 Body</a>
+            <a href="visual-room.html" class="topic-tab">🏠 Room</a>
+            <a href="visual-animals.html" class="topic-tab">🐱 Animals</a>
+            <a href="visual-food.html" class="topic-tab">🍎 Food</a>
+            <a href="visual-colors.html" class="topic-tab">🌈 Colors</a>
+            <a href="visual-transport.html" class="topic-tab active">🚗 Transport</a>
+        </div>
+        <div class="card-grid">
+            <div class="vocab-card" onclick="speak('汽车')"><span class="card-emoji">🚗</span><div class="card-chinese">汽车</div><div class="card-pinyin">qìchē</div><div class="card-english">car</div><button class="card-play" onclick="event.stopPropagation(); speak('汽车')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('我开车上班')"><div class="card-example-zh">我开车上班。</div><div class="card-example-py">Wǒ kāichē shàngbān.</div><div class="card-example-en">I drive to work.</div></div></div>
+            <div class="vocab-card" onclick="speak('公交车')"><span class="card-emoji">🚌</span><div class="card-chinese">公交车</div><div class="card-pinyin">gōngjiāochē</div><div class="card-english">bus</div><button class="card-play" onclick="event.stopPropagation(); speak('公交车')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('坐公交车')"><div class="card-example-zh">坐公交车。</div><div class="card-example-py">Zuò gōngjiāochē.</div><div class="card-example-en">Take the bus.</div></div></div>
+            <div class="vocab-card" onclick="speak('地铁')"><span class="card-emoji">🚇</span><div class="card-chinese">地铁</div><div class="card-pinyin">dìtiě</div><div class="card-english">subway</div><button class="card-play" onclick="event.stopPropagation(); speak('地铁')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('地铁很快')"><div class="card-example-zh">地铁很快。</div><div class="card-example-py">Dìtiě hěn kuài.</div><div class="card-example-en">The subway is fast.</div></div></div>
+            <div class="vocab-card" onclick="speak('火车')"><span class="card-emoji">🚆</span><div class="card-chinese">火车</div><div class="card-pinyin">huǒchē</div><div class="card-english">train</div><button class="card-play" onclick="event.stopPropagation(); speak('火车')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('坐火车旅行')"><div class="card-example-zh">坐火车旅行。</div><div class="card-example-py">Zuò huǒchē lǚxíng.</div><div class="card-example-en">Travel by train.</div></div></div>
+            <div class="vocab-card" onclick="speak('飞机')"><span class="card-emoji">✈️</span><div class="card-chinese">飞机</div><div class="card-pinyin">fēijī</div><div class="card-english">airplane</div><button class="card-play" onclick="event.stopPropagation(); speak('飞机')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('飞机起飞了')"><div class="card-example-zh">飞机起飞了。</div><div class="card-example-py">Fēijī qǐfēi le.</div><div class="card-example-en">The plane took off.</div></div></div>
+            <div class="vocab-card" onclick="speak('自行车')"><span class="card-emoji">🚲</span><div class="card-chinese">自行车</div><div class="card-pinyin">zìxíngchē</div><div class="card-english">bicycle</div><button class="card-play" onclick="event.stopPropagation(); speak('自行车')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('骑自行车')"><div class="card-example-zh">骑自行车。</div><div class="card-example-py">Qí zìxíngchē.</div><div class="card-example-en">Ride a bicycle.</div></div></div>
+            <div class="vocab-card" onclick="speak('摩托车')"><span class="card-emoji">🏍️</span><div class="card-chinese">摩托车</div><div class="card-pinyin">mótuōchē</div><div class="card-english">motorcycle</div><button class="card-play" onclick="event.stopPropagation(); speak('摩托车')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('摩托车很酷')"><div class="card-example-zh">摩托车很酷。</div><div class="card-example-py">Mótuōchē hěn kù.</div><div class="card-example-en">Motorcycles are cool.</div></div></div>
+            <div class="vocab-card" onclick="speak('出租车')"><span class="card-emoji">🚕</span><div class="card-chinese">出租车</div><div class="card-pinyin">chūzūchē</div><div class="card-english">taxi</div><button class="card-play" onclick="event.stopPropagation(); speak('出租车')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('打出租车')"><div class="card-example-zh">打出租车。</div><div class="card-example-py">Dǎ chūzūchē.</div><div class="card-example-en">Hail a taxi.</div></div></div>
+            <div class="vocab-card" onclick="speak('船')"><span class="card-emoji">🚢</span><div class="card-chinese">船</div><div class="card-pinyin">chuán</div><div class="card-english">ship</div><button class="card-play" onclick="event.stopPropagation(); speak('船')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('坐船过河')"><div class="card-example-zh">坐船过河。</div><div class="card-example-py">Zuò chuán guò hé.</div><div class="card-example-en">Cross the river by boat.</div></div></div>
+            <div class="vocab-card" onclick="speak('高铁')"><span class="card-emoji">🚄</span><div class="card-chinese">高铁</div><div class="card-pinyin">gāotiě</div><div class="card-english">high-speed rail</div><button class="card-play" onclick="event.stopPropagation(); speak('高铁')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('中国高铁很快')"><div class="card-example-zh">中国高铁很快。</div><div class="card-example-py">Zhōngguó gāotiě hěn kuài.</div><div class="card-example-en">China's high-speed rail is fast.</div></div></div>
+            <div class="vocab-card" onclick="speak('电动车')"><span class="card-emoji">🛵</span><div class="card-chinese">电动车</div><div class="card-pinyin">diàndòngchē</div><div class="card-english">e-bike</div><button class="card-play" onclick="event.stopPropagation(); speak('电动车')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('电动车很方便')"><div class="card-example-zh">电动车很方便。</div><div class="card-example-py">Diàndòngchē hěn fāngbiàn.</div><div class="card-example-en">E-bikes are convenient.</div></div></div>
+            <div class="vocab-card" onclick="speak('直升机')"><span class="card-emoji">🚁</span><div class="card-chinese">直升机</div><div class="card-pinyin">zhíshēngjī</div><div class="card-english">helicopter</div><button class="card-play" onclick="event.stopPropagation(); speak('直升机')">🔊</button><div class="card-example" onclick="event.stopPropagation(); speak('直升机飞在天上')"><div class="card-example-zh">直升机飞在天上。</div><div class="card-example-py">Zhíshēngjī fēi zài tiānshàng.</div><div class="card-example-en">Helicopters fly in the sky.</div></div></div>
+        </div>
+        <div class="nav-lessons"><a href="visual-colors.html" class="nav-btn">← Colors</a><a href="visual-clothes.html" class="nav-btn">Next: Clothes →</a></div>
+    </div>
+    <script>function speak(t){if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='zh-CN';u.rate=0.8;speechSynthesis.speak(u);}}</script>
+</body>
+</html>

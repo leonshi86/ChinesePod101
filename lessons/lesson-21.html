@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 21: 求职面试 (Job Interview) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #fa709a, #fee140); color: #1a1a2e; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; font-size: 0.9rem; margin-bottom: 1rem; }
+        .breadcrumb a { color: #1a1a2e; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .play-btn { width: 60px; height: 60px; background: #fa709a; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #fa709a; border-radius: 4px; width: 0%; }
+        .time-display { color: #aaa; font-size: 0.9rem; min-width: 80px; text-align: right; }
+        .player-options { display: flex; gap: 1rem; }
+        .speed-btn, .loop-btn { background: #333; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #fa709a; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; align-items: flex-start; }
+        .dialogue-line:last-child { border-bottom: none; }
+        .speaker { font-weight: bold; color: #fa709a; min-width: 80px; }
+        .chinese-text { font-size: 1.2rem; font-family: 'Microsoft YaHei', sans-serif; }
+        .pinyin-text { color: #666; font-size: 0.95rem; }
+        .english-text { color: #888; font-size: 0.9rem; }
+        .play-line { background: #fa709a; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; font-size: 0.8rem; margin-left: auto; }
+        .vocab-list { display: grid; gap: 1rem; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei', sans-serif; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-pinyin { color: #fa709a; font-weight: bold; }
+        .vocab-meaning { color: #666; }
+        .vocab-audio { background: #fa709a; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-point { background: #fff8e1; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #fa709a; }
+        .grammar-point h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .example-sentence { background: white; padding: 1rem; border-radius: 5px; margin-top: 0.5rem; }
+        .quiz-section { background: #fce4ec; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; margin-bottom: 0.5rem; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; }
+        .quiz-option:hover { border-color: #fa709a; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #fa709a; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .downloads { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #1a1a2e; color: white; padding: 0.8rem 1.5rem; border-radius: 5px; text-decoration: none; }
+        .level-badge { background: #1a1a2e; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; margin-left: 0.5rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+            <div class="nav-menu">
+                <a href="../index.html#lessons">Lessons</a>
+                <a href="../index.html#pathways">Pathways</a>
+                <a href="../index.html#resources">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> › <a href="#">Intermediate</a> › <a href="#">Career</a>
+            </div>
+            <h1 class="lesson-title">Lesson 21: 求职面试 <span class="level-badge">Intermediate</span></h1>
+            <p>Learn essential Chinese phrases for job interviews, self-introduction, and discussing qualifications.</p>
+            <div class="lesson-meta">
+                <span>⏱ 10 minutes</span>
+                <span>📚 Intermediate</span>
+                <span>🎯 Career</span>
+            </div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 10:00</div>
+            </div>
+            <div class="player-options">
+                <button class="speed-btn" id="speedBtn">1x Speed</button>
+                <button class="loop-btn" id="loopBtn">🔁 Loop</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line">
+                    <span class="speaker">面试官:</span>
+                    <div>
+                        <div class="chinese-text">请先自我介绍一下。</div>
+                        <div class="pinyin-text">Qǐng xiān zìwǒ jièshào yīxià.</div>
+                        <div class="english-text">Please introduce yourself first.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('请先自我介绍一下')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">应聘者:</span>
+                    <div>
+                        <div class="chinese-text">您好，我叫李华，毕业于北京大学，专业是计算机科学。我有三年的软件开发经验。</div>
+                        <div class="pinyin-text">Nín hǎo, wǒ jiào Lǐ Huá, bìyè yú Běijīng Dàxué, zhuānyè shì jìsuànjī kēxué. Wǒ yǒu sān nián de ruǎnjiàn kāifā jīngyàn.</div>
+                        <div class="english-text">Hello, my name is Li Hua. I graduated from Peking University, majoring in Computer Science. I have three years of software development experience.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('您好，我叫李华，毕业于北京大学，专业是计算机科学')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">面试官:</span>
+                    <div>
+                        <div class="chinese-text">你为什么想加入我们公司？你对自己的职业规划是什么？</div>
+                        <div class="pinyin-text">Nǐ wèishénme xiǎng jiārù wǒmen gōngsī? Nǐ duì zìjǐ de zhíyè guīhuà shì shénme?</div>
+                        <div class="english-text">Why do you want to join our company? What is your career plan?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('你为什么想加入我们公司？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">应聘者:</span>
+                    <div>
+                        <div class="chinese-text">贵公司在行业内很有影响力，我希望能在这样的环境中学习和成长。我的目标是成为技术专家。</div>
+                        <div class="pinyin-text">Guì gōngsī zài hángyè nèi hěn yǒu yǐngxiǎnglì, wǒ xīwàng néng zài zhèyàng de huánjìng zhōng xuéxí hé chéngzhǎng. Wǒ de mùbiāo shì chéngwéi jìshù zhuānjiā.</div>
+                        <div class="english-text">Your company is very influential in the industry. I hope to learn and grow in such an environment. My goal is to become a technical expert.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('贵公司在行业内很有影响力')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">面试官:</span>
+                    <div>
+                        <div class="chinese-text">你期望的薪资是多少？什么时候可以入职？</div>
+                        <div class="pinyin-text">Nǐ qīwàng de xīnzī shì duōshao? Shénme shíhou kěyǐ rùzhí?</div>
+                        <div class="english-text">What is your expected salary? When can you start?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('你期望的薪资是多少？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">应聘者:</span>
+                    <div>
+                        <div class="chinese-text">根据我的经验和市场情况，期望月薪在一万五左右。如果录用，我可以两周内入职。</div>
+                        <div class="pinyin-text">Gēnjù wǒ de jīngyàn hé shìchǎng qíngkuàng, qīwàng yuèxīn zài yī wàn wǔ zuǒyòu. Rúguǒ lùyòng, wǒ kěyǐ liǎng zhōu nèi rùzhí.</div>
+                        <div class="english-text">Based on my experience and market conditions, I expect a monthly salary around 15,000 yuan. If hired, I can start within two weeks.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('根据我的经验，期望月薪在一万五左右')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Vocabulary</h2>
+            <div class="vocab-list">
+                <div class="vocab-item">
+                    <span class="vocab-char">面试</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">miànshì</div>
+                        <div class="vocab-meaning">interview</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('面试')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">自我介绍</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">zìwǒ jièshào</div>
+                        <div class="vocab-meaning">self-introduction</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('自我介绍')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">毕业</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">bìyè</div>
+                        <div class="vocab-meaning">to graduate</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('毕业')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">专业</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">zhuānyè</div>
+                        <div class="vocab-meaning">major; specialty</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('专业')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">经验</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">jīngyàn</div>
+                        <div class="vocab-meaning">experience</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('经验')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">职业规划</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">zhíyè guīhuà</div>
+                        <div class="vocab-meaning">career plan</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('职业规划')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">薪资</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">xīnzī</div>
+                        <div class="vocab-meaning">salary</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('薪资')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">入职</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">rùzhí</div>
+                        <div class="vocab-meaning">to start a job</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('入职')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">录用</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">lùyòng</div>
+                        <div class="vocab-meaning">to hire</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('录用')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">贵公司</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">guì gōngsī</div>
+                        <div class="vocab-meaning">your company (polite)</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('贵公司')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">简历</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">jiǎnlì</div>
+                        <div class="vocab-meaning">resume; CV</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('简历')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">应聘</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">yìngpìn</div>
+                        <div class="vocab-meaning">to apply for a job</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('应聘')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            
+            <div class="grammar-point">
+                <h4>1. 毕业 (bìyè) + 于 (yú) - Graduated from</h4>
+                <p>Used to state where you graduated from.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    我毕业于清华大学。 → I graduated from Tsinghua University.<br>
+                    他毕业于哈佛大学。 → He graduated from Harvard University.
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>2. 贵 (guì) - Honorific prefix</h4>
+                <p>Used to show respect when referring to someone else's company, name, etc.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    贵公司 → Your company (polite)<br>
+                    贵姓 → Your surname (polite)<br>
+                    贵国 → Your country (polite)
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>3. 如果...可以... (rúguǒ...kěyǐ...) - If..., can...</h4>
+                <p>Conditional structure for stating possibilities.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    如果录用，我可以下周入职。 → If hired, I can start next week.<br>
+                    如果通过面试，我可以立即上班。 → If I pass the interview, I can start immediately.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. "自我介绍" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) Introduction</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) Self-introduction</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) Introduction letter</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) Recommend</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>2. How do you say "salary" in Chinese?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) 工资</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) 薪资</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) 奖金</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) 收入</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>3. "贵公司" is used to:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) Talk about your own company</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) Politely refer to someone else's company</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) Describe an expensive company</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) Introduce your company</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📥 Downloads</h2>
+            <div class="downloads">
+                <a href="#" class="download-btn">📄 PDF Transcript</a>
+                <a href="#" class="download-btn">🎵 MP3 Audio</a>
+                <a href="#" class="download-btn">📝 Vocabulary List</a>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-20.html" class="nav-btn">← Previous: Renting</a>
+            <a href="lesson-22.html" class="nav-btn">Next: Office Daily →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col"><h4>ChinesePod101</h4><p>Free Chinese learning for everyone.</p></div>
+            <div class="footer-col"><h4>Resources</h4><ul><li><a href="../resources/pinyin-chart.html">Pinyin Chart</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 ChinesePod101</p></div>
+    </footer>
+
+    <script>
+        let isPlaying = false, currentTime = 0, duration = 600, speed = 1, loop = false;
+        document.getElementById('playBtn').addEventListener('click', function() { 
+            isPlaying = !isPlaying; 
+            this.textContent = isPlaying ? '⏸' : '▶'; 
+            if (isPlaying) simulatePlayback(); 
+        });
+        function simulatePlayback() { 
+            if (!isPlaying) return; 
+            currentTime += speed; 
+            if (currentTime >= duration) { 
+                if (loop) currentTime = 0; 
+                else { isPlaying = false; document.getElementById('playBtn').textContent = '▶'; return; } 
+            } 
+            document.getElementById('progressFill').style.width = (currentTime / duration * 100) + '%'; 
+            document.getElementById('timeDisplay').textContent = Math.floor(currentTime / 60) + ':' + Math.floor(currentTime % 60).toString().padStart(2, '0') + ' / 10:00'; 
+            setTimeout(simulatePlayback, 1000); 
+        }
+        document.getElementById('speedBtn').addEventListener('click', function() { 
+            speed = [0.5, 0.75, 1, 1.25, 1.5][([0.5, 0.75, 1, 1.25, 1.5].indexOf(speed) + 1) % 5]; 
+            this.textContent = speed + 'x Speed'; 
+        });
+        document.getElementById('loopBtn').addEventListener('click', function() { 
+            loop = !loop; 
+            this.style.background = loop ? '#fa709a' : '#333'; 
+        });
+        function speak(text) { 
+            if ('speechSynthesis' in window) { 
+                const u = new SpeechSynthesisUtterance(text); 
+                u.lang = 'zh-CN'; 
+                u.rate = 0.8; 
+                speechSynthesis.speak(u); 
+            } else alert('🔊 ' + text); 
+        }
+        function checkAnswer(el, correct) { 
+            el.classList.add(correct ? 'correct' : 'wrong'); 
+        }
+    </script>
+</body>
+</html>

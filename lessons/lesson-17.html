@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 17: 旅行计划 (Travel Planning) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #11998e, #38ef7d); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; font-size: 0.9rem; margin-bottom: 1rem; }
+        .breadcrumb a { color: white; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; font-size: 0.9rem; opacity: 0.9; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .play-btn { width: 60px; height: 60px; background: #38ef7d; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .play-btn:hover { background: #11998e; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; cursor: pointer; }
+        .progress-fill { height: 100%; background: #38ef7d; border-radius: 4px; width: 0%; }
+        .time-display { color: #aaa; font-size: 0.9rem; min-width: 80px; text-align: right; }
+        .player-options { display: flex; gap: 1rem; }
+        .speed-btn, .loop-btn { background: #333; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #38ef7d; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; align-items: flex-start; }
+        .dialogue-line:last-child { border-bottom: none; }
+        .speaker { font-weight: bold; color: #11998e; min-width: 60px; }
+        .chinese-text { font-size: 1.2rem; font-family: 'Microsoft YaHei', sans-serif; }
+        .pinyin-text { color: #666; font-size: 0.95rem; }
+        .english-text { color: #888; font-size: 0.9rem; }
+        .play-line { background: #38ef7d; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; font-size: 0.8rem; margin-left: auto; }
+        .vocab-list { display: grid; gap: 1rem; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei', sans-serif; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-pinyin { color: #11998e; font-weight: bold; }
+        .vocab-meaning { color: #666; }
+        .vocab-audio { background: #38ef7d; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-point { background: #e8f5e9; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #38ef7d; }
+        .grammar-point h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .example-sentence { background: white; padding: 1rem; border-radius: 5px; margin-top: 0.5rem; }
+        .quiz-section { background: #e3f2fd; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; margin-bottom: 0.5rem; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; }
+        .quiz-option:hover { border-color: #38ef7d; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #11998e; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .nav-btn:hover { background: #0d7a6e; }
+        .downloads { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #1a1a2e; color: white; padding: 0.8rem 1.5rem; border-radius: 5px; text-decoration: none; }
+        .level-badge { background: #ff6b35; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; margin-left: 0.5rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+            <div class="nav-menu">
+                <a href="../index.html#lessons">Lessons</a>
+                <a href="../index.html#pathways">Pathways</a>
+                <a href="../index.html#resources">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> › 
+                <a href="#">Intermediate</a> › 
+                <a href="#">Travel & Lifestyle</a>
+            </div>
+            <h1 class="lesson-title">Lesson 17: 旅行计划 <span class="level-badge">Intermediate</span></h1>
+            <p>Learn how to plan trips, discuss travel arrangements, and talk about destinations in Chinese.</p>
+            <div class="lesson-meta">
+                <span>⏱ 8 minutes</span>
+                <span>📚 Intermediate</span>
+                <span>🎯 Travel Planning</span>
+            </div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="time-display" id="timeDisplay">0:00 / 8:00</div>
+            </div>
+            <div class="player-options">
+                <button class="speed-btn" id="speedBtn">1x Speed</button>
+                <button class="loop-btn" id="loopBtn">🔁 Loop</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line">
+                    <span class="speaker">小李:</span>
+                    <div>
+                        <div class="chinese-text">你暑假有什么计划吗？</div>
+                        <div class="pinyin-text">Nǐ shǔjià yǒu shénme jìhuà ma?</div>
+                        <div class="english-text">Do you have any plans for summer vacation?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('你暑假有什么计划吗？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">小王:</span>
+                    <div>
+                        <div class="chinese-text">我打算去云南旅行，看看大理和丽江。</div>
+                        <div class="pinyin-text">Wǒ dǎsuàn qù Yúnnán lǚxíng, kànkan Dàlǐ hé Lìjiāng.</div>
+                        <div class="english-text">I plan to travel to Yunnan, visit Dali and Lijiang.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('我打算去云南旅行，看看大理和丽江')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">小李:</span>
+                    <div>
+                        <div class="chinese-text">听起来很棒！你打算怎么去？飞机还是火车？</div>
+                        <div class="pinyin-text">Tīng qǐlái hěn bàng! Nǐ dǎsuàn zěnme qù? Fēijī háishì huǒchē?</div>
+                        <div class="english-text">Sounds great! How do you plan to go? By plane or train?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('听起来很棒！你打算怎么去？飞机还是火车？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">小王:</span>
+                    <div>
+                        <div class="chinese-text">我打算坐高铁去，虽然时间长一点，但是可以看风景。</div>
+                        <div class="pinyin-text">Wǒ dǎsuàn zuò gāotiě qù, suīrán shíjiān cháng yīdiǎn, dànshì kěyǐ kàn fēngjǐng.</div>
+                        <div class="english-text">I plan to take the high-speed train. Although it takes longer, I can enjoy the scenery.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('我打算坐高铁去，虽然时间长一点，但是可以看风景')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">小李:</span>
+                    <div>
+                        <div class="chinese-text">你预订酒店了吗？旺季的时候酒店很紧张。</div>
+                        <div class="pinyin-text">Nǐ yùdìng jiǔdiàn le ma? Wàngjì de shíhou jiǔdiàn hěn jǐnzhāng.</div>
+                        <div class="english-text">Have you booked a hotel? Hotels are hard to get during peak season.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('你预订酒店了吗？旺季的时候酒店很紧张')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">小王:</span>
+                    <div>
+                        <div class="chinese-text">已经预订了。我还在网上订了机票和景点门票。</div>
+                        <div class="pinyin-text">Yǐjīng yùdìng le. Wǒ hái zài wǎngshàng dìngle jīpiào hé jǐngdiǎn ménpiào.</div>
+                        <div class="english-text">Already booked. I also booked flights and attraction tickets online.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('已经预订了。我还在网上订了机票和景点门票')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">小李:</span>
+                    <div>
+                        <div class="chinese-text">行程安排得真周到！祝你旅途愉快！</div>
+                        <div class="pinyin-text">Xíngchéng ānpái de zhēn zhōudào! Zhù nǐ lǚtú yúkuài!</div>
+                        <div class="english-text">You planned the itinerary so well! Have a pleasant trip!</div>
+                    </div>
+                    <button class="play-line" onclick="speak('行程安排得真周到！祝你旅途愉快！')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Vocabulary</h2>
+            <div class="vocab-list">
+                <div class="vocab-item">
+                    <span class="vocab-char">旅行</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">lǚxíng</div>
+                        <div class="vocab-meaning">to travel; travel</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('旅行')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">计划</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">jìhuà</div>
+                        <div class="vocab-meaning">plan; to plan</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('计划')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">打算</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">dǎsuàn</div>
+                        <div class="vocab-meaning">to plan; to intend</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('打算')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">预订</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">yùdìng</div>
+                        <div class="vocab-meaning">to book; to reserve</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('预订')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">高铁</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">gāotiě</div>
+                        <div class="vocab-meaning">high-speed rail</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('高铁')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">风景</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">fēngjǐng</div>
+                        <div class="vocab-meaning">scenery; landscape</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('风景')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">旺季</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">wàngjì</div>
+                        <div class="vocab-meaning">peak season</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('旺季')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">景点</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">jǐngdiǎn</div>
+                        <div class="vocab-meaning">tourist attraction</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('景点')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">行程</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">xíngchéng</div>
+                        <div class="vocab-meaning">itinerary; schedule</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('行程')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">安排</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">ānpái</div>
+                        <div class="vocab-meaning">to arrange; arrangement</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('安排')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">机票</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">jīpiào</div>
+                        <div class="vocab-meaning">plane ticket</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('机票')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">旅途愉快</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">lǚtú yúkuài</div>
+                        <div class="vocab-meaning">have a pleasant journey</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('旅途愉快')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            
+            <div class="grammar-point">
+                <h4>1. 打算 (dǎsuàn) + Verb - To plan to do something</h4>
+                <p>Used to express intention or plan. More casual than 计划.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    我打算去旅行。 → I plan to go traveling.<br>
+                    你打算什么时候出发？ → When do you plan to depart?
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>2. 虽然...但是... (suīrán...dànshì...) - Although...but...</h4>
+                <p>A common pattern for expressing contrast. Note that unlike English, both parts are used in Chinese.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    虽然很贵，但是质量很好。 → Although it's expensive, the quality is good.<br>
+                    虽然下雨，但是我们还是要去。 → Although it's raining, we still want to go.
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>3. 已經...了 (yǐjīng...le) - Already</h4>
+                <p>Indicates an action has been completed.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    我已经预订了酒店。 → I have already booked the hotel.<br>
+                    他已经到了机场。 → He has already arrived at the airport.
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>4. 行程安排 - Itinerary arrangement</h4>
+                <p>Common phrase when discussing travel plans.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    你的行程安排好了吗？ → Is your itinerary arranged?<br>
+                    请帮我安排一下行程。 → Please help me arrange the itinerary.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. "我打算去旅行" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) I like traveling</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) I plan to travel</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) I am traveling</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) I traveled</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>2. How do you say "book a hotel" in Chinese?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) 买酒店</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">B) 找酒店</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">C) 预订酒店</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) 建酒店</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>3. Fill in the blank: 虽然很累，_____ 我很开心。</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) 所以</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) 但是</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) 因为</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) 如果</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>4. What does "旺季" mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) Busy day</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) Peak season</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) Hot weather</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) Weekend</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📥 Downloads</h2>
+            <div class="downloads">
+                <a href="#" class="download-btn">📄 PDF Transcript</a>
+                <a href="#" class="download-btn">🎵 MP3 Audio</a>
+                <a href="#" class="download-btn">📝 Vocabulary List</a>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-16.html" class="nav-btn">← Previous: Asking for Help</a>
+            <a href="lesson-18.html" class="nav-btn">Next: At the Airport →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>ChinesePod101</h4>
+                <p>Free Chinese learning for everyone.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Lessons</h4>
+                <ul>
+                    <li><a href="#">Audio Lessons</a></li>
+                    <li><a href="#">Video Lessons</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="../resources/pinyin-chart.html">Pinyin Chart</a></li>
+                    <li><a href="../resources/dictionary.html">Dictionary</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 ChinesePod101</p>
+        </div>
+    </footer>
+
+    <script>
+        let isPlaying = false;
+        let currentTime = 0;
+        let duration = 480;
+        let speed = 1;
+        let loop = false;
+        
+        const playBtn = document.getElementById('playBtn');
+        const progressFill = document.getElementById('progressFill');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const speedBtn = document.getElementById('speedBtn');
+        const loopBtn = document.getElementById('loopBtn');
+        
+        playBtn.addEventListener('click', function() {
+            isPlaying = !isPlaying;
+            playBtn.textContent = isPlaying ? '⏸' : '▶';
+            if (isPlaying) simulatePlayback();
+        });
+        
+        function simulatePlayback() {
+            if (!isPlaying) return;
+            currentTime += speed;
+            if (currentTime >= duration) {
+                if (loop) currentTime = 0;
+                else { isPlaying = false; playBtn.textContent = '▶'; return; }
+            }
+            const percent = (currentTime / duration) * 100;
+            progressFill.style.width = percent + '%';
+            const mins = Math.floor(currentTime / 60);
+            const secs = Math.floor(currentTime % 60);
+            timeDisplay.textContent = `${mins}:${secs.toString().padStart(2, '0')} / 8:00`;
+            setTimeout(simulatePlayback, 1000);
+        }
+        
+        speedBtn.addEventListener('click', function() {
+            const speeds = [0.5, 0.75, 1, 1.25, 1.5];
+            const currentIndex = speeds.indexOf(speed);
+            speed = speeds[(currentIndex + 1) % speeds.length];
+            speedBtn.textContent = speed + 'x Speed';
+        });
+        
+        loopBtn.addEventListener('click', function() {
+            loop = !loop;
+            loopBtn.style.background = loop ? '#38ef7d' : '#333';
+        });
+        
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'zh-CN';
+                utterance.rate = 0.8;
+                speechSynthesis.speak(utterance);
+            } else {
+                alert('🔊 ' + text);
+            }
+        }
+        
+        function checkAnswer(element, isCorrect) {
+            const options = element.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.onclick = null);
+            if (isCorrect) element.classList.add('correct');
+            else element.classList.add('wrong');
+        }
+    </script>
+</body>
+</html>

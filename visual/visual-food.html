@@ -6,210 +6,65 @@
     <title>Learn with Pictures - Food - ChinesePod101</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        .img-page { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .img-page { max-width: 1400px; margin: 0 auto; padding: 2rem; }
         .img-header { background: linear-gradient(135deg, #f093fb, #f5576c); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; text-align: center; }
         .img-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
         .topic-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
         .topic-tab { background: #f0f0f0; border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-size: 1rem; transition: all 0.3s; text-decoration: none; color: #333; }
-        .topic-tab.active { background: #ff6b35; color: white; }
+        .topic-tab.active { background: #f5576c; color: white; }
         .topic-tab:hover { background: #ddd; }
-        .learn-area { display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: start; }
-        .diagram-container { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .food-categories { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-        .category-btn { background: #e0e0e0; border: none; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; transition: all 0.3s; }
-        .category-btn.active { background: #ff6b35; color: white; }
-        .food-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-        .food-card { background: #f8f9fa; padding: 1.5rem; border-radius: 15px; text-align: center; cursor: pointer; transition: all 0.3s; border: 3px solid transparent; }
-        .food-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .food-card.active { border-color: #ff6b35; background: #fff3e0; }
-        .food-emoji { font-size: 3.5rem; margin-bottom: 0.5rem; }
-        .food-char { font-size: 1.3rem; font-family: 'Microsoft YaHei'; color: #1a1a2e; }
-        .food-pinyin { color: #ff6b35; font-size: 0.9rem; }
-        .info-panel { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: sticky; top: 2rem; }
-        .info-header { text-align: center; margin-bottom: 1.5rem; }
-        .info-emoji { font-size: 5rem; }
-        .info-char { font-size: 4rem; font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; }
-        .info-pinyin { font-size: 2rem; color: #ff6b35; margin: 0.5rem 0; }
-        .info-english { font-size: 1.5rem; color: #666; }
-        .play-btn-large { width: 100%; background: #ff6b35; color: white; border: none; padding: 1rem; border-radius: 10px; font-size: 1.2rem; cursor: pointer; margin: 1rem 0; }
-        .play-btn-large:hover { background: #e55a2b; }
-        .example-sentences { margin-top: 1.5rem; }
-        .example-sentences h4 { color: #1a1a2e; margin-bottom: 1rem; }
-        .example-item { background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem; cursor: pointer; }
-        .example-item:hover { background: #fff3e0; }
-        .example-zh { font-family: 'Microsoft YaHei', sans-serif; font-size: 1.1rem; }
-        .example-py { color: #ff6b35; font-size: 0.9rem; }
-        .example-en { color: #888; font-size: 0.9rem; }
-        .taste-section { margin-top: 1.5rem; padding: 1rem; background: #fff8e1; border-radius: 10px; }
-        .taste-section h4 { color: #f57c00; margin-bottom: 0.5rem; }
-        .taste-btn { background: #ffb74d; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; margin-right: 0.5rem; margin-bottom: 0.5rem; }
-        .taste-btn:hover { background: #ff9800; }
+        .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 2rem; }
+        .vocab-card { background: white; border-radius: 16px; padding: 1.2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; text-align: center; border: 3px solid transparent; }
+        .vocab-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(245, 87, 108, 0.2); border-color: #f5576c; }
+        .card-emoji { font-size: 3rem; margin-bottom: 0.5rem; display: block; }
+        .card-chinese { font-size: 2rem; font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; margin-bottom: 0.2rem; font-weight: bold; }
+        .card-pinyin { font-size: 1rem; color: #f5576c; margin-bottom: 0.2rem; font-weight: 600; }
+        .card-english { font-size: 0.95rem; color: #666; margin-bottom: 0.6rem; }
+        .card-play { background: linear-gradient(135deg, #f5576c, #f093fb); color: white; border: none; padding: 0.4rem 1rem; border-radius: 15px; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; margin-bottom: 0.6rem; }
+        .card-play:hover { transform: scale(1.05); }
+        .card-example { background: #f8f9fa; border-radius: 8px; padding: 0.6rem; margin-top: 0.3rem; text-align: left; font-size: 0.85rem; }
+        .card-example-zh { font-family: 'Microsoft YaHei', sans-serif; color: #1a1a2e; margin-bottom: 0.15rem; line-height: 1.3; }
+        .card-example-py { color: #f5576c; font-size: 0.75rem; margin-bottom: 0.1rem; }
+        .card-example-en { color: #888; font-size: 0.75rem; }
         .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
-        .nav-btn { background: #ff6b35; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
-        @media (max-width: 900px) { .learn-area { grid-template-columns: 1fr; } .food-grid { grid-template-columns: repeat(2, 1fr); } .info-panel { position: static; } }
+        .nav-btn { background: #f5576c; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        @media (max-width: 1100px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .card-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
-        </div>
-    </nav>
-
+    <nav class="navbar"><div class="nav-container"><a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a></div></nav>
     <div class="img-page">
-        <div class="img-header">
-            <h1>🎨 Learn with Pictures - Food</h1>
-            <p>Interactive Visual Learning - Click any food to learn!</p>
-        </div>
-
+        <div class="img-header"><h1>🍎 Learn with Pictures - Food</h1><p>Click any card to hear the pronunciation!</p></div>
         <div class="topic-tabs">
             <a href="visual-body.html" class="topic-tab">👤 My Body</a>
             <a href="visual-room.html" class="topic-tab">🏠 My Room</a>
             <a href="visual-animals.html" class="topic-tab">🐱 Animals</a>
-            <button class="topic-tab active">🍎 Food</button>
+            <a href="visual-food.html" class="topic-tab active">🍎 Food</a>
             <a href="visual-colors.html" class="topic-tab">🌈 Colors</a>
         </div>
-
-        <div class="learn-area">
-            <div class="diagram-container">
-                <div class="food-categories">
-                    <button class="category-btn active" onclick="filterFood('all')">全部 All</button>
-                    <button class="category-btn" onclick="filterFood('fruit')">水果 Fruit</button>
-                    <button class="category-btn" onclick="filterFood('vegetable')">蔬菜 Vegetable</button>
-                    <button class="category-btn" onclick="filterFood('main')">主食 Main</button>
-                    <button class="category-btn" onclick="filterFood('drink')">饮料 Drink</button>
-                </div>
-                
-                <div class="food-grid" id="foodGrid">
-                    <div class="food-card active" data-category="fruit" onclick="selectFood('apple')"><div class="food-emoji">🍎</div><div class="food-char">苹果</div><div class="food-pinyin">píngguǒ</div></div>
-                    <div class="food-card" data-category="fruit" onclick="selectFood('banana')"><div class="food-emoji">🍌</div><div class="food-char">香蕉</div><div class="food-pinyin">xiāngjiāo</div></div>
-                    <div class="food-card" data-category="fruit" onclick="selectFood('orange')"><div class="food-emoji">🍊</div><div class="food-char">橘子</div><div class="food-pinyin">júzi</div></div>
-                    <div class="food-card" data-category="fruit" onclick="selectFood('watermelon')"><div class="food-emoji">🍉</div><div class="food-char">西瓜</div><div class="food-pinyin">xīguā</div></div>
-                    <div class="food-card" data-category="fruit" onclick="selectFood('grape')"><div class="food-emoji">🍇</div><div class="food-char">葡萄</div><div class="food-pinyin">pútao</div></div>
-                    <div class="food-card" data-category="fruit" onclick="selectFood('strawberry')"><div class="food-emoji">🍓</div><div class="food-char">草莓</div><div class="food-pinyin">cǎoméi</div></div>
-                    <div class="food-card" data-category="vegetable" onclick="selectFood('tomato')"><div class="food-emoji">🍅</div><div class="food-char">西红柿</div><div class="food-pinyin">xīhóngshì</div></div>
-                    <div class="food-card" data-category="vegetable" onclick="selectFood('carrot')"><div class="food-emoji">🥕</div><div class="food-char">胡萝卜</div><div class="food-pinyin">húluóbo</div></div>
-                    <div class="food-card" data-category="vegetable" onclick="selectFood('cabbage')"><div class="food-emoji">🥬</div><div class="food-char">白菜</div><div class="food-pinyin">báicài</div></div>
-                    <div class="food-card" data-category="vegetable" onclick="selectFood('potato')"><div class="food-emoji">🥔</div><div class="food-char">土豆</div><div class="food-pinyin">tǔdòu</div></div>
-                    <div class="food-card" data-category="main" onclick="selectFood('rice')"><div class="food-emoji">🍚</div><div class="food-char">米饭</div><div class="food-pinyin">mǐfàn</div></div>
-                    <div class="food-card" data-category="main" onclick="selectFood('noodles')"><div class="food-emoji">🍜</div><div class="food-char">面条</div><div class="food-pinyin">miàntiáo</div></div>
-                    <div class="food-card" data-category="main" onclick="selectFood('dumpling')"><div class="food-emoji">🥟</div><div class="food-char">饺子</div><div class="food-pinyin">jiǎozi</div></div>
-                    <div class="food-card" data-category="main" onclick="selectFood('bread')"><div class="food-emoji">🍞</div><div class="food-char">面包</div><div class="food-pinyin">miànbāo</div></div>
-                    <div class="food-card" data-category="drink" onclick="selectFood('water')"><div class="food-emoji">💧</div><div class="food-char">水</div><div class="food-pinyin">shuǐ</div></div>
-                    <div class="food-card" data-category="drink" onclick="selectFood('tea')"><div class="food-emoji">🍵</div><div class="food-char">茶</div><div class="food-pinyin">chá</div></div>
-                    <div class="food-card" data-category="drink" onclick="selectFood('coffee')"><div class="food-emoji">☕</div><div class="food-char">咖啡</div><div class="food-pinyin">kāfēi</div></div>
-                    <div class="food-card" data-category="drink" onclick="selectFood('milk')"><div class="food-emoji">🥛</div><div class="food-char">牛奶</div><div class="food-pinyin">niúnǎi</div></div>
-                </div>
-            </div>
-
-            <div class="info-panel">
-                <div class="info-header">
-                    <div class="info-emoji" id="infoEmoji">🍎</div>
-                    <div class="info-char" id="infoChar">苹果</div>
-                    <div class="info-pinyin" id="infoPinyin">píngguǒ</div>
-                    <div class="info-english" id="infoEnglish">apple</div>
-                </div>
-                
-                <button class="play-btn-large" onclick="playCurrent()">🔊 听发音</button>
-                
-                <div class="example-sentences">
-                    <h4>📝 例句 Examples</h4>
-                    <div class="example-item" onclick="speak('我喜欢吃苹果')">
-                        <div class="example-zh">我喜欢吃苹果。</div>
-                        <div class="example-py">Wǒ xǐhuan chī píngguǒ.</div>
-                        <div class="example-en">I like eating apples.</div>
-                    </div>
-                    <div class="example-item" onclick="speak('苹果很甜')">
-                        <div class="example-zh">苹果很甜。</div>
-                        <div class="example-py">Píngguǒ hěn tián.</div>
-                        <div class="example-en">Apples are sweet.</div>
-                    </div>
-                </div>
-                
-                <div class="taste-section">
-                    <h4>👅 味道 Taste Words</h4>
-                    <button class="taste-btn" onclick="speak('甜')">甜 sweet</button>
-                    <button class="taste-btn" onclick="speak('酸')">酸 sour</button>
-                    <button class="taste-btn" onclick="speak('辣')">辣 spicy</button>
-                    <button class="taste-btn" onclick="speak('咸')">咸 salty</button>
-                    <button class="taste-btn" onclick="speak('苦')">苦 bitter</button>
-                </div>
-            </div>
+        <div class="card-grid">
+            <div class="vocab-card" onclick="speak('米饭')"><span class="card-emoji">🍚</span><div class="card-chinese">米饭</div><div class="card-pinyin">mǐfàn</div><div class="card-english">rice</div><button class="card-play" onclick="event.stopPropagation(); speak('米饭')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('我每天吃米饭')"><div class="card-example-zh">我每天吃米饭。</div><div class="card-example-py">Wǒ měitiān chī mǐfàn.</div><div class="card-example-en">I eat rice every day.</div></div></div>
+            <div class="vocab-card" onclick="speak('面条')"><span class="card-emoji">🍜</span><div class="card-chinese">面条</div><div class="card-pinyin">miàntiáo</div><div class="card-english">noodles</div><button class="card-play" onclick="event.stopPropagation(); speak('面条')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('我喜欢吃面条')"><div class="card-example-zh">我喜欢吃面条。</div><div class="card-example-py">Wǒ xǐhuān chī miàntiáo.</div><div class="card-example-en">I like to eat noodles.</div></div></div>
+            <div class="vocab-card" onclick="speak('饺子')"><span class="card-emoji">🥟</span><div class="card-chinese">饺子</div><div class="card-pinyin">jiǎozi</div><div class="card-english">dumpling</div><button class="card-play" onclick="event.stopPropagation(); speak('饺子')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('饺子很好吃')"><div class="card-example-zh">饺子很好吃。</div><div class="card-example-py">Jiǎozi hěn hǎochī.</div><div class="card-example-en">Dumplings are delicious.</div></div></div>
+            <div class="vocab-card" onclick="speak('包子')"><span class="card-emoji">🥟</span><div class="card-chinese">包子</div><div class="card-pinyin">bāozi</div><div class="card-english">steamed bun</div><button class="card-play" onclick="event.stopPropagation(); speak('包子')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('早餐吃包子')"><div class="card-example-zh">早餐吃包子。</div><div class="card-example-py">Zǎocān chī bāozi.</div><div class="card-example-en">Eat buns for breakfast.</div></div></div>
+            <div class="vocab-card" onclick="speak('苹果')"><span class="card-emoji">🍎</span><div class="card-chinese">苹果</div><div class="card-pinyin">píngguǒ</div><div class="card-english">apple</div><button class="card-play" onclick="event.stopPropagation(); speak('苹果')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('苹果是红色的')"><div class="card-example-zh">苹果是红色的。</div><div class="card-example-py">Píngguǒ shì hóngsè de.</div><div class="card-example-en">Apples are red.</div></div></div>
+            <div class="vocab-card" onclick="speak('香蕉')"><span class="card-emoji">🍌</span><div class="card-chinese">香蕉</div><div class="card-pinyin">xiāngjiāo</div><div class="card-english">banana</div><button class="card-play" onclick="event.stopPropagation(); speak('香蕉')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('香蕉很甜')"><div class="card-example-zh">香蕉很甜。</div><div class="card-example-py">Xiāngjiāo hěn tián.</div><div class="card-example-en">Bananas are sweet.</div></div></div>
+            <div class="vocab-card" onclick="speak('橙子')"><span class="card-emoji">🍊</span><div class="card-chinese">橙子</div><div class="card-pinyin">chéngzi</div><div class="card-english">orange</div><button class="card-play" onclick="event.stopPropagation(); speak('橙子')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('橙子有维生素C')"><div class="card-example-zh">橙子有维生素C。</div><div class="card-example-py">Chéngzi yǒu wéishēngsù C.</div><div class="card-example-en">Oranges have Vitamin C.</div></div></div>
+            <div class="vocab-card" onclick="speak('西瓜')"><span class="card-emoji">🍉</span><div class="card-chinese">西瓜</div><div class="card-pinyin">xīguā</div><div class="card-english">watermelon</div><button class="card-play" onclick="event.stopPropagation(); speak('西瓜')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('夏天吃西瓜')"><div class="card-example-zh">夏天吃西瓜。</div><div class="card-example-py">Xiàtiān chī xīguā.</div><div class="card-example-en">Eat watermelon in summer.</div></div></div>
+            <div class="vocab-card" onclick="speak('鸡蛋')"><span class="card-emoji">🥚</span><div class="card-chinese">鸡蛋</div><div class="card-pinyin">jīdàn</div><div class="card-english">egg</div><button class="card-play" onclick="event.stopPropagation(); speak('鸡蛋')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('我早餐吃鸡蛋')"><div class="card-example-zh">我早餐吃鸡蛋。</div><div class="card-example-py">Wǒ zǎocān chī jīdàn.</div><div class="card-example-en">I eat eggs for breakfast.</div></div></div>
+            <div class="vocab-card" onclick="speak('牛奶')"><span class="card-emoji">🥛</span><div class="card-chinese">牛奶</div><div class="card-pinyin">niúnǎi</div><div class="card-english">milk</div><button class="card-play" onclick="event.stopPropagation(); speak('牛奶')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('喝牛奶对身体好')"><div class="card-example-zh">喝牛奶对身体好。</div><div class="card-example-py">Hē niúnǎi duì shēntǐ hǎo.</div><div class="card-example-en">Drinking milk is good for health.</div></div></div>
+            <div class="vocab-card" onclick="speak('面包')"><span class="card-emoji">🍞</span><div class="card-chinese">面包</div><div class="card-pinyin">miànbāo</div><div class="card-english">bread</div><button class="card-play" onclick="event.stopPropagation(); speak('面包')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('买面包')"><div class="card-example-zh">买面包。</div><div class="card-example-py">Mǎi miànbāo.</div><div class="card-example-en">Buy bread.</div></div></div>
+            <div class="vocab-card" onclick="speak('茶')"><span class="card-emoji">🍵</span><div class="card-chinese">茶</div><div class="card-pinyin">chá</div><div class="card-english">tea</div><button class="card-play" onclick="event.stopPropagation(); speak('茶')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('喝茶')"><div class="card-example-zh">喝茶。</div><div class="card-example-py">Hē chá.</div><div class="card-example-en">Drink tea.</div></div></div>
+            <div class="vocab-card" onclick="speak('咖啡')"><span class="card-emoji">☕</span><div class="card-chinese">咖啡</div><div class="card-pinyin">kāfēi</div><div class="card-english">coffee</div><button class="card-play" onclick="event.stopPropagation(); speak('咖啡')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('喝咖啡')"><div class="card-example-zh">喝咖啡。</div><div class="card-example-py">Hē kāfēi.</div><div class="card-example-en">Drink coffee.</div></div></div>
+            <div class="vocab-card" onclick="speak('鸡肉')"><span class="card-emoji">🍗</span><div class="card-chinese">鸡肉</div><div class="card-pinyin">jīròu</div><div class="card-english">chicken meat</div><button class="card-play" onclick="event.stopPropagation(); speak('鸡肉')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('我喜欢吃鸡肉')"><div class="card-example-zh">我喜欢吃鸡肉。</div><div class="card-example-py">Wǒ xǐhuān chī jīròu.</div><div class="card-example-en">I like to eat chicken.</div></div></div>
+            <div class="vocab-card" onclick="speak('牛肉')"><span class="card-emoji">🥩</span><div class="card-chinese">牛肉</div><div class="card-pinyin">niúròu</div><div class="card-english">beef</div><button class="card-play" onclick="event.stopPropagation(); speak('牛肉')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('牛肉很有营养')"><div class="card-example-zh">牛肉很有营养。</div><div class="card-example-py">Niúròu hěn yǒu yíngyǎng.</div><div class="card-example-en">Beef is nutritious.</div></div></div>
+            <div class="vocab-card" onclick="speak('蔬菜')"><span class="card-emoji">🥬</span><div class="card-chinese">蔬菜</div><div class="card-pinyin">shūcài</div><div class="card-english">vegetables</div><button class="card-play" onclick="event.stopPropagation(); speak('蔬菜')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('多吃蔬菜')"><div class="card-example-zh">多吃蔬菜。</div><div class="card-example-py">Duō chī shūcài.</div><div class="card-example-en">Eat more vegetables.</div></div></div>
+            <div class="vocab-card" onclick="speak('水')"><span class="card-emoji">💧</span><div class="card-chinese">水</div><div class="card-pinyin">shuǐ</div><div class="card-english">water</div><button class="card-play" onclick="event.stopPropagation(); speak('水')">🔊 发音</button><div class="card-example" onclick="event.stopPropagation(); speak('喝水')"><div class="card-example-zh">喝水。</div><div class="card-example-py">Hē shuǐ.</div><div class="card-example-en">Drink water.</div></div></div>
         </div>
-
-        <div class="nav-lessons">
-            <a href="visual-animals.html" class="nav-btn">← Animals</a>
-            <a href="visual-colors.html" class="nav-btn">Colors →</a>
-        </div>
+        <div class="nav-lessons"><a href="visual-animals.html" class="nav-btn">← Animals</a><a href="visual-colors.html" class="nav-btn">Next: Colors →</a></div>
     </div>
-
-    <script>
-        const foods = {
-            apple: { emoji: '🍎', char: '苹果', pinyin: 'píngguǒ', english: 'apple', examples: ['我喜欢吃苹果', '苹果很甜'], taste: '甜' },
-            banana: { emoji: '🍌', char: '香蕉', pinyin: 'xiāngjiāo', english: 'banana', examples: ['香蕉是黄色的', '香蕉很好吃'], taste: '甜' },
-            orange: { emoji: '🍊', char: '橘子', pinyin: 'júzi', english: 'orange', examples: ['橘子有点酸', '剥橘子'], taste: '酸甜' },
-            watermelon: { emoji: '🍉', char: '西瓜', pinyin: 'xīguā', english: 'watermelon', examples: ['西瓜很解渴', '夏天吃西瓜'], taste: '甜' },
-            grape: { emoji: '🍇', char: '葡萄', pinyin: 'pútao', english: 'grape', examples: ['葡萄是紫色的', '葡萄很好吃'], taste: '甜' },
-            strawberry: { emoji: '🍓', char: '草莓', pinyin: 'cǎoméi', english: 'strawberry', examples: ['草莓很甜', '草莓蛋糕'], taste: '甜' },
-            tomato: { emoji: '🍅', char: '西红柿', pinyin: 'xīhóngshì', english: 'tomato', examples: ['西红柿炒蛋', '西红柿是红色的'], taste: '酸甜' },
-            carrot: { emoji: '🥕', char: '胡萝卜', pinyin: 'húluóbo', english: 'carrot', examples: ['兔子吃胡萝卜', '胡萝卜有营养'], taste: '甜' },
-            cabbage: { emoji: '🥬', char: '白菜', pinyin: 'báicài', english: 'cabbage', examples: ['炒白菜', '白菜很便宜'], taste: '清淡' },
-            potato: { emoji: '🥔', char: '土豆', pinyin: 'tǔdòu', english: 'potato', examples: ['土豆丝', '土豆泥'], taste: '清淡' },
-            rice: { emoji: '🍚', char: '米饭', pinyin: 'mǐfàn', english: 'rice', examples: ['吃米饭', '一碗米饭'], taste: '清淡' },
-            noodles: { emoji: '🍜', char: '面条', pinyin: 'miàntiáo', english: 'noodles', examples: ['吃面条', '面条很好吃'], taste: '咸' },
-            dumpling: { emoji: '🥟', char: '饺子', pinyin: 'jiǎozi', english: 'dumpling', examples: ['吃饺子', '包饺子'], taste: '咸' },
-            bread: { emoji: '🍞', char: '面包', pinyin: 'miànbāo', english: 'bread', examples: ['吃面包', '面包片'], taste: '甜' },
-            water: { emoji: '💧', char: '水', pinyin: 'shuǐ', english: 'water', examples: ['喝水', '一杯水'], taste: '无味' },
-            tea: { emoji: '🍵', char: '茶', pinyin: 'chá', english: 'tea', examples: ['喝茶', '茶很香'], taste: '苦' },
-            coffee: { emoji: '☕', char: '咖啡', pinyin: 'kāfēi', english: 'coffee', examples: ['喝咖啡', '咖啡苦'], taste: '苦' },
-            milk: { emoji: '🥛', char: '牛奶', pinyin: 'niúnǎi', english: 'milk', examples: ['喝牛奶', '牛奶有营养'], taste: '甜' }
-        };
-
-        let currentFood = 'apple';
-
-        function selectFood(foodId) {
-            currentFood = foodId;
-            const food = foods[foodId];
-            if (!food) return;
-            
-            document.getElementById('infoEmoji').textContent = food.emoji;
-            document.getElementById('infoChar').textContent = food.char;
-            document.getElementById('infoPinyin').textContent = food.pinyin;
-            document.getElementById('infoEnglish').textContent = food.english;
-            
-            document.querySelectorAll('.food-card').forEach(card => card.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            
-            speak(food.char);
-        }
-
-        function filterFood(category) {
-            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            
-            document.querySelectorAll('.food-card').forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        function playCurrent() {
-            const food = foods[currentFood];
-            if (food) speak(food.char);
-        }
-
-        function speak(text) {
-            if ('speechSynthesis' in window) {
-                speechSynthesis.cancel();
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'zh-CN';
-                utterance.rate = 0.8;
-                speechSynthesis.speak(utterance);
-            }
-        }
-    </script>
+    <script>function speak(t){if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='zh-CN';u.rate=0.8;speechSynthesis.speak(u);}}</script>
 </body>
 </html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 18: 在机场 (At the Airport) - ChinesePod101</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .lesson-page { max-width: 1000px; margin: 0 auto; padding: 2rem; }
+        .lesson-header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+        .breadcrumb { opacity: 0.7; font-size: 0.9rem; margin-bottom: 1rem; }
+        .breadcrumb a { color: white; text-decoration: none; }
+        .lesson-title { font-size: 2rem; margin-bottom: 0.5rem; }
+        .lesson-meta { display: flex; gap: 1.5rem; margin-top: 1rem; font-size: 0.9rem; opacity: 0.9; }
+        .audio-player { background: #1a1a2e; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+        .player-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .play-btn { width: 60px; height: 60px; background: #764ba2; border: none; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+        .progress-bar { flex: 1; height: 8px; background: #333; border-radius: 4px; }
+        .progress-fill { height: 100%; background: #764ba2; border-radius: 4px; width: 0%; }
+        .time-display { color: #aaa; font-size: 0.9rem; min-width: 80px; text-align: right; }
+        .player-options { display: flex; gap: 1rem; }
+        .speed-btn, .loop-btn { background: #333; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .section { background: white; padding: 2rem; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .section h2 { color: #1a1a2e; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #764ba2; }
+        .dialogue-box { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; }
+        .dialogue-line { display: flex; gap: 1rem; padding: 1rem; border-bottom: 1px solid #eee; align-items: flex-start; }
+        .dialogue-line:last-child { border-bottom: none; }
+        .speaker { font-weight: bold; color: #667eea; min-width: 80px; }
+        .chinese-text { font-size: 1.2rem; font-family: 'Microsoft YaHei', sans-serif; }
+        .pinyin-text { color: #666; font-size: 0.95rem; }
+        .english-text { color: #888; font-size: 0.9rem; }
+        .play-line { background: #764ba2; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; font-size: 0.8rem; margin-left: auto; }
+        .vocab-list { display: grid; gap: 1rem; }
+        .vocab-item { display: flex; align-items: center; padding: 1rem; background: #f8f9fa; border-radius: 8px; gap: 1rem; }
+        .vocab-char { font-size: 1.8rem; font-family: 'Microsoft YaHei', sans-serif; min-width: 100px; }
+        .vocab-info { flex: 1; }
+        .vocab-pinyin { color: #667eea; font-weight: bold; }
+        .vocab-meaning { color: #666; }
+        .vocab-audio { background: #764ba2; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .grammar-point { background: #f3e5f5; padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 4px solid #764ba2; }
+        .grammar-point h4 { color: #1a1a2e; margin-bottom: 0.5rem; }
+        .example-sentence { background: white; padding: 1rem; border-radius: 5px; margin-top: 0.5rem; }
+        .quiz-section { background: #e8eaf6; padding: 1.5rem; border-radius: 10px; }
+        .quiz-question { margin-bottom: 1.5rem; }
+        .quiz-question p { font-weight: bold; margin-bottom: 0.5rem; }
+        .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-option { background: white; padding: 0.8rem 1rem; border-radius: 5px; cursor: pointer; border: 2px solid transparent; }
+        .quiz-option:hover { border-color: #764ba2; }
+        .quiz-option.correct { background: #c8e6c9; border-color: #2e7d32; }
+        .quiz-option.wrong { background: #ffcdd2; border-color: #c62828; }
+        .nav-lessons { display: flex; justify-content: space-between; margin-top: 2rem; }
+        .nav-btn { background: #667eea; color: white; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .downloads { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .download-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #1a1a2e; color: white; padding: 0.8rem 1.5rem; border-radius: 5px; text-decoration: none; }
+        .level-badge { background: #ff6b35; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; margin-left: 0.5rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo"><span class="logo-zh">中文</span><span class="logo-en">Pod101</span></a>
+            <div class="nav-menu">
+                <a href="../index.html#lessons">Lessons</a>
+                <a href="../index.html#pathways">Pathways</a>
+                <a href="../index.html#resources">Resources</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lesson-page">
+        <div class="lesson-header">
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> › <a href="#">Intermediate</a> › <a href="#">Travel</a>
+            </div>
+            <h1 class="lesson-title">Lesson 18: 在机场 <span class="level-badge">Intermediate</span></h1>
+            <p>Learn essential Chinese phrases and vocabulary for navigating airports, checking in, and handling flight issues.</p>
+            <div class="lesson-meta">
+                <span>⏱ 8 minutes</span>
+                <span>📚 Intermediate</span>
+                <span>🎯 Travel</span>
+            </div>
+        </div>
+
+        <div class="audio-player">
+            <div class="player-controls">
+                <button class="play-btn" id="playBtn">▶</button>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                <div class="time-display" id="timeDisplay">0:00 / 8:00</div>
+            </div>
+            <div class="player-options">
+                <button class="speed-btn" id="speedBtn">1x Speed</button>
+                <button class="loop-btn" id="loopBtn">🔁 Loop</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💬 Dialogue</h2>
+            <div class="dialogue-box">
+                <div class="dialogue-line">
+                    <span class="speaker">乘客:</span>
+                    <div>
+                        <div class="chinese-text">您好，我想办理登机手续。</div>
+                        <div class="pinyin-text">Nín hǎo, wǒ xiǎng bànlǐ dēngjī shǒuxù.</div>
+                        <div class="english-text">Hello, I'd like to check in.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('您好，我想办理登机手续')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">工作人员:</span>
+                    <div>
+                        <div class="chinese-text">请出示您的护照和机票。有行李需要托运吗？</div>
+                        <div class="pinyin-text">Qǐng chūshì nín de hùzhào hé jīpiào. Yǒu xíngli xūyào tuōyùn ma?</div>
+                        <div class="english-text">Please show your passport and ticket. Do you have any luggage to check?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('请出示您的护照和机票。有行李需要托运吗？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">乘客:</span>
+                    <div>
+                        <div class="chinese-text">有一个行李箱。请问可以带多少公斤？</div>
+                        <div class="pinyin-text">Yǒu yī gè xínglixiāng. Qǐngwèn kěyǐ dài duōshao gōngjīn?</div>
+                        <div class="english-text">I have one suitcase. How many kilograms can I bring?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('有一个行李箱。请问可以带多少公斤？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">工作人员:</span>
+                    <div>
+                        <div class="chinese-text">经济舱可以托运23公斤。您的行李超重了3公斤，需要补交200元。</div>
+                        <div class="pinyin-text">Jīngjìcāng kěyǐ tuōyùn 23 gōngjīn. Nín de xíngli chāozhòng le 3 gōngjīn, xūyào bǔjiāo 200 yuán.</div>
+                        <div class="english-text">Economy class allows 23kg. Your luggage is 3kg overweight, you need to pay 200 yuan extra.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('经济舱可以托运23公斤。您的行李超重了3公斤，需要补交200元')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">乘客:</span>
+                    <div>
+                        <div class="chinese-text">好的，这是我的登机牌吗？登机口在哪里？</div>
+                        <div class="pinyin-text">Hǎo de, zhè shì wǒ de dēngjīpái ma? Dēngjīkǒu zài nǎlǐ?</div>
+                        <div class="english-text">Okay, is this my boarding pass? Where is the boarding gate?</div>
+                    </div>
+                    <button class="play-line" onclick="speak('好的，这是我的登机牌吗？登机口在哪里？')">🔊</button>
+                </div>
+                <div class="dialogue-line">
+                    <span class="speaker">工作人员:</span>
+                    <div>
+                        <div class="chinese-text">是的。您的登机口是A12，请在起飞前40分钟到达登机口。</div>
+                        <div class="pinyin-text">Shì de. Nín de dēngjīkǒu shì A12, qǐng zài qǐfēi qián 40 fēnzhōng dàodá dēngjīkǒu.</div>
+                        <div class="english-text">Yes. Your gate is A12, please arrive at the gate 40 minutes before departure.</div>
+                    </div>
+                    <button class="play-line" onclick="speak('是的。您的登机口是A12，请在起飞前40分钟到达登机口')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Vocabulary</h2>
+            <div class="vocab-list">
+                <div class="vocab-item">
+                    <span class="vocab-char">机场</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">jīchǎng</div>
+                        <div class="vocab-meaning">airport</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('机场')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">登机手续</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">dēngjī shǒuxù</div>
+                        <div class="vocab-meaning">check-in procedures</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('登机手续')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">护照</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">hùzhào</div>
+                        <div class="vocab-meaning">passport</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('护照')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">行李</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">xíngli</div>
+                        <div class="vocab-meaning">luggage; baggage</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('行李')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">托运</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">tuōyùn</div>
+                        <div class="vocab-meaning">to check in (luggage)</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('托运')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">超重</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">chāozhòng</div>
+                        <div class="vocab-meaning">overweight</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('超重')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">登机牌</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">dēngjīpái</div>
+                        <div class="vocab-meaning">boarding pass</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('登机牌')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">登机口</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">dēngjīkǒu</div>
+                        <div class="vocab-meaning">boarding gate</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('登机口')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">起飞</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">qǐfēi</div>
+                        <div class="vocab-meaning">to take off</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('起飞')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">经济舱</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">jīngjìcāng</div>
+                        <div class="vocab-meaning">economy class</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('经济舱')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">安全检查</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">ānquán jiǎnchá</div>
+                        <div class="vocab-meaning">security check</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('安全检查')">🔊</button>
+                </div>
+                <div class="vocab-item">
+                    <span class="vocab-char">航班</span>
+                    <div class="vocab-info">
+                        <div class="vocab-pinyin">hángbān</div>
+                        <div class="vocab-meaning">flight</div>
+                    </div>
+                    <button class="vocab-audio" onclick="speak('航班')">🔊</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📝 Grammar Points</h2>
+            
+            <div class="grammar-point">
+                <h4>1. 办理 (bànlǐ) - To handle; to process</h4>
+                <p>Commonly used in formal contexts for administrative procedures.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    办理登机手续 → to check in<br>
+                    办理签证 → to apply for a visa
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>2. 需要...吗？ (xūyào...ma?) - Do you need...?</h4>
+                <p>Used to ask about necessities or requirements.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    有行李需要托运吗？ → Do you have luggage to check?<br>
+                    需要帮忙吗？ → Do you need help?
+                </div>
+            </div>
+            
+            <div class="grammar-point">
+                <h4>3. 在...前 (zài...qián) - Before...</h4>
+                <p>Indicates a time deadline or sequence.</p>
+                <div class="example-sentence">
+                    <strong>Examples:</strong><br>
+                    在起飞前40分钟 → 40 minutes before takeoff<br>
+                    在出发前 → before departure
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Practice Quiz</h2>
+            <div class="quiz-section">
+                <div class="quiz-question">
+                    <p>1. What does "登机牌" mean?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) Passport</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">B) Ticket</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">C) Boarding pass</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) Luggage tag</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>2. How do you say "overweight luggage" in Chinese?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) 大行李</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) 超重行李</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) 多行李</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) 重行李</div>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <p>3. "请出示您的护照" means:</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A) Please give me your passport</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">B) Please show your passport</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">C) Please check your passport</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">D) Please keep your passport</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📥 Downloads</h2>
+            <div class="downloads">
+                <a href="#" class="download-btn">📄 PDF Transcript</a>
+                <a href="#" class="download-btn">🎵 MP3 Audio</a>
+                <a href="#" class="download-btn">📝 Vocabulary List</a>
+            </div>
+        </div>
+
+        <div class="nav-lessons">
+            <a href="lesson-17.html" class="nav-btn">← Previous: Travel Planning</a>
+            <a href="lesson-19.html" class="nav-btn">Next: Banking →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col"><h4>ChinesePod101</h4><p>Free Chinese learning for everyone.</p></div>
+            <div class="footer-col"><h4>Lessons</h4><ul><li><a href="#">Audio Lessons</a></li><li><a href="#">Video Lessons</a></li></ul></div>
+            <div class="footer-col"><h4>Resources</h4><ul><li><a href="../resources/pinyin-chart.html">Pinyin Chart</a></li><li><a href="../resources/dictionary.html">Dictionary</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>© 2026 ChinesePod101</p></div>
+    </footer>
+
+    <script>
+        let isPlaying = false, currentTime = 0, duration = 480, speed = 1, loop = false;
+        document.getElementById('playBtn').addEventListener('click', function() {
+            isPlaying = !isPlaying;
+            this.textContent = isPlaying ? '⏸' : '▶';
+            if (isPlaying) simulatePlayback();
+        });
+        function simulatePlayback() {
+            if (!isPlaying) return;
+            currentTime += speed;
+            if (currentTime >= duration) { if (loop) currentTime = 0; else { isPlaying = false; document.getElementById('playBtn').textContent = '▶'; return; } }
+            document.getElementById('progressFill').style.width = (currentTime / duration * 100) + '%';
+            document.getElementById('timeDisplay').textContent = Math.floor(currentTime / 60) + ':' + Math.floor(currentTime % 60).toString().padStart(2, '0') + ' / 8:00';
+            setTimeout(simulatePlayback, 1000);
+        }
+        document.getElementById('speedBtn').addEventListener('click', function() { speed = [0.5, 0.75, 1, 1.25, 1.5][([0.5, 0.75, 1, 1.25, 1.5].indexOf(speed) + 1) % 5]; this.textContent = speed + 'x Speed'; });
+        document.getElementById('loopBtn').addEventListener('click', function() { loop = !loop; this.style.background = loop ? '#764ba2' : '#333'; });
+        function speak(text) { if ('speechSynthesis' in window) { const u = new SpeechSynthesisUtterance(text); u.lang = 'zh-CN'; u.rate = 0.8; speechSynthesis.speak(u); } else alert('🔊 ' + text); }
+        function checkAnswer(el, correct) { el.classList.add(correct ? 'correct' : 'wrong'); }
+    </script>
+</body>
+</html>
